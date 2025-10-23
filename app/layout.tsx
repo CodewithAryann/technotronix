@@ -1,20 +1,19 @@
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Navigation from './components/Navigation';
+import type { ReactNode } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'CyberEz - Empowering You in the Digital Age',
+  title: 'Technotronix',
   description: 'Leading cybersecurity solutions for modern businesses',
 };
 
-import { ReactNode } from 'react';
-
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.className} bg-white text-gray-900`} suppressHydrationWarning>
         <Navigation />
         <main>{children}</main>
         {/* <Footer /> */}
