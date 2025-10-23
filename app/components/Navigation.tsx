@@ -37,7 +37,7 @@ export default function Navigation() {
     { id: 'home', href: '/', label: 'Home' },
     { id: 'about', href: '/about', label: 'About' },
     {
-      id: 'Cyber-guard',
+      id: 'cyber-guard',
       label: 'Cyber Guard',
       children: [
         {
@@ -72,7 +72,7 @@ export default function Navigation() {
           label: 'TT-Operational Guard',
           href: '/solution/TT-Operational-Guard',
           children: [
-            { id: 'solution:TT-Operational-Guard:sba', label: 'Seceon- SIEM, XDR, Behavioral Analyti', href: '/solution/TT-Operational-Guard/sba' },
+            { id: 'solution:TT-Operational-Guard:sba', label: 'Seceon- SIEM, XDR, Behavioral Analytics', href: '/solution/TT-Operational-Guard/sba' },
             { id: 'solution:TT-Operational-Guard:dd', label: 'DNSSense-DOR 2.0', href: '/solution/TT-Operational-Guard/dd' },
             { id: 'solution:TT-Operational-Guard:qass', label: 'QAS - SIEM', href: '/solution/TT-Operational-Guard/qass' },
             { id: 'solution:TT-Operational-Guard:qast', label: 'QAS - TIP', href: '/solution/TT-Operational-Guard/qast' },
@@ -157,11 +157,13 @@ export default function Navigation() {
                 <button
                   className="flex items-center text-slate-700 hover:text-[#022e64] font-medium transition-colors px-4 py-2 rounded-lg hover:bg-[#022e64]/10"
                   aria-expanded={openDropdownId === link.id}
+                  aria-label={`${link.label} menu`}
                 >
                   {link.label}
                   <ChevronDown
                     size={16}
                     className={`ml-1 transition-transform ${openDropdownId === link.id ? 'rotate-180' : ''}`}
+                    aria-hidden="true"
                   />
                 </button>
 
@@ -188,7 +190,7 @@ export default function Navigation() {
                         onMouseLeave={() => setOpenSubDropdownId(null)}
                       >
                         {sub.label}
-                        {sub.children && <ChevronRight size={14} />}
+                        {sub.children && <ChevronRight size={14} aria-hidden="true" />}
                       </Link>
 
                       {/* Level 2 dropdown */}
@@ -238,8 +240,9 @@ export default function Navigation() {
             }
           }}
           aria-expanded={mobileMenuOpen}
+          aria-label={mobileMenuOpen ? 'Close main menu' : 'Open main menu'}
         >
-          {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          {mobileMenuOpen ? <X size={28} aria-hidden="true" /> : <Menu size={28} aria-hidden="true" />}
         </button>
       </div>
 
@@ -253,11 +256,17 @@ export default function Navigation() {
                   className="flex justify-between w-full items-center py-3 text-slate-700 font-medium"
                   onClick={() => toggleMobileDropdown(link.id)}
                   aria-expanded={mobileOpenDropdownId === link.id}
+                  aria-label={
+                    mobileOpenDropdownId === link.id
+                      ? `Collapse ${link.label} section`
+                      : `Expand ${link.label} section`
+                  }
                 >
                   {link.label}
                   <ChevronDown
                     size={16}
                     className={`transition-transform ${mobileOpenDropdownId === link.id ? 'rotate-180' : ''}`}
+                    aria-hidden="true"
                   />
                 </button>
 
@@ -283,10 +292,16 @@ export default function Navigation() {
                               onClick={() => toggleMobileSub(sub.id)}
                               className="px-2 py-2 text-slate-600"
                               aria-expanded={mobileOpenSubId === sub.id}
+                              aria-label={
+                                mobileOpenSubId === sub.id
+                                  ? `Collapse ${sub.label} submenu`
+                                  : `Expand ${sub.label} submenu`
+                              }
                             >
                               <ChevronDown
                                 size={14}
                                 className={`${mobileOpenSubId === sub.id ? 'rotate-180' : ''} transition-transform`}
+                                aria-hidden="true"
                               />
                             </button>
                           )}
