@@ -40,61 +40,58 @@ export default function Navigation() {
       id: 'cyber-guard',
       label: 'Cyber Guard',
       children: [
+        // ✅ TT-Cloud Guard — no dropdown
         {
-          id: 'solution:TT-Cloud-Guard',
+          id: 'TT-Cloud-Guard',
           label: 'TT-Cloud Guard',
-          href: '/solution/TT-Cloud-Guard',
-          children: [
-            { id: 'solution:TT-Cloud-Guard:ssx', label: 'Seceon- SIEM & XDR', href: '/solution/TT-Cloud-Guard/ssx' },
-          ],
+          href: '/tt-cloud-guard',
         },
+        // ✅ TT-Data Guard — no dropdown
         {
-          id: 'solution:TT-Data-Guard',
+          id: 'TT-Data-Guard',
           label: 'TT-Data Guard',
-          href: '/solution/TT-Data-Guard',
-          children: [
-            { id: 'solution:TT-Data-Guard:rss', label: 'Recunion Storage Security', href: '/solution/TT-Data-Guard/rss' },
-          ],
+          href: '/tt-data-guard',
         },
+        // ⬇️ The rest still have dropdowns
         {
-          id: 'solution:TT-Perimeter-Guard',
+          id: 'TT-Perimeter-Guard',
           label: 'TT-Perimeter Guard',
-          href: '/solution/TT-Perimeter-Guard',
+          href: '/TT-Perimeter-Guard',
           children: [
-            { id: 'solution:TT-Perimeter-Guard:ntem', label: 'Nanitor Threat Exposure Management (CTEM)', href: '/solution/TT-Perimeter-Guard/ntem' },
-            { id: 'solution:TT-Perimeter-Guard:zswg', label: 'Zecurion Secure Web Gateway (SWG)', href: '/solution/TT-Perimeter-Guard/zswg' },
-            { id: 'solution:TT-Perimeter-Guard:dds', label: 'DNSSense DNS Security', href: '/solution/TT-Perimeter-Guard/dds' },
-            { id: 'solution:TT-Perimeter-Guard:qndr', label: 'QAS NDR', href: '/solution/TT-Perimeter-Guard/qndr' },
+            { id: 'TT-Perimeter-Guard:ntem', label: 'Nanitor Threat Exposure Management (CTEM)', href: '/TT-Perimeter-Guard/ntem' },
+            { id: 'TT-Perimeter-Guard:zswg', label: 'Zecurion Secure Web Gateway (SWG)', href: '/TT-Perimeter-Guard/zswg' },
+            { id: 'TT-Perimeter-Guard:dds', label: 'DNSSense DNS Security', href: '/TT-Perimeter-Guard/dds' },
+            { id: 'TT-Perimeter-Guard:qndr', label: 'QAS NDR', href: '/TT-Perimeter-Guard/qndr' },
           ],
         },
         {
-          id: 'solution:TT-Operational-Guard',
+          id: 'TT-Operational-Guard',
           label: 'TT-Operational Guard',
-          href: '/solution/TT-Operational-Guard',
+          href: '/TT-Operational-Guard',
           children: [
-            { id: 'solution:TT-Operational-Guard:sba', label: 'Seceon- SIEM, XDR, Behavioral Analytics', href: '/solution/TT-Operational-Guard/sba' },
-            { id: 'solution:TT-Operational-Guard:dd', label: 'DNSSense-DOR 2.0', href: '/solution/TT-Operational-Guard/dd' },
-            { id: 'solution:TT-Operational-Guard:qass', label: 'QAS - SIEM', href: '/solution/TT-Operational-Guard/qass' },
-            { id: 'solution:TT-Operational-Guard:qast', label: 'QAS - TIP', href: '/solution/TT-Operational-Guard/qast' },
+            { id: 'TT-Operational-Guard:sba', label: 'Seceon- SIEM, XDR, Behavioral Analytics', href: '/TT-Operational-Guard/sba' },
+            { id: 'TT-Operational-Guard:dd', label: 'DNSSense-DOR 2.0', href: '/TT-Operational-Guard/dd' },
+            { id: 'TT-Operational-Guard:qass', label: 'QAS - SIEM', href: '/TT-Operational-Guard/qass' },
+            { id: 'TT-Operational-Guard:qast', label: 'QAS - TIP', href: '/TT-Operational-Guard/qast' },
           ],
         },
         {
-          id: 'solution:TT-Vulnerability-Guard',
+          id: 'TT-Vulnerability-Guard',
           label: 'TT-Vulnerability Guard',
-          href: '/solution/TT-Vulnerability-Guard',
+          href: '/TT-Vulnerability-Guard',
           children: [
-            { id: 'solution:TT-Vulnerability-Guard:nvm', label: 'Nanitor Vulnerability Management System', href: '/solution/TT-Operational-Guard/nvm' },
-            { id: 'solution:TT-Vulnerability-Guard:oxc', label: 'OctoXLabs - CAASM', href: '/solution/TT-Operational-Guard/oxc' },
+            { id: 'TT-Vulnerability-Guard:nvm', label: 'Nanitor Vulnerability Management System', href: '/TT-Operational-Guard/nvm' },
+            { id: 'TT-Vulnerability-Guard:oxc', label: 'OctoXLabs - CAASM', href: '/TT-Operational-Guard/oxc' },
           ],
         },
         {
-          id: 'solution:TT-End-point-Digital-identity-Guard',
-          label: 'TT-End point & Digital Identity Guard',
-          href: '/solution/TT-End-point-Digital-identity-Guard',
+          id: 'TT-End-point-Digital-identity-Guard',
+          label: 'TT-End point & Digital Guard',
+          href: '/TT-End-point-Digital-identity-Guard',
           children: [
-            { id: 'solution:TT-End-point-Digital-identity-Guard:nes', label: 'Nanitor - Endpoint Security', href: '/solution/TT-Operational-Guard/nes' },
-            { id: 'solution:TT-End-point-Digital-identity-Guard:moi', label: 'MiniOrange - IAM', href: '/solution/TT-Operational-Guard/moi' },
-            { id: 'solution:TT-End-point-Digital-identity-Guard:qedr', label: 'QAS - EDR', href: '/solution/TT-Operational-Guard/qedr' },
+            { id: 'TT-End-point-Digital-identity-Guard:nes', label: 'Nanitor - Endpoint Security', href: '/TT-Operational-Guard/nes' },
+            { id: 'TT-End-point-Digital-identity-Guard:moi', label: 'MiniOrange - IAM', href: '/TT-Operational-Guard/moi' },
+            { id: 'TT-End-point-Digital-identity-Guard:qedr', label: 'QAS - EDR', href: '/TT-Operational-Guard/qedr' },
           ],
         },
       ],
@@ -167,53 +164,56 @@ export default function Navigation() {
                   />
                 </button>
 
-                {/* Level 1 dropdown */}
+                {/* Dropdown */}
                 <div
                   className={`absolute left-0 top-full mt-2 bg-white shadow-lg rounded-lg py-2 min-w-[220px] border transform transition-all duration-200 ease-out origin-top ${
                     openDropdownId === link.id ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible pointer-events-none'
                   }`}
-                  onMouseEnter={() => {
-                    if (hoverTimeoutRef.current) {
-                      window.clearTimeout(hoverTimeoutRef.current);
-                      hoverTimeoutRef.current = null;
-                    }
-                    setOpenDropdownId(link.id);
-                  }}
-                  onMouseLeave={closeDropdownWithDelay}
                 >
                   {link.children.map((sub) => (
-                    <div key={sub.id} className="relative">
+                    // ✅ If item has no sub-children (like TT-Cloud / TT-Data), render simple link
+                    !sub.children ? (
                       <Link
+                        key={sub.id}
                         href={sub.href ?? '#'}
-                        className="flex justify-between items-center px-4 py-2 text-slate-700 hover:bg-[#022e64]/10 transition-colors"
-                        onMouseEnter={() => setOpenSubDropdownId(sub.id)}
-                        onMouseLeave={() => setOpenSubDropdownId(null)}
+                        className="block px-4 py-2 text-slate-700 hover:bg-[#022e64]/10 transition-colors"
                       >
                         {sub.label}
-                        {sub.children && <ChevronRight size={14} aria-hidden="true" />}
                       </Link>
-
-                      {/* Level 2 dropdown */}
-                      {sub.children && (
-                        <div
-                          className={`absolute left-full top-0 ml-1 bg-white shadow-lg rounded-lg py-2 min-w-[220px] border transform transition-all duration-200 ease-out origin-left ${
-                            openSubDropdownId === sub.id ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible pointer-events-none'
-                          }`}
+                    ) : (
+                      <div key={sub.id} className="relative">
+                        <Link
+                          href={sub.href ?? '#'}
+                          className="flex justify-between items-center px-4 py-2 text-slate-700 hover:bg-[#022e64]/10 transition-colors"
                           onMouseEnter={() => setOpenSubDropdownId(sub.id)}
                           onMouseLeave={() => setOpenSubDropdownId(null)}
                         >
-                          {sub.children.map((deep) => (
-                            <Link
-                              key={deep.id}
-                              href={deep.href}
-                              className="block px-4 py-2 text-slate-700 hover:bg-[#022e64]/10 transition-colors"
-                            >
-                              {deep.label}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-                    </div>
+                          {sub.label}
+                          <ChevronRight size={14} aria-hidden="true" />
+                        </Link>
+
+                        {/* Sub Dropdown */}
+                        {sub.children && (
+                          <div
+                            className={`absolute left-full top-0 ml-1 bg-white shadow-lg rounded-lg py-2 min-w-[220px] border transform transition-all duration-200 ease-out origin-left ${
+                              openSubDropdownId === sub.id
+                                ? 'opacity-100 scale-100 visible'
+                                : 'opacity-0 scale-95 invisible pointer-events-none'
+                            }`}
+                          >
+                            {sub.children.map((deep) => (
+                              <Link
+                                key={deep.id}
+                                href={deep.href}
+                                className="block px-4 py-2 text-slate-700 hover:bg-[#022e64]/10 transition-colors"
+                              >
+                                {deep.label}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    )
                   ))}
                 </div>
               </div>
@@ -229,7 +229,7 @@ export default function Navigation() {
           )}
         </div>
 
-        {/* Mobile toggle */}
+        {/* Mobile Toggle */}
         <button
           className="md:hidden text-slate-700"
           onClick={() => {
@@ -242,91 +242,77 @@ export default function Navigation() {
           aria-expanded={mobileMenuOpen}
           aria-label={mobileMenuOpen ? 'Close main menu' : 'Open main menu'}
         >
-          {mobileMenuOpen ? <X size={28} aria-hidden="true" /> : <Menu size={28} aria-hidden="true" />}
+          {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg mt-1 py-4 px-6 rounded-b-lg transition-all duration-200">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg mt-1 py-4 px-6 rounded-b-lg">
           {navLinks.map((link) =>
             link.children ? (
               <div key={link.id} className="mb-2">
                 <button
                   className="flex justify-between w-full items-center py-3 text-slate-700 font-medium"
                   onClick={() => toggleMobileDropdown(link.id)}
-                  aria-expanded={mobileOpenDropdownId === link.id}
-                  aria-label={
-                    mobileOpenDropdownId === link.id
-                      ? `Collapse ${link.label} section`
-                      : `Expand ${link.label} section`
-                  }
                 >
                   {link.label}
                   <ChevronDown
                     size={16}
                     className={`transition-transform ${mobileOpenDropdownId === link.id ? 'rotate-180' : ''}`}
-                    aria-hidden="true"
                   />
                 </button>
 
                 {mobileOpenDropdownId === link.id && (
-                  <div className="ml-3 border-l border-gray-200 pl-4 animate-[fadeIn_0.2s_ease-in-out]">
-                    {link.children.map((sub) => (
-                      <div key={sub.id} className="mb-1">
-                        <div className="flex justify-between items-center">
-                          <Link
-                            href={sub.href ?? '#'}
-                            className="py-2 text-slate-600 block"
-                            onClick={() => {
-                              setMobileMenuOpen(false);
-                              setMobileOpenDropdownId(null);
-                              setMobileOpenSubId(null);
-                            }}
-                          >
-                            {sub.label}
-                          </Link>
-
-                          {sub.children && (
+                  <div className="ml-3 border-l border-gray-200 pl-4">
+                    {link.children.map((sub) =>
+                      !sub.children ? (
+                        <Link
+                          key={sub.id}
+                          href={sub.href ?? '#'}
+                          className="block py-2 text-slate-600"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {sub.label}
+                        </Link>
+                      ) : (
+                        <div key={sub.id} className="mb-1">
+                          <div className="flex justify-between items-center">
+                            <Link
+                              href={sub.href ?? '#'}
+                              className="py-2 text-slate-600 block"
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              {sub.label}
+                            </Link>
                             <button
                               onClick={() => toggleMobileSub(sub.id)}
                               className="px-2 py-2 text-slate-600"
-                              aria-expanded={mobileOpenSubId === sub.id}
-                              aria-label={
-                                mobileOpenSubId === sub.id
-                                  ? `Collapse ${sub.label} submenu`
-                                  : `Expand ${sub.label} submenu`
-                              }
                             >
                               <ChevronDown
                                 size={14}
                                 className={`${mobileOpenSubId === sub.id ? 'rotate-180' : ''} transition-transform`}
-                                aria-hidden="true"
                               />
                             </button>
+                          </div>
+
+                          {mobileOpenSubId === sub.id && sub.children && (
+                            <div className="ml-4 border-l border-gray-100 pl-3">
+                              {sub.children.map((deep) => (
+                                <Link
+                                  key={deep.id}
+                                  href={deep.href}
+                                  className="block py-2 text-slate-500 hover:text-[#022e64]"
+                                  onClick={() => setMobileMenuOpen(false)}
+                                >
+                                  {deep.label}
+                                </Link>
+                              ))}
+                            </div>
                           )}
                         </div>
-
-                        {mobileOpenSubId === sub.id && sub.children && (
-                          <div className="ml-4 border-l border-gray-100 pl-3">
-                            {sub.children.map((deep) => (
-                              <Link
-                                key={deep.id}
-                                href={deep.href}
-                                className="block py-2 text-slate-500 hover:text-[#022e64] transition-colors"
-                                onClick={() => {
-                                  setMobileMenuOpen(false);
-                                  setMobileOpenDropdownId(null);
-                                  setMobileOpenSubId(null);
-                                }}
-                              >
-                                {deep.label}
-                              </Link>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    ))}
+                      )
+                    )}
                   </div>
                 )}
               </div>
@@ -334,7 +320,7 @@ export default function Navigation() {
               <Link
                 key={link.id}
                 href={link.href ?? '#'}
-                className="block py-3 text-slate-700 hover:text-[#022e64] font-medium transition-colors"
+                className="block py-3 text-slate-700 hover:text-[#022e64] font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.label}

@@ -31,15 +31,15 @@ export default function OurServiceSection() {
   return (
     <section className="relative pt-8 pb-24 md:pb-32 overflow-hidden">
       {/* ✅ Background Image */}
-      {/* <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0">
         <Image
-          src="/images/Service-bg.png"
+          src="/images/service-bg.png"
           alt="Service Background"
           fill
-          className="object-cover object-center"
+          className="object-cover opacity-90"
           priority
         />
-      </div> */}
+      </div>
 
       {/* ✅ White Overlay for Readability */}
       {/* <div className="absolute inset-0 bg-white/70 backdrop-blur-sm z-0" /> */}
