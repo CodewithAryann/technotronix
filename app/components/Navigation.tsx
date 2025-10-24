@@ -82,8 +82,8 @@ export default function Navigation() {
         },
       ],
     },
+    { id: 'video-analysis', href: '/video-analysis', label: 'Video Analytics' },
     { id: 'services', href: '/services', label: 'Services' },
-    { id: 'faq', href: '/faq', label: 'FAQ' },
     { id: 'contact', href: '/contact', label: 'Contact Us' },
   ];
 
@@ -225,7 +225,11 @@ export default function Navigation() {
               <Link
                 key={link.id}
                 href={link.href ?? '#'}
-                className="text-slate-700 hover:text-[#022e64] font-medium transition-colors px-4 py-2 rounded-lg hover:bg-[#022e64]/10"
+                className={`font-medium transition-colors px-4 py-2 rounded-lg ${
+                  link.id === 'contact'
+                    ? 'bg-[#022E64] text-white font-bold shadow-lg hover:scale-105 transform transition-all'
+                    : 'text-slate-700 hover:text-[#022e64] hover:bg-[#022e64]/10'
+                }`}
               >
                 {link.label}
               </Link>
@@ -252,54 +256,50 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg mt-1 py-4 px-6 rounded-b-lg">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg mt-1 py-4 px-6 rounded-b-lg z-50">
           {navLinks.map((link) =>
             link.children ? (
               <div key={link.id} className="mb-2">
-                <button
-                  className="flex justify-between w-full items-center py-3 text-slate-700 font-medium"
+                {/* Parent clickable row */}
+                <div
+                  className="flex justify-between items-center py-3 px-2 text-slate-700 font-medium cursor-pointer"
                   onClick={() => toggleMobileDropdown(link.id)}
                 >
-                  {link.label}
+                  <span>{link.label}</span>
                   <ChevronDown
-                    size={16}
-                    className={`transition-transform ${mobileOpenDropdownId === link.id ? 'rotate-180' : ''}`}
+                    size={20}
+                    className={`text-slate-700 transition-transform ${mobileOpenDropdownId === link.id ? 'rotate-180' : ''}`}
                   />
-                </button>
+                </div>
 
+                {/* Submenu */}
                 {mobileOpenDropdownId === link.id && (
-                  <div className="ml-3 border-l border-gray-200 pl-4">
+                  <div className="ml-4 border-l border-gray-200 pl-3">
                     {link.children.map((sub) =>
                       !sub.children ? (
                         <Link
                           key={sub.id}
                           href={sub.href ?? '#'}
-                          className="block py-2 text-slate-600"
+                          className="block py-2 text-slate-600 hover:text-[#022e64]"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           {sub.label}
                         </Link>
                       ) : (
                         <div key={sub.id} className="mb-1">
-                          <div className="flex justify-between items-center">
-                            <Link
-                              href={sub.href ?? '#'}
-                              className="py-2 text-slate-600 block"
-                              onClick={() => setMobileMenuOpen(false)}
-                            >
-                              {sub.label}
-                            </Link>
-                            <button
-                              onClick={() => toggleMobileSub(sub.id)}
-                              className="px-2 py-2 text-slate-600"
-                            >
-                              <ChevronDown
-                                size={14}
-                                className={`${mobileOpenSubId === sub.id ? 'rotate-180' : ''} transition-transform`}
-                              />
-                            </button>
+                          {/* Sub-parent row with arrow */}
+                          <div
+                            className="flex justify-between items-center py-2 cursor-pointer"
+                            onClick={() => toggleMobileSub(sub.id)}
+                          >
+                            <span className="text-slate-600">{sub.label}</span>
+                            <ChevronDown
+                              size={16}
+                              className={`text-slate-600 transition-transform ${mobileOpenSubId === sub.id ? 'rotate-180' : ''}`}
+                            />
                           </div>
 
+                          {/* Nested links */}
                           {mobileOpenSubId === sub.id && sub.children && (
                             <div className="ml-4 border-l border-gray-100 pl-3">
                               {sub.children.map((deep) => (
@@ -324,7 +324,11 @@ export default function Navigation() {
               <Link
                 key={link.id}
                 href={link.href ?? '#'}
-                className="block py-3 text-slate-700 hover:text-[#022e64] font-medium"
+                className={`block py-3 px-2 font-medium rounded-lg ${
+                  link.id === 'contact'
+                    ? 'bg-[#022E64] text-white font-bold shadow-lg hover:scale-105 transform transition-all'
+                    : 'text-slate-700 hover:text-[#022e64]'
+                }`}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.label}

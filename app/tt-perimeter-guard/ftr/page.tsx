@@ -44,7 +44,7 @@ export default function FortiGatePage() {
       {/* Title Section */}
       <div className="relative z-10 text-center max-w-4xl mb-16">
         <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-4">
-          FortiNet – Next-Generation Firewall (NGFW)
+          FortiGate – Next-Generation Firewall (NGFW)
         </h1>
         <p className="text-xl md:text-2xl text-[#022E64] font-semibold mb-4">
           Fast. Smart. Secure. The Core of Network Defense.

@@ -2,13 +2,14 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function AboutSection() {
   return (
     <section
-  className="relative overflow-hidden py-24 md:py-32 bg-cover bg-center bg-no-repeat brightness-110 md:pb-[5%] pt-0"
-  // style={{ backgroundImage: "url('/images/About-us.png')" }}
->
+      className="relative overflow-hidden py-24 md:py-32 bg-cover bg-center bg-no-repeat brightness-110 md:pb-[5%] pt-0"
+    // style={{ backgroundImage: "url('/images/About-us.png')" }}
+    >
       {/* Optional gradient overlay for readability */}
       <div className="absolute inset-0"></div>
       {/* <div className="absolute inset-0 bg-white/60 backdrop-blur-sm z-0" /> */}
@@ -56,16 +57,19 @@ export default function AboutSection() {
             Technotronix —Cyber Defense and Smart Retail intelligence.
           </h2>
           <p className="text-slate-700 text-base md:text-lg leading-relaxed">
-            From threat exposure management and XDR to IAM and DNS security, we bring together global cybersecurity powerhouses like Nanitor, Zecurion, Seceon, miniOrange, DNSSense, OctoXLabs, and QAX — all under one smart ecosystem.
-Our mission? To keep your digital world secure while turning your data into real-time insights. Through our TT powered analytics, we help retail brands track footfall, understand behavior, and make smarter decisions — safely and intelligently.
+            At Technotronix, we bridge the realms of Cybersecurity, AI, and IoT to redefine digital resilience. Headquartered in the UAE & our branch operation in Canada (Ontario), we empower enterprises with intelligent, adaptive protection and data-driven insights that secure every layer of their digital ecosystem. From advanced Cyber Defense to AI-powered video analytics for the retail industry, Technotronix stands at the forefront of innovation — enabling organizations to operate with confidence, agility, and intelligence in a connected world.
           </p>
-          <motion.button
-            whileHover={{ scale: 1.07 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-8 py-3 bg-[#022e64] hover:bg-[#022e75] text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
-          >
-            Read More
-          </motion.button>
+
+          <Link href="/about" passHref>
+            <motion.button
+              whileHover={{ scale: 1.07 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-3 bg-[#022e64] hover:bg-[#022e75] text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
+            >
+              Read More
+            </motion.button>
+          </Link>
+
         </motion.div>
       </div>
     </section>

@@ -30,7 +30,7 @@ export default function OurServiceSection() {
 
   return (
     <section className="relative pt-8 pb-24 md:pb-32 overflow-hidden">
-      {/* ✅ Background Image */}
+      {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/service-bg.png"
@@ -41,10 +41,10 @@ export default function OurServiceSection() {
         />
       </div>
 
-      {/* ✅ White Overlay for Readability */}
+      {/* White Overlay for Readability */}
       {/* <div className="absolute inset-0 bg-white/70 backdrop-blur-sm z-0" /> */}
 
-      {/* ✅ Content */}
+      {/* ontent */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
         {/* Header */}
         <motion.h3
@@ -75,7 +75,7 @@ export default function OurServiceSection() {
           cybersecurity services that ensure your organization remains secure and resilient.
         </motion.p>
 
-        {/* ✅ Service Cards */}
+        {/* Service Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {services.map((service, i) => (
             <motion.div

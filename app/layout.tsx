@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Navigation from './components/Navigation';
 import type { ReactNode } from 'react';
+import Footer from "./components/Footer";
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -16,7 +17,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className={`${inter.className} bg-white text-gray-900`} suppressHydrationWarning>
         <Navigation />
         <main>{children}</main>
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   );

@@ -28,7 +28,7 @@ export default function Hero() {
             transition={{ duration: 1, ease: "easeOut" }}
           >
             <h1 className="text-5xl md:text-6xl font-bold leading-tight text-slate-900">
-              Cyber Guardians for Smart Business and AI-Powered Retail
+              Cyber Guardians for Smart Business and AI-Powered and Video Analytics for Retail
             </h1>
 
             <motion.p
