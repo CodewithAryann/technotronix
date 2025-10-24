@@ -164,7 +164,7 @@ export default function Footer() {
     rel="noopener noreferrer"
     className="leading-relaxed hover:underline"
   >
-    Office 1208B, Business Central Towers – Tower B, Dubai Internet City, UAE
+    Dubai, UAE
   </a>
 </li>
 

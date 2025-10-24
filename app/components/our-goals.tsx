@@ -7,15 +7,15 @@ export default function OurGoals() {
   const goals = [
     {
       title: "Our Mission",
-      desc: "At Technotronix, we empower organizations with intelligent and resilient technology solutions that strengthen cybersecurity and enhance retail intelligence. Through advanced cyber defense and AI-driven video analytics, we deliver innovation, trust, and excellence, helping businesses operate securely and intelligently in a connected world.",
+      desc: "We empower organizations with intelligent and resilient technology solutions that strengthen cybersecurity and enhance retail intelligence. Through advanced cyber defense and AI-driven video analytics, we deliver innovation, trust, and excellence, helping businesses operate securely and intelligently in a connected world.",
     },
     {
       title: "Our Vision",
-      desc: "At Technotronix, our vision is to become a global leader in intelligent security and data innovation, redefining how organizations protect, connect, and grow in the digital era. We strive to create a future where cyber resilience and smart analytics work hand in hand — securing digital infrastructures, empowering retail intelligence, and driving a safer, smarter, and more connected world.",
+      desc: "Our vision is to become a global leader in intelligent security and data innovation, redefining how organizations protect, connect, and grow in the digital era. We strive to create a future where cyber resilience and smart analytics work hand in hand — securing digital infrastructures, empowering retail intelligence, and driving a safer, smarter, and more connected world.",
     },
     {
       title: "Customer Centric Approach",
-      desc: "At Technotronix, our customers are at the center of every innovation we deliver. Through Cyber Defense and Smart Retail Intelligence, we design solutions that align seamlessly with each client’s unique objectives. Our collaborative mindset drives security, efficiency, and continuous innovation, ensuring every engagement builds trust, value, and lasting business impact.",
+      desc: "Our customers are at the center of every innovation we deliver. Through Cyber Defense and Smart Retail Intelligence, we design solutions that align seamlessly with each client’s unique objectives. Our collaborative mindset drives security, efficiency, and continuous innovation, ensuring every engagement builds trust, value, and lasting business impact.",
     },
   ];
 
