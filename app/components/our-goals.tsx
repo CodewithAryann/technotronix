@@ -7,8 +7,8 @@ import { useRef, useState, useEffect } from "react";
 export default function OurGoals() {
   const goals = [
     {
-      title: "Mission Statement",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue metus quis accumsan euismod.",
+      title: "Customer centric approach",
+      desc: "At Technotronix, our customers are at the center of every innovation we deliver.Through Cyber Defense and Smart Retail Intelligence, we design solutions that align seamlessly with each client’s unique objectives. Our collaborative mindset drives security, efficiency, and continuous innovation, ensuring every engagement builds trust, value, and lasting business impact.",
     },
     {
       title: "Key Objectives",
@@ -53,15 +53,13 @@ export default function OurGoals() {
       {/* Title */}
       <div className="relative z-10 text-center max-w-4xl mx-auto mb-12">
         <p className="text-[#022E64] font-semibold uppercase tracking-wide mb-2">
-          Our Goals
+          Our Mission
         </p>
         <h2 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-4">
           Securing Your Digital World Together
         </h2>
         <p className="text-slate-600 max-w-2xl mx-auto">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-          congue metus quis accumsan euismod. Maecenas sed est mollis,
-          convallis nisi convallis, imperdiet massa.
+          Bridging Cybersecurity and AI-driven Retail Intelligence to protect, optimize, and transform digital ecosystems.
         </p>
       </div>
 

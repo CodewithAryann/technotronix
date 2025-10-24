@@ -8,12 +8,12 @@ export default function FeaturePointPage() {
   const features = [
     {
       icon: <ShieldCheck className="w-8 h-8 text-white" />,
-      title: "Customized Security Solutions",
+      title: "Our Mission",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     },
     {
       icon: <Bug className="w-8 h-8 text-white" />,
-      title: "Vulnerability Assessment",
+      title: "Our Vision",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     },
     {
@@ -52,7 +52,7 @@ export default function FeaturePointPage() {
             alt="Security Analyst Working"
             width={600}
             height={600}
-            className="object-cover w-full h-176"
+            className="object-cover w-full h-190"
           />
         </motion.div>
 
@@ -64,16 +64,17 @@ export default function FeaturePointPage() {
           viewport={{ once: true }}
           className="scale-[0.92] md:scale-100 md:pr-8"
         >
-          <p className="text-[#022e64] font-semibold uppercase tracking-wide mb-2">
+          {/* <p className="text-[#022e64] font-semibold uppercase tracking-wide mb-2">
             Feature Point
-          </p>
+          </p> */}
           <h2 className="text-4xl md:text-4xl font-bold text-slate-900 leading-tight mb-4">
             Key Service Features Protecting You
           </h2>
           <p className="text-slate-600 mb-8 max-w-md">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-            congue metus quis accumsan euismod. Maecenas sed est mollis,
-            convallis nisi convallis, imperdiet massa.
+            we deliver end-to-end protection across your cloud, data, network, and endpoints.
+Our real-time threat detection, vulnerability management, and Zero Trust frameworks ensure continuous defense.
+Powered by leading technologies in SIEM, XDR, NDR, IAM, and DLP, we keep your organization secure, compliant, and resilient.
+
           </p>
 
           <div className="grid sm:grid-cols-2 gap-6">
