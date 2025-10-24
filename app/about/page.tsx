@@ -24,75 +24,82 @@ export default function AboutPage() {
         </motion.div>
 
         {/* Background Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#022e64] via-[#04407e] to-[#066ba8] opacity-90"></div>
+        <div className="absolute inset-0 bg-linear-to-r from-[#022e64] via-[#04407e] to-[#066ba8] opacity-90"></div>
       </section>
 
       {/* About Section */}
-      <section className="py-20 px-6 md:px-16 bg-white">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          {/* Text Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#022e64] mb-6">
-              About Technotronix
-            </h2>
+      <section
+  className="py-20 px-6 md:px-16 bg-cover bg-center bg-no-repeat relative"
+  style={{ backgroundImage: "url('/images/service.png')" }}
+>
+  {/* Optional overlay for contrast */}
+  {/* <div className="absolute inset-0 bg-white/80"></div> */}
 
-            <p className="text-gray-700 leading-relaxed mb-5">
-              Our Cybersecurity arm provides holistic protection through
-              next-generation capabilities in threat detection, identity and
-              access management, cloud defense, and rapid incident response,
-              ensuring organizations remain one step ahead of emerging cyber
-              threats.
-            </p>
+  <div className="relative max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    {/* Text Content */}
+    <motion.div
+      initial={{ opacity: 0, x: -40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+    >
+      <h2 className="text-3xl md:text-4xl font-bold text-[#022e64] mb-6">
+        About Technotronix
+      </h2>
 
-            <p className="text-gray-700 leading-relaxed mb-5">
-              At the same time, our AI-driven IoT and Video Analytics platforms
-              are transforming the retail landscape — delivering real-time
-              footfall insights, behavioral analytics, and performance
-              intelligence that elevate both efficiency and customer experience.
-            </p>
+      <p className="text-gray-700 leading-relaxed mb-5">
+        Our Cybersecurity arm provides holistic protection through
+        next-generation capabilities in threat detection, identity and
+        access management, cloud defense, and rapid incident response,
+        ensuring organizations remain one step ahead of emerging cyber
+        threats.
+      </p>
 
-            <p className="text-gray-700 leading-relaxed mb-8">
-              At Technotronix, we go beyond securing systems — we secure
-              possibilities. By uniting Cyber Defense and Smart Analytics, we
-              enable enterprises across retail, transportation, IT, and
-              government sectors to thrive in the era of intelligent,
-              data-driven innovation.
-            </p>
+      <p className="text-gray-700 leading-relaxed mb-5">
+        At the same time, our AI-driven IoT and Video Analytics platforms
+        are transforming the retail landscape — delivering real-time
+        footfall insights, behavioral analytics, and performance
+        intelligence that elevate both efficiency and customer experience.
+      </p>
 
-            <Link href="/contact" passHref>
-              <motion.button
-                whileHover={{ scale: 1.07 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 bg-[#022e64] hover:bg-[#033875] text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
-              >
-                Contact Us
-              </motion.button>
-            </Link>
-          </motion.div>
+      <p className="text-gray-700 leading-relaxed mb-8">
+        At Technotronix, we go beyond securing systems — we secure
+        possibilities. By uniting Cyber Defense and Smart Analytics, we
+        enable enterprises across retail, transportation, IT, and
+        government sectors to thrive in the era of intelligent,
+        data-driven innovation.
+      </p>
 
-          {/* Image Section */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="flex justify-center"
-          >
-            <Image
-              src="/images/about-tech.jpg"
-              alt="Technotronix - Cyber Defense & Smart Analytics"
-              width={500}
-              height={400}
-              className="rounded-2xl shadow-xl object-cover"
-            />
-          </motion.div>
-        </div>
-      </section>
+      <Link href="/contact" passHref>
+        <motion.button
+          whileHover={{ scale: 1.07 }}
+          whileTap={{ scale: 0.95 }}
+          className="px-8 py-3 bg-[#022e64] hover:bg-[#033875] text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
+        >
+          Contact Us
+        </motion.button>
+      </Link>
+    </motion.div>
+
+    {/* Image Section */}
+    <motion.div
+      initial={{ opacity: 0, x: 40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="flex justify-center"
+    >
+      <Image
+        src="/images/about-img.png"
+        alt="Technotronix - Cyber Defense & Smart Analytics"
+        width={500}
+        height={400}
+        className="rounded-2xl shadow-xl object-cover"
+      />
+    </motion.div>
+  </div>
+</section>
+
 
       {/* Vision Section */}
       <section className="py-20 px-6 md:px-16 bg-gray-100">

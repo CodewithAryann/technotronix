@@ -30,6 +30,7 @@ export default function SeceonPage() {
 
   return (
     <section className="relative min-h-screen bg-gray-50 flex flex-col items-center px-6 md:px-16 py-20 overflow-hidden">
+      
       {/* Header with Logo */}
       <div
         className="relative z-10 mb-12 flex justify-center"
