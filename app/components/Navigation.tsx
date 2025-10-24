@@ -40,58 +40,44 @@ export default function Navigation() {
       id: 'cyber-guard',
       label: 'Cyber Guard',
       children: [
-        // ✅ TT-Cloud Guard — no dropdown
+        { id: 'tt-cloud-guard', label: 'TT-Cloud Guard', href: '/tt-cloud-guard' },
+        { id: 'tt-data-guard', label: 'TT-Data Guard', href: '/tt-data-guard' },
         {
-          id: 'TT-Cloud-Guard',
-          label: 'TT-Cloud Guard',
-          href: '/tt-cloud-guard',
-        },
-        // ✅ TT-Data Guard — no dropdown
-        {
-          id: 'TT-Data-Guard',
-          label: 'TT-Data Guard',
-          href: '/tt-data-guard',
-        },
-        // ⬇️ The rest still have dropdowns
-        {
-          id: 'TT-Perimeter-Guard',
+          id: 'tt-perimeter-guard',
           label: 'TT-Perimeter Guard',
-          href: '/TT-Perimeter-Guard',
           children: [
-            { id: 'TT-Perimeter-Guard:ntem', label: 'Nanitor Threat Exposure Management (CTEM)', href: '/TT-Perimeter-Guard/ntem' },
-            { id: 'TT-Perimeter-Guard:zswg', label: 'Zecurion Secure Web Gateway (SWG)', href: '/TT-Perimeter-Guard/zswg' },
-            { id: 'TT-Perimeter-Guard:dds', label: 'DNSSense DNS Security', href: '/TT-Perimeter-Guard/dds' },
-            { id: 'TT-Perimeter-Guard:qndr', label: 'QAS NDR', href: '/TT-Perimeter-Guard/qndr' },
+            { id: 'ntem', label: 'Nanitor Threat Exposure Management (CTEM)', href: '/tt-perimeter-guard/ntem' },
+            { id: 'zswg', label: 'Zecurion Secure Web Gateway (SWG)', href: '/tt-perimeter-guard/zswg' },
+            { id: 'dds', label: 'DNSSense DNS Security', href: '/tt-perimeter-guard/dds' },
+            { id: 'qndr', label: 'QAX NDR', href: '/tt-perimeter-guard/qndr' },
+            { id: 'ftr', label: 'FortiGate', href: '/tt-perimeter-guard/ftr' },
           ],
         },
         {
-          id: 'TT-Operational-Guard',
+          id: 'tt-operational-guard',
           label: 'TT-Operational Guard',
-          href: '/TT-Operational-Guard',
           children: [
-            { id: 'TT-Operational-Guard:sba', label: 'Seceon- SIEM, XDR, Behavioral Analytics', href: '/TT-Operational-Guard/sba' },
-            { id: 'TT-Operational-Guard:dd', label: 'DNSSense-DOR 2.0', href: '/TT-Operational-Guard/dd' },
-            { id: 'TT-Operational-Guard:qass', label: 'QAS - SIEM', href: '/TT-Operational-Guard/qass' },
-            { id: 'TT-Operational-Guard:qast', label: 'QAS - TIP', href: '/TT-Operational-Guard/qast' },
+            { id: 'sba', label: 'Seceon- SIEM, XDR, Behavioral Analytics', href: '/tt-operational-guard/sba' },
+            { id: 'dd', label: 'DNSSense-DOR 2.0', href: '/tt-operational-guard/dd' },
+            { id: 'qass', label: 'QAX - SIEM', href: '/tt-operational-guard/qass' },
+            { id: 'qast', label: 'QAX - TIP', href: '/tt-operational-guard/qast' },
           ],
         },
         {
-          id: 'TT-Vulnerability-Guard',
+          id: 'tt-vulnerability-guard',
           label: 'TT-Vulnerability Guard',
-          href: '/TT-Vulnerability-Guard',
           children: [
-            { id: 'TT-Vulnerability-Guard:nvm', label: 'Nanitor Vulnerability Management System', href: '/TT-Operational-Guard/nvm' },
-            { id: 'TT-Vulnerability-Guard:oxc', label: 'OctoXLabs - CAASM', href: '/TT-Operational-Guard/oxc' },
+            { id: 'nvm', label: 'Nanitor Vulnerability Management System', href: '/tt-vulnerability-guard/nvm' },
+            { id: 'oxc', label: 'OctoXLabs - CAASM', href: '/tt-vulnerability-guard/oxc' },
           ],
         },
         {
-          id: 'TT-End-point-Digital-identity-Guard',
+          id: 'tt-end-point-digital-identity-guard',
           label: 'TT-End point & Digital Guard',
-          href: '/TT-End-point-Digital-identity-Guard',
           children: [
-            { id: 'TT-End-point-Digital-identity-Guard:nes', label: 'Nanitor - Endpoint Security', href: '/TT-Operational-Guard/nes' },
-            { id: 'TT-End-point-Digital-identity-Guard:moi', label: 'MiniOrange - IAM', href: '/TT-Operational-Guard/moi' },
-            { id: 'TT-End-point-Digital-identity-Guard:qedr', label: 'QAS - EDR', href: '/TT-Operational-Guard/qedr' },
+            { id: 'nes', label: 'Nanitor - Endpoint Security', href: '/tt-end-point-digital-identity-guard/nes' },
+            { id: 'mio', label: 'MiniOrange - IAM', href: '/tt-end-point-digital-identity-guard/mio' },
+            { id: 'qedr', label: 'QAX - EDR', href: '/tt-end-point-digital-identity-guard/qedr' },
           ],
         },
       ],
@@ -107,14 +93,6 @@ export default function Navigation() {
       hoverTimeoutRef.current = null;
     }
     setOpenDropdownId(id);
-  };
-
-  const closeDropdownWithDelay = () => {
-    hoverTimeoutRef.current = window.setTimeout(() => {
-      setOpenDropdownId(null);
-      setOpenSubDropdownId(null);
-      hoverTimeoutRef.current = null;
-    }, 120);
   };
 
   const toggleMobileDropdown = (id: string) => {
@@ -149,7 +127,13 @@ export default function Navigation() {
                 key={link.id}
                 className="relative"
                 onMouseEnter={() => openDropdownWithDelay(link.id)}
-                onMouseLeave={closeDropdownWithDelay}
+                onMouseLeave={() => {
+                  if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+                  hoverTimeoutRef.current = window.setTimeout(() => {
+                    setOpenDropdownId(null);
+                    setOpenSubDropdownId(null);
+                  }, 300);
+                }}
               >
                 <button
                   className="flex items-center text-slate-700 hover:text-[#022e64] font-medium transition-colors px-4 py-2 rounded-lg hover:bg-[#022e64]/10"
@@ -167,11 +151,21 @@ export default function Navigation() {
                 {/* Dropdown */}
                 <div
                   className={`absolute left-0 top-full mt-2 bg-white shadow-lg rounded-lg py-2 min-w-[220px] border transform transition-all duration-200 ease-out origin-top ${
-                    openDropdownId === link.id ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible pointer-events-none'
+                    openDropdownId === link.id
+                      ? 'opacity-100 scale-100 visible'
+                      : 'opacity-0 scale-95 invisible pointer-events-none'
                   }`}
+                  onMouseEnter={() => {
+                    if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+                  }}
+                  onMouseLeave={() => {
+                    hoverTimeoutRef.current = window.setTimeout(() => {
+                      setOpenDropdownId(null);
+                      setOpenSubDropdownId(null);
+                    }, 300);
+                  }}
                 >
-                  {link.children.map((sub) => (
-                    // ✅ If item has no sub-children (like TT-Cloud / TT-Data), render simple link
+                  {link.children.map((sub) =>
                     !sub.children ? (
                       <Link
                         key={sub.id}
@@ -181,12 +175,22 @@ export default function Navigation() {
                         {sub.label}
                       </Link>
                     ) : (
-                      <div key={sub.id} className="relative">
+                      <div
+                        key={sub.id}
+                        className="relative"
+                        onMouseEnter={() => {
+                          if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+                          setOpenSubDropdownId(sub.id);
+                        }}
+                        onMouseLeave={() => {
+                          hoverTimeoutRef.current = window.setTimeout(() => {
+                            setOpenSubDropdownId(null);
+                          }, 250);
+                        }}
+                      >
                         <Link
                           href={sub.href ?? '#'}
                           className="flex justify-between items-center px-4 py-2 text-slate-700 hover:bg-[#022e64]/10 transition-colors"
-                          onMouseEnter={() => setOpenSubDropdownId(sub.id)}
-                          onMouseLeave={() => setOpenSubDropdownId(null)}
                         >
                           {sub.label}
                           <ChevronRight size={14} aria-hidden="true" />
@@ -214,7 +218,7 @@ export default function Navigation() {
                         )}
                       </div>
                     )
-                  ))}
+                  )}
                 </div>
               </div>
             ) : (

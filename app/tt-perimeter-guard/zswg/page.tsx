@@ -4,39 +4,37 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-export default function ZecurionPage() {
+export default function ZecurionSWGPage() {
   const features = [
     {
-      title: "Advanced Data Encryption",
-      desc: "Automatically encrypts sensitive files and storage devices, ensuring your data stays protected — at rest, in motion, and in use.",
+      title: "Advanced Web Threat Protection",
+      desc: "Blocks malware, phishing, and malicious websites in real time using Zecurion’s constantly updated threat intelligence and signature database.",
     },
     {
-      title: "Intelligent Data Classification",
-      desc: "Uses AI-driven classification to identify and categorize confidential information, applying the right protection policies automatically.",
+      title: "Intelligent Content Filtering & Categorization",
+      desc: "Analyzes and categorizes millions of URLs into 100+ categories — enabling precise policy control and safe browsing across all users.",
     },
     {
-      title: "Real-Time Access Monitoring",
-      desc: "Tracks and audits all file operations — downloads, copies, and transfers — to detect and prevent unauthorized access or data theft.",
+      title: "Integrated IDS/IPS & SSL Inspection",
+      desc: "Detects and prevents network intrusions while decrypting and inspecting SSL/TLS traffic for hidden threats — without impacting performance.",
     },
     {
-      title: "Seamless DLP Integration",
-      desc: "Integrates natively with Zecurion Data Loss Prevention (DLP), providing unified protection from endpoints to cloud and network storage.",
+      title: "Seamless DLP & ICAP Integration",
+      desc: "Works natively with Zecurion DLP and other enterprise tools to enforce unified data protection across endpoints, storage, and the web.",
     },
     {
-      title: "Centralized Policy Management",
-      desc: "Offers a single, intuitive console to manage permissions, monitor access, and enforce encryption policies across all storage environments.",
+      title: "Centralized Management & Reporting",
+      desc: "Offers a single, web-based console to monitor web traffic, user activity, and security incidents — with real-time dashboards and compliance-ready reports.",
     },
   ];
 
   return (
     <section className="relative min-h-screen bg-gray-50 flex flex-col items-center px-6 md:px-16 py-20 overflow-hidden">
       {/* Header with Logo */}
-      <div
-        className="relative z-10 mb-12 flex justify-center"
-      >
+      <div className="relative z-10 mb-12 flex justify-center">
         <Image
-          src="/images/logos/tt-data.png"
-          alt="TT Data Guard Logo"
+          src="/images/logos/tt-perimeter-guard.png" 
+          alt="Zecurion SWG Logo"
           width={300}
           height={150}
           className="object-contain"
@@ -48,13 +46,13 @@ export default function ZecurionPage() {
         className="relative z-10 text-center max-w-4xl mb-16"
       >
         <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-4">
-          Zecurion – Storage Security
+          Zecurion – Secure Web Gateway (SWG)
         </h1>
         <p className="text-xl md:text-2xl text-[#022E64] font-semibold mb-4">
-          Protect. Control. Prevent. Secure Every Byte.
+          Secure Access. Smarter Filtering. Total Web Protection.
         </p>
         <p className="text-slate-600">
-          Safeguard sensitive data with AI-driven classification, encryption, and seamless DLP integration — all managed from a single, centralized console.
+          Protect your users and enterprise data with intelligent web filtering, advanced threat detection, and unified management — all from a single console.
         </p>
       </div>
 
@@ -65,11 +63,7 @@ export default function ZecurionPage() {
             key={i}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.6,
-              delay: i * 0.1,
-              ease: "easeOut",
-            }}
+            transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
             viewport={{ once: true }}
             whileHover={{ scale: 1.05 }}
             className="bg-white p-6 rounded-2xl shadow-lg relative overflow-hidden
@@ -77,9 +71,7 @@ export default function ZecurionPage() {
                        before:absolute before:inset-0 before:rounded-2xl before:shadow-[0_0_20px_4px_rgba(2,46,100,0.6)]
                        before:opacity-0 hover:before:opacity-100 before:transition-opacity before:pointer-events-none"
           >
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">
-              {feature.title}
-            </h3>
+            <h3 className="text-lg font-semibold text-slate-900 mb-2">{feature.title}</h3>
             <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
           </motion.div>
         ))}
@@ -110,10 +102,10 @@ export default function ZecurionPage() {
         </motion.div>
       </motion.div>
 
-      {/* Animated CTA Section */}
+      {/* CTA Section */}
       <motion.div
         className="relative overflow-hidden w-full py-20 px-6 text-center rounded-3xl shadow-2xl max-w-5xl
-                   bg-linear-to-r from-[#002C60] via-[#004D94] to-[#0068C9] text-white mt-20"
+                   bg-linear-to-r from-[#022E64] via-[#034A9C] to-[#0466C8] text-white mt-20"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -136,8 +128,7 @@ export default function ZecurionPage() {
             transition={{ delay: 0.2, duration: 0.7 }}
             viewport={{ once: true }}
           >
-            Ready to Fortify Your Data Security?
-
+            Ready to Secure Your Web Traffic?
           </motion.h2>
 
           <motion.p
@@ -147,9 +138,8 @@ export default function ZecurionPage() {
             transition={{ delay: 0.4, duration: 0.7 }}
             viewport={{ once: true }}
           >
-            Discover how TT Data Guard ensures your organization’s sensitive files remain
-            fully protected with AI-driven encryption, intelligent classification,
-            and centralized control — across every endpoint and cloud environment.
+            Contact our experts to learn how Zecurion SWG protects users, enforces compliance, 
+            and blocks threats in real time — all from a single unified platform.
           </motion.p>
 
           <motion.div
@@ -159,7 +149,7 @@ export default function ZecurionPage() {
           >
             <Link
               href="/contact"
-              className="inline-block bg-white text-[#002C60] font-semibold px-10 py-4 rounded-full
+              className="inline-block bg-white text-[#022E64] font-semibold px-10 py-4 rounded-full
                          shadow-md hover:shadow-lg transition-all duration-300"
             >
               Contact Us

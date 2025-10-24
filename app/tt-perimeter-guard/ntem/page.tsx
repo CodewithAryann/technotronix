@@ -4,27 +4,27 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-export default function ZecurionPage() {
+export default function NanitorPage() {
   const features = [
     {
-      title: "Advanced Data Encryption",
-      desc: "Automatically encrypts sensitive files and storage devices, ensuring your data stays protected — at rest, in motion, and in use.",
+      title: "Continuous Asset & Exposure Discovery",
+      desc: "Automatically identifies all digital assets, vulnerabilities, misconfigurations, and exposures across your on-prem, cloud, and hybrid environments — in real time.",
     },
     {
-      title: "Intelligent Data Classification",
-      desc: "Uses AI-driven classification to identify and categorize confidential information, applying the right protection policies automatically.",
+      title: "Risk-Based Prioritization",
+      desc: "Goes beyond CVE severity — ranks threats based on exploitability, business impact, and asset criticality to help teams focus where it counts.",
     },
     {
-      title: "Real-Time Access Monitoring",
-      desc: "Tracks and audits all file operations — downloads, copies, and transfers — to detect and prevent unauthorized access or data theft.",
+      title: "Unified Security Posture Dashboard",
+      desc: "Visualizes your entire attack surface, security health scores, and exposure trends — turning complex data into clear, actionable insights.",
     },
     {
-      title: "Seamless DLP Integration",
-      desc: "Integrates natively with Zecurion Data Loss Prevention (DLP), providing unified protection from endpoints to cloud and network storage.",
+      title: "Guided Remediation & Progress Tracking",
+      desc: "Provides clear, prioritized remediation steps and lets you assign, track, and measure fixes — bridging the gap between IT and security teams.",
     },
     {
-      title: "Centralized Policy Management",
-      desc: "Offers a single, intuitive console to manage permissions, monitor access, and enforce encryption policies across all storage environments.",
+      title: "Integration with Existing Security Stack",
+      desc: "Connects with SIEM, IAM, and vulnerability scanners to unify exposure data and automate risk reduction workflows.",
     },
   ];
 
@@ -35,8 +35,8 @@ export default function ZecurionPage() {
         className="relative z-10 mb-12 flex justify-center"
       >
         <Image
-          src="/images/logos/tt-data.png"
-          alt="TT Data Guard Logo"
+          src="/images/logos/tt-perimeter-guard.png"
+          alt="Nanitor Logo"
           width={300}
           height={150}
           className="object-contain"
@@ -48,13 +48,13 @@ export default function ZecurionPage() {
         className="relative z-10 text-center max-w-4xl mb-16"
       >
         <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-4">
-          Zecurion – Storage Security
+          Nanitor – Continuous Threat Exposure Management (CTEM)
         </h1>
         <p className="text-xl md:text-2xl text-[#022E64] font-semibold mb-4">
-          Protect. Control. Prevent. Secure Every Byte.
+          See Everything. Fix What Matters. Stay Ahead.
         </p>
         <p className="text-slate-600">
-          Safeguard sensitive data with AI-driven classification, encryption, and seamless DLP integration — all managed from a single, centralized console.
+          Proactively manage cyber risk with continuous visibility, risk-based prioritization, and guided remediation — ensuring your organization stays secure, compliant, and resilient.
         </p>
       </div>
 
@@ -101,8 +101,8 @@ export default function ZecurionPage() {
           viewport={{ once: true }}
         >
           <Image
-            src="/images/logos/zecurion.png"
-            alt="Zecurion Logo"
+            src="/images/logos/nanitor.png"
+            alt="Nanitor Logo"
             width={160}
             height={60}
             className="object-contain"
@@ -136,8 +136,7 @@ export default function ZecurionPage() {
             transition={{ delay: 0.2, duration: 0.7 }}
             viewport={{ once: true }}
           >
-            Ready to Fortify Your Data Security?
-
+            Ready to Gain Continuous Threat Visibility?
           </motion.h2>
 
           <motion.p
@@ -147,9 +146,8 @@ export default function ZecurionPage() {
             transition={{ delay: 0.4, duration: 0.7 }}
             viewport={{ once: true }}
           >
-            Discover how TT Data Guard ensures your organization’s sensitive files remain
-            fully protected with AI-driven encryption, intelligent classification,
-            and centralized control — across every endpoint and cloud environment.
+            Contact us to discover how Nanitor CTEM empowers your security teams to
+          stay one step ahead of evolving cyber threats.
           </motion.p>
 
           <motion.div

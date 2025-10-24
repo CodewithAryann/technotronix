@@ -4,39 +4,37 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-export default function ZecurionPage() {
+export default function FortiGatePage() {
   const features = [
     {
-      title: "Advanced Data Encryption",
-      desc: "Automatically encrypts sensitive files and storage devices, ensuring your data stays protected — at rest, in motion, and in use.",
+      title: "Next-Generation Threat Protection",
+      desc: "Combines intrusion prevention, web filtering, antivirus, and application control — delivering real-time defense against known and zero-day threats.",
     },
     {
-      title: "Intelligent Data Classification",
-      desc: "Uses AI-driven classification to identify and categorize confidential information, applying the right protection policies automatically.",
+      title: "High-Performance Security with FortiASIC",
+      desc: "Powered by Fortinet’s custom-built ASIC processors, FortiGate delivers exceptional throughput and low latency — ensuring speed without sacrificing security.",
     },
     {
-      title: "Real-Time Access Monitoring",
-      desc: "Tracks and audits all file operations — downloads, copies, and transfers — to detect and prevent unauthorized access or data theft.",
+      title: "Integrated Secure SD-WAN",
+      desc: "Optimizes and secures WAN connectivity with built-in SD-WAN — reducing cost, improving application performance, and ensuring reliable cloud access.",
     },
     {
-      title: "Seamless DLP Integration",
-      desc: "Integrates natively with Zecurion Data Loss Prevention (DLP), providing unified protection from endpoints to cloud and network storage.",
+      title: "AI-Driven Threat Intelligence (FortiGuard)",
+      desc: "Leverages FortiGuard Labs’ global threat intelligence network to continuously detect, analyze, and block emerging threats in real time.",
     },
     {
-      title: "Centralized Policy Management",
-      desc: "Offers a single, intuitive console to manage permissions, monitor access, and enforce encryption policies across all storage environments.",
+      title: "Centralized Management & Security Fabric Integration",
+      desc: "Integrates seamlessly with Fortinet’s Security Fabric, providing unified policy control, analytics, and orchestration across network, endpoint, and cloud.",
     },
   ];
 
   return (
     <section className="relative min-h-screen bg-gray-50 flex flex-col items-center px-6 md:px-16 py-20 overflow-hidden">
       {/* Header with Logo */}
-      <div
-        className="relative z-10 mb-12 flex justify-center"
-      >
+      <div className="relative z-10 mb-12 flex justify-center">
         <Image
-          src="/images/logos/tt-data.png"
-          alt="TT Data Guard Logo"
+          src="/images/logos/tt-perimeter-guard.png"
+          alt="FortiNet Logo"
           width={300}
           height={150}
           className="object-contain"
@@ -44,17 +42,15 @@ export default function ZecurionPage() {
       </div>
 
       {/* Title Section */}
-      <div
-        className="relative z-10 text-center max-w-4xl mb-16"
-      >
+      <div className="relative z-10 text-center max-w-4xl mb-16">
         <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-4">
-          Zecurion – Storage Security
+          FortiNet – Next-Generation Firewall (NGFW)
         </h1>
         <p className="text-xl md:text-2xl text-[#022E64] font-semibold mb-4">
-          Protect. Control. Prevent. Secure Every Byte.
+          Fast. Smart. Secure. The Core of Network Defense.
         </p>
         <p className="text-slate-600">
-          Safeguard sensitive data with AI-driven classification, encryption, and seamless DLP integration — all managed from a single, centralized console.
+          Protect your network with next-generation threat detection, AI-driven intelligence, high-performance FortiASIC hardware, and seamless Security Fabric integration.
         </p>
       </div>
 
@@ -65,27 +61,22 @@ export default function ZecurionPage() {
             key={i}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.6,
-              delay: i * 0.1,
-              ease: "easeOut",
-            }}
+            transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
             viewport={{ once: true }}
             whileHover={{ scale: 1.05 }}
             className="bg-white p-6 rounded-2xl shadow-lg relative overflow-hidden
                        hover:shadow-2xl transition-all duration-300
-                       before:absolute before:inset-0 before:rounded-2xl before:shadow-[0_0_20px_4px_rgba(2,46,100,0.6)]
+                       before:absolute before:inset-0 before:rounded-2xl
+                       before:shadow-[0_0_20px_4px_#022E64]
                        before:opacity-0 hover:before:opacity-100 before:transition-opacity before:pointer-events-none"
           >
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">
-              {feature.title}
-            </h3>
+            <h3 className="text-lg font-semibold text-slate-900 mb-2">{feature.title}</h3>
             <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
           </motion.div>
         ))}
       </div>
 
-      {/* Powered by Zecurion Footer */}
+      {/* Powered by Fortinet Footer */}
       <motion.div
         className="flex flex-col items-center mt-12"
         initial={{ opacity: 0, y: 30 }}
@@ -101,8 +92,8 @@ export default function ZecurionPage() {
           viewport={{ once: true }}
         >
           <Image
-            src="/images/logos/zecurion.png"
-            alt="Zecurion Logo"
+            src="/images/logos/fortinet.png"
+            alt="Fortinet Logo"
             width={160}
             height={60}
             className="object-contain"
@@ -136,8 +127,7 @@ export default function ZecurionPage() {
             transition={{ delay: 0.2, duration: 0.7 }}
             viewport={{ once: true }}
           >
-            Ready to Fortify Your Data Security?
-
+            Ready to Secure Your Network with FortiGate?
           </motion.h2>
 
           <motion.p
@@ -147,9 +137,7 @@ export default function ZecurionPage() {
             transition={{ delay: 0.4, duration: 0.7 }}
             viewport={{ once: true }}
           >
-            Discover how TT Data Guard ensures your organization’s sensitive files remain
-            fully protected with AI-driven encryption, intelligent classification,
-            and centralized control — across every endpoint and cloud environment.
+            Contact us to see how FortiGate NGFW protects your infrastructure with high-performance security, AI-driven threat intelligence, and centralized management.
           </motion.p>
 
           <motion.div

@@ -2,144 +2,131 @@
 
 import { useState } from "react";
 
-export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    message: "",
-  });
+export default function ContactForm() {
+  const [result, setResult] = useState("");
 
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setResult("Sending...");
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+    const form = event.currentTarget;
+    const formData = new FormData(form);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    // ✅ Replace with your actual Web3Forms access key
+    formData.append("access_key", "d2e33070-7463-4d61-8083-e768f71b6336");
 
-    // Simulate sending form (you can replace this with an API call)
-    if (formData.name && formData.email && formData.message) {
-      setStatus("success");
-      setFormData({ name: "", email: "", company: "", message: "" });
-    } else {
-      setStatus("error");
+    // Optional but recommended: Add subject and redirect
+    formData.append("subject", "New Contact Message from Website");
+    formData.append("from_name", "TT Data Guard Website");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setResult("✅ Message sent successfully!");
+        form.reset();
+      } else {
+        console.error("Error:", data);
+        setResult("❌ Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Network error:", error);
+      setResult("❌ Network error. Please try again later.");
     }
   };
 
   return (
-    <section className="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-6 md:px-12 py-16">
-      <div className="max-w-3xl w-full bg-white shadow-lg rounded-2xl p-8 md:p-12">
-        {/* Header */}
-        <div className="text-center mb-10">
-          <h1 className="text-4xl font-bold text-slate-900 mb-2">
-            Contact <span className="text-[#022E64]">Us</span>
-          </h1>
-          <p className="text-slate-600">
-            Have questions or want to learn more about our cybersecurity
-            solutions? Fill out the form and we’ll get back to you shortly.
-          </p>
-        </div>
+    <section className="py-20 px-6 bg-gray-50 flex justify-center">
+      <div className="max-w-2xl w-full bg-white rounded-2xl shadow-xl p-8">
+        <h2 className="text-3xl font-bold text-center text-[#022E64] mb-6">
+          Contact Us
+        </h2>
 
-        {/* Contact Form */}
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label
-                htmlFor="name"
-                className="block text-sm font-medium text-slate-700 mb-1"
-              >
-                Full Name *
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#022E64] focus:outline-none"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-slate-700 mb-1"
-              >
-                Email Address *
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#022E64] focus:outline-none"
-              />
-            </div>
-          </div>
-
+        <form onSubmit={handleSubmit} className="space-y-5">
+          {/* Name */}
           <div>
-            <label
-              htmlFor="company"
-              className="block text-sm font-medium text-slate-700 mb-1"
-            >
-              Company Name
+            <label className="block text-sm font-semibold text-gray-700 mb-1">
+              Full Name <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
-              id="company"
-              name="company"
-              value={formData.company}
-              onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#022E64] focus:outline-none"
+              name="name"
+              required
+              className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#022E64]"
             />
           </div>
 
+          {/* Company Name */}
           <div>
-            <label
-              htmlFor="message"
-              className="block text-sm font-medium text-slate-700 mb-1"
-            >
-              Message *
+            <label className="block text-sm font-semibold text-gray-700 mb-1">
+              Company Name <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              name="company"
+              required
+              className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#022E64]"
+            />
+          </div>
+
+          {/* Email */}
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 mb-1">
+              Email <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="email"
+              name="email"
+              required
+              className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#022E64]"
+            />
+          </div>
+
+          {/* Phone Number */}
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 mb-1">
+              Phone Number <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="tel"
+              name="phone"
+              required
+              pattern="[0-9+\-\s]+"
+              placeholder="+1 234 567 890"
+              className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#022E64]"
+            />
+          </div>
+
+          {/* Message (optional) */}
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 mb-1">
+              Message <span className="text-gray-700">(optional)</span>
             </label>
             <textarea
-              id="message"
               name="message"
-              rows={5}
-              value={formData.message}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#022E64] focus:outline-none"
-            />
+              rows={4}
+              placeholder="Your message..."
+              className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#022E64]"
+            ></textarea>
           </div>
 
-          <div className="text-center">
-            <button
-              type="submit"
-              className="bg-[#022E64] text-white px-8 py-3 rounded-full font-semibold shadow-md hover:bg-[#03428f] transition-all"
-            >
-              Send Message
-            </button>
-          </div>
+          {/* Submit */}
+          <button
+            type="submit"
+            className="w-full bg-[#022E64] text-white font-semibold py-3 rounded-lg hover:bg-[#034c9e] transition"
+          >
+            Send Message
+          </button>
         </form>
 
-        {/* Status Message */}
-        {status === "success" && (
-          <p className="mt-6 text-center text-green-600 font-medium">
-            ✅ Thank you! Your message has been sent successfully.
-          </p>
-        )}
-        {status === "error" && (
-          <p className="mt-6 text-center text-red-600 font-medium">
-            ⚠️ Please fill in all required fields before submitting.
-          </p>
+        {/* Result Message */}
+        {result && (
+          <p className="text-center mt-4 text-sm text-gray-700">{result}</p>
         )}
       </div>
     </section>

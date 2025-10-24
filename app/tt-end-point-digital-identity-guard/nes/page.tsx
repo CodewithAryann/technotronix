@@ -4,39 +4,37 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-export default function ZecurionPage() {
+export default function NanitorEndpointSecurityPage() {
   const features = [
     {
-      title: "Advanced Data Encryption",
-      desc: "Automatically encrypts sensitive files and storage devices, ensuring your data stays protected — at rest, in motion, and in use.",
+      title: "Continuous Endpoint Visibility",
+      desc: "Tracks every endpoint — servers, laptops, IoT devices, and virtual machines — providing real-time visibility into asset status, software, and configurations.",
     },
     {
-      title: "Intelligent Data Classification",
-      desc: "Uses AI-driven classification to identify and categorize confidential information, applying the right protection policies automatically.",
+      title: "Advanced Threat Detection & Behavioral Analytics",
+      desc: "Uses machine learning and behavioral analysis to detect anomalies, malicious activity, and zero-day threats before they can spread.",
     },
     {
-      title: "Real-Time Access Monitoring",
-      desc: "Tracks and audits all file operations — downloads, copies, and transfers — to detect and prevent unauthorized access or data theft.",
+      title: "Automated Patch & Configuration Management",
+      desc: "Continuously checks for missing patches, misconfigurations, and outdated software — and automates remediation to maintain compliance and security.",
     },
     {
-      title: "Seamless DLP Integration",
-      desc: "Integrates natively with Zecurion Data Loss Prevention (DLP), providing unified protection from endpoints to cloud and network storage.",
+      title: "Integrated Vulnerability & Exposure Assessment",
+      desc: "Natively ties into Nanitor’s CTEM and Vulnerability Management modules to measure risk at the endpoint level and prioritize actions.",
     },
     {
-      title: "Centralized Policy Management",
-      desc: "Offers a single, intuitive console to manage permissions, monitor access, and enforce encryption policies across all storage environments.",
+      title: "Lightweight, Scalable Protection",
+      desc: "Agentless or lightweight-agent architecture ensures minimal system impact, fast deployment, and scalability across thousands of endpoints.",
     },
   ];
 
   return (
     <section className="relative min-h-screen bg-gray-50 flex flex-col items-center px-6 md:px-16 py-20 overflow-hidden">
       {/* Header with Logo */}
-      <div
-        className="relative z-10 mb-12 flex justify-center"
-      >
+      <div className="relative z-10 mb-12 flex justify-center">
         <Image
-          src="/images/logos/tt-data.png"
-          alt="TT Data Guard Logo"
+          src="/images/logos/tt-end_point-Digital-identity-guard.png"
+          alt="Nanitor Endpoint Security Logo"
           width={300}
           height={150}
           className="object-contain"
@@ -44,17 +42,15 @@ export default function ZecurionPage() {
       </div>
 
       {/* Title Section */}
-      <div
-        className="relative z-10 text-center max-w-4xl mb-16"
-      >
+      <div className="relative z-10 text-center max-w-4xl mb-16">
         <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-4">
-          Zecurion – Storage Security
+          Nanitor – Endpoint Security
         </h1>
         <p className="text-xl md:text-2xl text-[#022E64] font-semibold mb-4">
-          Protect. Control. Prevent. Secure Every Byte.
+          Every Endpoint Protected. Every Threat Prevented.
         </p>
         <p className="text-slate-600">
-          Safeguard sensitive data with AI-driven classification, encryption, and seamless DLP integration — all managed from a single, centralized console.
+          Ensure full endpoint visibility, detect threats proactively, automate patching, and maintain compliance — all while scaling protection across your entire environment.
         </p>
       </div>
 
@@ -65,27 +61,22 @@ export default function ZecurionPage() {
             key={i}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.6,
-              delay: i * 0.1,
-              ease: "easeOut",
-            }}
+            transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
             viewport={{ once: true }}
             whileHover={{ scale: 1.05 }}
             className="bg-white p-6 rounded-2xl shadow-lg relative overflow-hidden
                        hover:shadow-2xl transition-all duration-300
-                       before:absolute before:inset-0 before:rounded-2xl before:shadow-[0_0_20px_4px_rgba(2,46,100,0.6)]
+                       before:absolute before:inset-0 before:rounded-2xl
+                       before:shadow-[0_0_20px_4px_#022E64]
                        before:opacity-0 hover:before:opacity-100 before:transition-opacity before:pointer-events-none"
           >
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">
-              {feature.title}
-            </h3>
+            <h3 className="text-lg font-semibold text-slate-900 mb-2">{feature.title}</h3>
             <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
           </motion.div>
         ))}
       </div>
 
-      {/* Powered by Zecurion Footer */}
+      {/* Powered by Nanitor Footer */}
       <motion.div
         className="flex flex-col items-center mt-12"
         initial={{ opacity: 0, y: 30 }}
@@ -101,8 +92,8 @@ export default function ZecurionPage() {
           viewport={{ once: true }}
         >
           <Image
-            src="/images/logos/zecurion.png"
-            alt="Zecurion Logo"
+            src="/images/logos/nanitor.png"
+            alt="Nanitor Logo"
             width={160}
             height={60}
             className="object-contain"
@@ -136,8 +127,7 @@ export default function ZecurionPage() {
             transition={{ delay: 0.2, duration: 0.7 }}
             viewport={{ once: true }}
           >
-            Ready to Fortify Your Data Security?
-
+            Ready to Protect Every Endpoint Instantly?
           </motion.h2>
 
           <motion.p
@@ -147,9 +137,7 @@ export default function ZecurionPage() {
             transition={{ delay: 0.4, duration: 0.7 }}
             viewport={{ once: true }}
           >
-            Discover how TT Data Guard ensures your organization’s sensitive files remain
-            fully protected with AI-driven encryption, intelligent classification,
-            and centralized control — across every endpoint and cloud environment.
+            Contact us to see how Nanitor Endpoint Security delivers complete visibility, advanced threat detection, and automated patch management across your enterprise endpoints.
           </motion.p>
 
           <motion.div
