@@ -30,7 +30,7 @@ export default function OurServiceSection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/service-bg.png"
+          src="/images/service.png"
           alt="Service Background"
           fill
           className="object-cover opacity-90"
