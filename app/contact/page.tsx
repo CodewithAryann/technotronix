@@ -123,7 +123,7 @@ export default function ContactForm() {
               name="phone"
               required
               pattern="[0-9+\-\s]+"
-              placeholder="+1 234 567 890"
+              placeholder="+971 50 123 4567"
               className="w-full border border-gray-300 rounded-lg p-3 text-gray-900 text-lg placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#022E64]"
             />
           </div>
