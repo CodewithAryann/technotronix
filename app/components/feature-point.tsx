@@ -8,12 +8,12 @@ export default function FeaturePointPage() {
   const features = [
     {
       icon: <ShieldCheck className="w-8 h-8 text-white" />,
-      title: "Our Mission",
+      title: "Customized Security Solutions",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     },
     {
       icon: <Bug className="w-8 h-8 text-white" />,
-      title: "Our Vision",
+      title: "Vulnerability Assessment",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     },
     {
