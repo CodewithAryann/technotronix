@@ -8,7 +8,7 @@ export default function OurGoals() {
   const goals = [
     {
       title: "Customer centric approach",
-      desc: "At Technotronix, our customers are at the center of every innovation we deliver.Through Cyber Defense and Smart Retail Intelligence, we design solutions that align seamlessly with each client’s unique objectives. Our collaborative mindset drives security, efficiency, and continuous innovation, ensuring every engagement builds trust, value, and lasting business impact.",
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue metus quis accumsan euismod.",
     },
     {
       title: "Key Objectives",
