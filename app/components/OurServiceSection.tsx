@@ -9,19 +9,19 @@ export default function OurServiceSection() {
       image: '/images/1.png',
       title: 'Technotronix Assesment',
       description:
-        'We help organizations strengthen their cyber resilience through a comprehensive portfolio of assessment and consulting services that secure every layer of the digital ecosystem — from cloud and data to network, endpoint, identity, and operational security. Backed by leading technologies from Seceon, Nanitor, Zecurion, Fortinet, OctoXLabs, miniOrange, QAS, and DNSSense, our assessments deliver deep visibility into threat exposure, vulnerability gaps, SOC maturity, and Zero Trust readiness, empowering enterprises to build a robust and compliant cybersecurity posture.',
+        'We help organizations strengthen cyber resilience through tailored assessments that secure cloud, data, network, and endpoint environments. Our solutions deliver visibility into threats and vulnerabilities, enabling a robust, compliant security posture.',
     },
     {
       image: '/images/2.png',
       title: 'Intrusion Detection & Prevention',
       description:
-        'Our Intrusion Detection and Prevention solutions enable organizations to detect, analyze, and block cyber threats in real time. Using advanced network monitoring, behavioral analytics, and automated response mechanisms, we provide continuous visibility and defense against malicious activities. Backed by technologies such as NDR, SIEM, and Threat Intelligence Platforms, Technotronix helps enterprises maintain a proactive and resilient cybersecurity posture.',
+        'We help organizations detect and block threats in real time using advanced monitoring and automated response. Powered by NDR, SIEM, and threat intelligence, Technotronix ensures continuous visibility and resilient protection',
     },
     {
       image: '/images/3.png',
       title: 'Incident Response & Recovery',
       description:
-        'Our services are built to help organizations respond swiftly and effectively to cyber incidents. We provide structured frameworks for threat containment, forensic analysis, and system restoration, ensuring minimal disruption and rapid recovery. Supported by SIEM, SOAR, and endpoint detection technologies, our approach enables proactive detection, coordinated response, and long-term resilience — helping enterprises restore operations with confidence and strengthen defenses against future attacks.',
+        'We help organizations respond and recover quickly from cyber incidents through threat containment, analysis, and restoration. Backed by SIEM, SOAR, and EDR technologies, we ensure minimal disruption and stronger future resilience.',
     },
   ];
 
@@ -98,11 +98,9 @@ export default function OurServiceSection() {
               </h3>
 
               {/* Description */}
-              <p className="text-gray-600 text-sm leading-relaxed mb-6">
+              <p className="text-gray-600 text-sm leading-relaxed">
                 {service.description}
               </p>
-
-              {/* Button */}
             </motion.div>
           ))}
         </div>

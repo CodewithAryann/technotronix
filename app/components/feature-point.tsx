@@ -9,22 +9,22 @@ export default function FeaturePointPage() {
     {
       icon: <ShieldCheck className="w-8 h-8 text-white" />,
       title: "Customized Security Solutions",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      desc: "Tailored protection built to secure, adapt, and evolve intelligently.",
     },
     {
       icon: <Bug className="w-8 h-8 text-white" />,
       title: "Vulnerability Assessment",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      desc: "Identify, analyze, and fortify against evolving security threats.",
     },
     {
       icon: <Clock className="w-8 h-8 text-white" />,
       title: "24/7 Incident Response",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      desc: "Always alert, responding fast to protect your operations.",
     },
     {
       icon: <Users className="w-8 h-8 text-white" />,
       title: "User Training Programs",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      desc: "Empowering users to recognize, respond, and prevent threats.",
     },
   ];
 
