@@ -66,7 +66,7 @@ export default function AboutSection() {
               whileTap={{ scale: 0.95 }}
               className="px-8 py-3 bg-[#022e64] hover:bg-[#022e75] text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
             >
-              Read More
+            Learn more about Technotronix
             </motion.button>
           </Link>
 
