@@ -3,28 +3,40 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import {
+  Shield,
+  Brain,
+  Zap,
+  Network,
+  Search,
+} from "lucide-react";
 
 export default function DNSSenseDDRPage() {
   const features = [
     {
       title: "AI-Powered DNS Threat Detection",
-      desc: "Uses advanced AI and machine learning to analyze DNS traffic patterns and detect sophisticated, slow, or hidden tunneling attacks in real time.",
+      desc: "Leverages AI and machine learning to analyze DNS traffic patterns and detect sophisticated or hidden tunneling attacks in real time.",
+      icon: Brain,
     },
     {
       title: "Domain Intelligence Engine (Cyber X-Ray)",
-      desc: "Continuously classifies and enriches billions of domains with reputation data, allowing instant identification of malicious or suspicious activity.",
+      desc: "Enriches billions of domains with real-time reputation data, enabling instant identification of malicious or suspicious activity.",
+      icon: Search,
     },
     {
       title: "Automated Response & Containment",
-      desc: "Automates the detection-to-response workflow — blocking malicious domains, isolating compromised endpoints, and stopping command-and-control activity instantly.",
+      desc: "Automates the detection-to-response workflow — blocking malicious domains, isolating compromised devices, and halting command-and-control traffic instantly.",
+      icon: Zap,
     },
     {
       title: "Integration with SIEM, XDR & SOAR",
-      desc: "Feeds enriched DNS telemetry into your wider security stack, enhancing visibility and accelerating cross-platform threat correlation.",
+      desc: "Feeds enriched DNS telemetry into your security stack to enhance visibility, accelerate incident response, and improve correlation accuracy.",
+      icon: Network,
     },
     {
       title: "Full Visibility & Forensic Insights",
-      desc: "Delivers granular DNS analytics and device-level traceability to uncover root causes, attack paths, and exposure trends across your network.",
+      desc: "Provides granular DNS analytics and device-level traceability to uncover attack vectors, root causes, and exposure trends across the network.",
+      icon: Shield,
     },
   ];
 
@@ -34,10 +46,11 @@ export default function DNSSenseDDRPage() {
       <div className="relative z-10 mb-12 flex justify-center">
         <Image
           src="/images/logos/tt-perimeter-guard.png"
-          alt="DNSSense DDR Logo"
+          alt="DNSSense DDR 2.0 Product Logo"
           width={300}
           height={150}
           className="object-contain"
+          priority
         />
       </div>
 
@@ -50,33 +63,42 @@ export default function DNSSenseDDRPage() {
           DNS Detection & Response
         </p>
         <p className="text-slate-600">
-          Predict, detect, and respond to DNS threats in real time. Enhance visibility across your network while automating containment and threat mitigation.
+          Predict, detect, and respond to DNS-based threats in real time. 
+          Enhance visibility, accelerate containment, and automate defense actions across your entire network.
         </p>
       </div>
 
-      {/* Features Grid */}
+      {/* Features Grid with Glow */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl mb-20">
-        {features.map((feature, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.05 }}
-            className="bg-white p-6 rounded-2xl shadow-lg relative overflow-hidden
-                       hover:shadow-2xl transition-all duration-300
-                       before:absolute before:inset-0 before:rounded-2xl
-                       before:shadow-[0_0_20px_4px_#022E64]
-                       before:opacity-0 hover:before:opacity-100 before:transition-opacity before:pointer-events-none"
-          >
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">{feature.title}</h3>
-            <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
-          </motion.div>
-        ))}
+        {features.map((feature, i) => {
+          const Icon = feature.icon;
+          return (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05 }}
+              className="bg-white p-6 rounded-2xl shadow-lg relative overflow-hidden group
+                         hover:shadow-2xl transition-all duration-300
+                         before:absolute before:inset-0 before:rounded-2xl before:shadow-[0_0_20px_4px_rgba(2,46,100,0.6)]
+                         before:opacity-0 hover:before:opacity-100 before:transition-opacity before:pointer-events-none"
+            >
+              {/* Icon */}
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#022E64]/10 mb-4
+                              group-hover:shadow-[0_0_25px_5px_rgba(2,46,100,0.4)] transition-shadow">
+                <Icon className="text-[#022E64]" size={28} />
+              </div>
+
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">{feature.title}</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
+            </motion.div>
+          );
+        })}
       </div>
 
-      {/* Powered by DNSSense Footer */}
+      {/* Powered by Footer */}
       <motion.div
         className="flex flex-col items-center mt-12"
         initial={{ opacity: 0, y: 30 }}
@@ -93,7 +115,7 @@ export default function DNSSenseDDRPage() {
         >
           <Image
             src="/images/logos/dnssense.png"
-            alt="DNSSense DDR Logo"
+            alt="DNSSense Company Logo"
             width={160}
             height={60}
             className="object-contain"
@@ -101,21 +123,22 @@ export default function DNSSenseDDRPage() {
         </motion.div>
       </motion.div>
 
-      {/* Animated CTA Section */}
+      {/* CTA Section with Enhanced Glow */}
       <motion.div
         className="relative overflow-hidden w-full py-20 px-6 text-center rounded-3xl shadow-2xl max-w-5xl
                    bg-linear-to-r from-[#002C60] via-[#004D94] to-[#0068C9] text-white mt-20"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
         viewport={{ once: true }}
       >
-        {/* Background Glow */}
+        {/* Radial Glow */}
         <motion.div
-          className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.15),transparent_70%)]"
+          className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(2,46,100,0.25),transparent_70%)] 
+                     animate-pulse-slow pointer-events-none rounded-3xl"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
+          transition={{ duration: 1.5, ease: 'easeOut' }}
           viewport={{ once: true }}
         />
 
@@ -137,7 +160,8 @@ export default function DNSSenseDDRPage() {
             transition={{ delay: 0.4, duration: 0.7 }}
             viewport={{ once: true }}
           >
-            Contact us to see how DNSSense DDR 2.0 delivers AI-powered DNS threat detection, automated response, and full network visibility.
+            See how <strong>DNSSense DDR 2.0</strong> empowers your security team with AI-powered detection, 
+            automated response, and deep DNS visibility.
           </motion.p>
 
           <motion.div

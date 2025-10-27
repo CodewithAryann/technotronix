@@ -3,34 +3,40 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Key, Lock, Users, Shield, GitPullRequest } from "lucide-react";
 
 export default function MiniOrangeIAMPage() {
   const features = [
     {
       title: "Single Sign-On (SSO) Across All Apps",
       desc: "Provides one-click access to all cloud, on-prem, and mobile applications using a single identity — simplifying user login and boosting productivity.",
+      icon: Key,
     },
     {
       title: "Adaptive Multi-Factor Authentication (MFA)",
       desc: "Strengthens security with contextual MFA — using device, location, and behavior-based checks to ensure only verified users gain access.",
+      icon: Lock,
     },
     {
       title: "Unified Identity Management",
       desc: "Centralizes user identities across Active Directory, Azure AD, HR systems, and cloud directories — ensuring consistent access control and compliance.",
+      icon: Users,
     },
     {
       title: "Granular Access Policies & Zero Trust Enforcement",
       desc: "Implements Zero Trust principles by dynamically validating every user, device, and session before granting access to critical resources.",
+      icon: Shield,
     },
     {
       title: "Secure Federation & Integration",
       desc: "Supports all major protocols (SAML, OAuth, OIDC, SCIM, LDAP) — enabling seamless integration with thousands of business applications and enterprise systems.",
+      icon: GitPullRequest,
     },
   ];
 
   return (
     <section className="relative min-h-screen bg-gray-50 flex flex-col items-center px-6 md:px-16 py-20 overflow-hidden">
-      {/* Header with Logo */}
+      {/* Header */}
       <div className="relative z-10 mb-12 flex justify-center">
         <Image
           src="/images/logos/tt-end_point-Digital-identity-guard.png"
@@ -41,7 +47,7 @@ export default function MiniOrangeIAMPage() {
         />
       </div>
 
-      {/* Title Section */}
+      {/* Title */}
       <div className="relative z-10 text-center max-w-4xl mb-16">
         <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-4">
           MiniOrange – Identity & Access Management (IAM)
@@ -56,27 +62,34 @@ export default function MiniOrangeIAMPage() {
 
       {/* Features Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl mb-20">
-        {features.map((feature, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.05 }}
-            className="bg-white p-6 rounded-2xl shadow-lg relative overflow-hidden
-                       hover:shadow-2xl transition-all duration-300
-                       before:absolute before:inset-0 before:rounded-2xl
-                       before:shadow-[0_0_20px_4px_#022E64]
-                       before:opacity-0 hover:before:opacity-100 before:transition-opacity before:pointer-events-none"
-          >
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">{feature.title}</h3>
-            <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
-          </motion.div>
-        ))}
+        {features.map((feature, i) => {
+          const Icon = feature.icon;
+          return (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05 }}
+              className="bg-white p-6 rounded-2xl shadow-lg relative overflow-hidden group
+                         hover:shadow-2xl transition-all duration-300
+                         before:absolute before:inset-0 before:rounded-2xl before:shadow-[0_0_20px_4px_rgba(2,46,100,0.6)]
+                         before:opacity-0 hover:before:opacity-100 before:transition-opacity before:pointer-events-none"
+            >
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#022E64]/10 mb-4
+                              group-hover:shadow-[0_0_15px_3px_rgba(2,46,100,0.4)] transition-shadow">
+                <Icon className="text-[#022E64]" size={28} />
+              </div>
+
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">{feature.title}</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
+            </motion.div>
+          );
+        })}
       </div>
 
-      {/* Powered by miniOrange Footer */}
+      {/* Footer */}
       <motion.div
         className="flex flex-col items-center mt-12"
         initial={{ opacity: 0, y: 30 }}
@@ -101,7 +114,7 @@ export default function MiniOrangeIAMPage() {
         </motion.div>
       </motion.div>
 
-      {/* Animated CTA Section */}
+      {/* CTA */}
       <motion.div
         className="relative overflow-hidden w-full py-20 px-6 text-center rounded-3xl shadow-2xl max-w-5xl
                    bg-linear-to-r from-[#002C60] via-[#004D94] to-[#0068C9] text-white mt-20"
@@ -110,7 +123,6 @@ export default function MiniOrangeIAMPage() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
       >
-        {/* Background Glow */}
         <motion.div
           className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.15),transparent_70%)]"
           initial={{ opacity: 0 }}

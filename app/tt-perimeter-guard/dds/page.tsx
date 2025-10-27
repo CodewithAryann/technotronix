@@ -3,28 +3,40 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import {
+  Cpu,
+  Activity,
+  Shield,
+  Cloud,
+  BarChart2,
+} from "lucide-react";
 
 export default function DNSSensePage() {
   const features = [
     {
       title: "AI-Powered Threat Detection",
       desc: "Uses advanced artificial intelligence and behavioral analytics to identify malicious domains, command-and-control traffic, and zero-day threats before they strike.",
+      icon: Cpu,
     },
     {
       title: "DNS Tunneling & Anomaly Detection",
       desc: "Detects covert DNS tunneling and unusual traffic patterns used by attackers to exfiltrate data or bypass perimeter defenses.",
+      icon: Activity,
     },
     {
       title: "Positive Security Model",
       desc: "Blocks access to newly created or suspicious domains until verified as safe — stopping phishing and zero-hour domain-based attacks in real time.",
+      icon: Shield,
     },
     {
       title: "Cloud-Native Protection for All Devices",
       desc: "Extends DNS-level defense to remote users, roaming devices, and branch offices — no VPN or hardware required.",
+      icon: Cloud,
     },
     {
       title: "Centralized Visibility & Policy Control",
       desc: "Provides unified dashboards, detailed DNS traffic analytics, and granular access policies for full visibility and control across networks.",
+      icon: BarChart2,
     },
   ];
 
@@ -56,27 +68,36 @@ export default function DNSSensePage() {
 
       {/* Features Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl mb-20">
-        {features.map((feature, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.05 }}
-            className="bg-white p-6 rounded-2xl shadow-lg relative overflow-hidden
-                       hover:shadow-2xl transition-all duration-300
-                       before:absolute before:inset-0 before:rounded-2xl
-                       before:shadow-[0_0_20px_4px_#022E64]
-                       before:opacity-0 hover:before:opacity-100 before:transition-opacity before:pointer-events-none"
-          >
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">{feature.title}</h3>
-            <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
-          </motion.div>
-        ))}
+        {features.map((feature, i) => {
+          const Icon = feature.icon;
+          return (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05 }}
+              className="bg-white p-6 rounded-2xl shadow-lg relative overflow-hidden group
+                         hover:shadow-2xl transition-all duration-300
+                         before:absolute before:inset-0 before:rounded-2xl
+                         before:shadow-[0_0_20px_4px_rgba(2,46,100,0.6)]
+                         before:opacity-0 hover:before:opacity-100 before:transition-opacity before:pointer-events-none"
+            >
+              {/* Icon */}
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#022E64]/10 mb-4
+                              group-hover:shadow-[0_0_15px_3px_rgba(2,46,100,0.4)] transition-shadow">
+                <Icon className="text-[#022E64]" size={28} />
+              </div>
+
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">{feature.title}</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
+            </motion.div>
+          );
+        })}
       </div>
 
-      {/* Powered by Zecurion Footer */}
+      {/* Powered by DNSSense Footer */}
       <motion.div
         className="flex flex-col items-center mt-12"
         initial={{ opacity: 0, y: 30 }}

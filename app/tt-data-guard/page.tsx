@@ -3,37 +3,47 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import {
+  Lock,
+  FileText,
+  Eye,
+  Link as LinkIcon,
+  Sliders,
+} from "lucide-react";
 
 export default function ZecurionPage() {
   const features = [
     {
       title: "Advanced Data Encryption",
       desc: "Automatically encrypts sensitive files and storage devices, ensuring your data stays protected — at rest, in motion, and in use.",
+      icon: Lock,
     },
     {
       title: "Intelligent Data Classification",
       desc: "Uses AI-driven classification to identify and categorize confidential information, applying the right protection policies automatically.",
+      icon: FileText,
     },
     {
       title: "Real-Time Access Monitoring",
       desc: "Tracks and audits all file operations — downloads, copies, and transfers — to detect and prevent unauthorized access or data theft.",
+      icon: Eye,
     },
     {
       title: "Seamless DLP Integration",
       desc: "Integrates natively with Zecurion Data Loss Prevention (DLP), providing unified protection from endpoints to cloud and network storage.",
+      icon: LinkIcon,
     },
     {
       title: "Centralized Policy Management",
       desc: "Offers a single, intuitive console to manage permissions, monitor access, and enforce encryption policies across all storage environments.",
+      icon: Sliders,
     },
   ];
 
   return (
     <section className="relative min-h-screen bg-gray-50 flex flex-col items-center px-6 md:px-16 py-20 overflow-hidden">
       {/* Header with Logo */}
-      <div
-        className="relative z-10 mb-12 flex justify-center"
-      >
+      <div className="relative z-10 mb-12 flex justify-center">
         <Image
           src="/images/logos/tt-data.png"
           alt="TT Data Guard Logo"
@@ -44,9 +54,7 @@ export default function ZecurionPage() {
       </div>
 
       {/* Title Section */}
-      <div
-        className="relative z-10 text-center max-w-4xl mb-16"
-      >
+      <div className="relative z-10 text-center max-w-4xl mb-16">
         <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-4">
           Zecurion – Storage Security
         </h1>
@@ -60,29 +68,32 @@ export default function ZecurionPage() {
 
       {/* Features Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl mb-20">
-        {features.map((feature, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.6,
-              delay: i * 0.1,
-              ease: "easeOut",
-            }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.05 }}
-            className="bg-white p-6 rounded-2xl shadow-lg relative overflow-hidden
-                       hover:shadow-2xl transition-all duration-300
-                       before:absolute before:inset-0 before:rounded-2xl before:shadow-[0_0_20px_4px_rgba(2,46,100,0.6)]
-                       before:opacity-0 hover:before:opacity-100 before:transition-opacity before:pointer-events-none"
-          >
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">
-              {feature.title}
-            </h3>
-            <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
-          </motion.div>
-        ))}
+        {features.map((feature, i) => {
+          const Icon = feature.icon;
+          return (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05 }}
+              className="bg-white p-6 rounded-2xl shadow-lg relative overflow-hidden group
+                         hover:shadow-2xl transition-all duration-300
+                         before:absolute before:inset-0 before:rounded-2xl before:shadow-[0_0_20px_4px_rgba(2,46,100,0.6)]
+                         before:opacity-0 hover:before:opacity-100 before:transition-opacity before:pointer-events-none"
+            >
+              {/* Icon */}
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#022E64]/10 mb-4
+                              group-hover:shadow-[0_0_15px_3px_rgba(2,46,100,0.4)] transition-shadow">
+                <Icon className="text-[#022E64]" size={28} />
+              </div>
+
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">{feature.title}</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
+            </motion.div>
+          );
+        })}
       </div>
 
       {/* Powered by Zecurion Footer */}
@@ -137,7 +148,6 @@ export default function ZecurionPage() {
             viewport={{ once: true }}
           >
             Ready to Fortify Your Data Security?
-
           </motion.h2>
 
           <motion.p

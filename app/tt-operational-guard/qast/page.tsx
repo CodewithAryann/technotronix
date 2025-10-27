@@ -3,28 +3,40 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import {
+  Database,
+  Network,
+  Target,
+  Share2,
+  BarChart3,
+} from "lucide-react"; // Icons added
 
 export default function QASTIPPage() {
   const features = [
     {
       title: "Centralized Threat Intelligence Aggregation",
       desc: "Collects and consolidates threat data from multiple feeds — open-source, commercial, and internal — into a single intelligence hub for faster analysis.",
+      icon: Database,
     },
     {
       title: "Real-Time Correlation & IOC Enrichment",
       desc: "Correlates indicators of compromise (IOCs) with live network and endpoint data, enriching them with context such as reputation, geolocation, and malware families.",
+      icon: Network,
     },
     {
       title: "Threat Actor Profiling & TTP Mapping",
       desc: "Maps adversary tactics, techniques, and procedures (TTPs) using the MITRE ATT&CK® framework — enabling proactive threat hunting and defense planning.",
+      icon: Target,
     },
     {
       title: "Automated Intelligence Sharing & Response",
       desc: "Automates the distribution of threat data to SIEM, SOAR, and XDR platforms via STIX/TAXII, ensuring timely, consistent, and coordinated protection.",
+      icon: Share2,
     },
     {
       title: "Visual Dashboards & Risk Scoring",
       desc: "Delivers intuitive dashboards that visualize attack campaigns, risk scores, and threat trends — turning complex intelligence into clear operational insight.",
+      icon: BarChart3,
     },
   ];
 
@@ -34,10 +46,11 @@ export default function QASTIPPage() {
       <div className="relative z-10 mb-12 flex justify-center">
         <Image
           src="/images/logos/tt-perimeter-guard.png"
-          alt="QAS TIP Logo"
+          alt="QAX TIP Logo"
           width={300}
           height={150}
           className="object-contain"
+          priority
         />
       </div>
 
@@ -50,33 +63,44 @@ export default function QASTIPPage() {
           Transform Threat Data into Actionable Defense
         </p>
         <p className="text-slate-600">
-          Centralize, correlate, and operationalize threat intelligence with QAX TIP — giving your security teams actionable insights to proactively defend against adversaries.
+          Centralize, correlate, and operationalize threat intelligence with QAX TIP — giving your
+          security teams actionable insights to proactively defend against adversaries.
         </p>
       </div>
 
-      {/* Features Grid */}
+      {/* Features Grid with Icon + Glow */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl mb-20">
-        {features.map((feature, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.05 }}
-            className="bg-white p-6 rounded-2xl shadow-lg relative overflow-hidden
-                       hover:shadow-2xl transition-all duration-300
-                       before:absolute before:inset-0 before:rounded-2xl
-                       before:shadow-[0_0_20px_4px_#022E64]
-                       before:opacity-0 hover:before:opacity-100 before:transition-opacity before:pointer-events-none"
-          >
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">{feature.title}</h3>
-            <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
-          </motion.div>
-        ))}
+        {features.map((feature, i) => {
+          const Icon = feature.icon;
+          return (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05 }}
+              className="bg-white p-6 rounded-2xl shadow-lg relative overflow-hidden group
+                         hover:shadow-2xl transition-all duration-300
+                         before:absolute before:inset-0 before:rounded-2xl before:shadow-[0_0_20px_4px_rgba(2,46,100,0.6)]
+                         before:opacity-0 hover:before:opacity-100 before:transition-opacity before:pointer-events-none"
+            >
+              {/* Icon */}
+              <div
+                className="flex items-center justify-center w-12 h-12 rounded-full bg-[#022E64]/10 mb-4
+                           group-hover:shadow-[0_0_25px_5px_rgba(2,46,100,0.4)] transition-shadow"
+              >
+                <Icon className="text-[#022E64]" size={28} />
+              </div>
+
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">{feature.title}</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
+            </motion.div>
+          );
+        })}
       </div>
 
-      {/* Powered by QAS Footer */}
+      {/* Powered by QAX Footer */}
       <motion.div
         className="flex flex-col items-center mt-12"
         initial={{ opacity: 0, y: 30 }}
@@ -101,21 +125,21 @@ export default function QASTIPPage() {
         </motion.div>
       </motion.div>
 
-      {/* Animated CTA Section */}
+      {/* Animated CTA Section (Same Glow as DNSSense) */}
       <motion.div
         className="relative overflow-hidden w-full py-20 px-6 text-center rounded-3xl shadow-2xl max-w-5xl
                    bg-linear-to-r from-[#002C60] via-[#004D94] to-[#0068C9] text-white mt-20"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
         viewport={{ once: true }}
       >
-        {/* Background Glow */}
         <motion.div
-          className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.15),transparent_70%)]"
+          className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(2,46,100,0.25),transparent_70%)]
+                     animate-pulse-slow pointer-events-none rounded-3xl"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
+          transition={{ duration: 1.5, ease: 'easeOut' }}
           viewport={{ once: true }}
         />
 
@@ -137,7 +161,8 @@ export default function QASTIPPage() {
             transition={{ delay: 0.4, duration: 0.7 }}
             viewport={{ once: true }}
           >
-            Contact us to see how QAS TIP centralizes threat data, correlates IOCs, and empowers your security teams with actionable insights and automated response.
+            Contact us to see how <strong>QAX TIP</strong> centralizes threat data, correlates IOCs, 
+            and empowers your security teams with actionable insights and automated response.
           </motion.p>
 
           <motion.div

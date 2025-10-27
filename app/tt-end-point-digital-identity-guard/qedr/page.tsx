@@ -3,28 +3,40 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import {
+  Activity,
+  BrainCircuit,
+  ShieldAlert,
+  Search,
+  Network,
+} from "lucide-react"; // 👈 carefully chosen icons
 
 export default function QASEDRPage() {
   const features = [
     {
       title: "Real-Time Endpoint Threat Detection",
       desc: "Continuously monitors endpoint activity to identify malware, ransomware, and advanced persistent threats (APTs) the moment they occur.",
+      icon: Activity, // symbolizes real-time monitoring
     },
     {
       title: "Behavioral Analytics & AI-Driven Detection",
       desc: "Uses artificial intelligence and machine learning to analyze patterns, detect abnormal behaviors, and uncover zero-day and insider threats.",
+      icon: BrainCircuit, // AI/ML intelligence
     },
     {
       title: "Automated Response & Threat Containment",
       desc: "Instantly isolates infected devices, terminates malicious processes, and blocks lateral movement to stop attacks before they spread.",
+      icon: ShieldAlert, // protective action and containment
     },
     {
       title: "Deep Forensic Visibility & Investigation Tools",
       desc: "Provides detailed endpoint telemetry, historical data, and forensic timelines to help security teams analyze root causes and strengthen defenses.",
+      icon: Search, // investigation / forensics
     },
     {
       title: "Seamless Integration with SIEM & XDR Platforms",
       desc: "Works in synergy with QAS SIEM, Seceon XDR, and other platforms to deliver a unified detection-and-response ecosystem across the entire network.",
+      icon: Network, // integration and connectivity
     },
   ];
 
@@ -50,30 +62,39 @@ export default function QASEDRPage() {
           Detect Fast. Respond Smarter. Stay Secure.
         </p>
         <p className="text-slate-600">
-          Protect endpoints with real-time detection, AI-driven analytics, automated containment, and unified integration with your SIEM and XDR ecosystem.
+          Protect endpoints with real-time detection, AI-driven analytics, automated containment,
+          and unified integration with your SIEM and XDR ecosystem.
         </p>
       </div>
 
       {/* Features Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl mb-20">
-        {features.map((feature, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.05 }}
-            className="bg-white p-6 rounded-2xl shadow-lg relative overflow-hidden
-                       hover:shadow-2xl transition-all duration-300
-                       before:absolute before:inset-0 before:rounded-2xl
-                       before:shadow-[0_0_20px_4px_#022E64]
-                       before:opacity-0 hover:before:opacity-100 before:transition-opacity before:pointer-events-none"
-          >
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">{feature.title}</h3>
-            <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
-          </motion.div>
-        ))}
+        {features.map((feature, i) => {
+          const Icon = feature.icon;
+          return (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05 }}
+              className="bg-white p-6 rounded-2xl shadow-lg relative overflow-hidden group
+                         hover:shadow-2xl transition-all duration-300
+                         before:absolute before:inset-0 before:rounded-2xl before:shadow-[0_0_20px_4px_rgba(2,46,100,0.6)]
+                         before:opacity-0 hover:before:opacity-100 before:transition-opacity before:pointer-events-none"
+            >
+              {/* Icon */}
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#022E64]/10 mb-4
+                              group-hover:shadow-[0_0_15px_3px_rgba(2,46,100,0.4)] transition-shadow">
+                <Icon className="text-[#022E64]" size={28} />
+              </div>
+
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">{feature.title}</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
+            </motion.div>
+          );
+        })}
       </div>
 
       {/* Powered by QAS Footer */}
@@ -137,7 +158,8 @@ export default function QASEDRPage() {
             transition={{ delay: 0.4, duration: 0.7 }}
             viewport={{ once: true }}
           >
-            Contact us to see how QAS EDR delivers real-time endpoint detection, AI-powered behavioral analytics, and automated response across your network.
+            Contact us to see how QAS EDR delivers real-time endpoint detection, AI-powered behavioral analytics,
+            and automated response across your network.
           </motion.p>
 
           <motion.div

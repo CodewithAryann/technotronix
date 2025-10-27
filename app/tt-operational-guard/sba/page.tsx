@@ -3,28 +3,40 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import {
+  Eye,
+  Brain,
+  Zap,
+  ShieldCheck,
+  BarChart3,
+} from "lucide-react";
 
 export default function SeceonPage() {
   const features = [
     {
       title: "End-to-End Threat Visibility",
       desc: "Combines SIEM, XDR, UEBA, and SOAR into one unified platform — delivering complete visibility across endpoints, networks, users, and cloud workloads.",
+      icon: Eye,
     },
     {
       title: "AI & Machine Learning-Driven Analytics",
       desc: "Analyzes billions of events using advanced AI and behavioral analytics to detect known, unknown, and insider threats in real time.",
+      icon: Brain,
     },
     {
       title: "Automated Response & Remediation",
       desc: "Built-in SOAR engine triggers playbooks that instantly isolate, block, or neutralize threats — cutting response time from hours to seconds.",
+      icon: Zap,
     },
     {
       title: "Threat Intelligence & Contextual Correlation",
       desc: "Integrates global threat feeds and correlates security events across layers to deliver prioritized, context-rich alerts that matter.",
+      icon: ShieldCheck,
     },
     {
       title: "Compliance & Security Posture Dashboard",
       desc: "Provides real-time dashboards, risk scoring, and compliance-ready reports aligned with ISO 27001, GDPR, and NIST — giving teams clarity and confidence.",
+      icon: BarChart3,
     },
   ];
 
@@ -38,6 +50,7 @@ export default function SeceonPage() {
           width={300}
           height={150}
           className="object-contain"
+          priority
         />
       </div>
 
@@ -54,26 +67,34 @@ export default function SeceonPage() {
         </p>
       </div>
 
-      {/* Features Grid */}
+      {/* Features Grid with Icons + Glow */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl mb-20">
-        {features.map((feature, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.05 }}
-            className="bg-white p-6 rounded-2xl shadow-lg relative overflow-hidden
-                       hover:shadow-2xl transition-all duration-300
-                       before:absolute before:inset-0 before:rounded-2xl
-                       before:shadow-[0_0_20px_4px_#022E64]
-                       before:opacity-0 hover:before:opacity-100 before:transition-opacity before:pointer-events-none"
-          >
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">{feature.title}</h3>
-            <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
-          </motion.div>
-        ))}
+        {features.map((feature, i) => {
+          const Icon = feature.icon;
+          return (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05 }}
+              className="bg-white p-6 rounded-2xl shadow-lg relative overflow-hidden group
+                         hover:shadow-2xl transition-all duration-300
+                         before:absolute before:inset-0 before:rounded-2xl before:shadow-[0_0_20px_4px_rgba(2,46,100,0.6)]
+                         before:opacity-0 hover:before:opacity-100 before:transition-opacity before:pointer-events-none"
+            >
+              {/* Icon */}
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#022E64]/10 mb-4
+                              group-hover:shadow-[0_0_25px_5px_rgba(2,46,100,0.4)] transition-shadow">
+                <Icon className="text-[#022E64]" size={28} />
+              </div>
+
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">{feature.title}</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
+            </motion.div>
+          );
+        })}
       </div>
 
       {/* Powered by Seceon Footer */}
@@ -101,21 +122,22 @@ export default function SeceonPage() {
         </motion.div>
       </motion.div>
 
-      {/* Animated CTA Section */}
+      {/* CTA Section with Glow */}
       <motion.div
         className="relative overflow-hidden w-full py-20 px-6 text-center rounded-3xl shadow-2xl max-w-5xl
                    bg-linear-to-r from-[#002C60] via-[#004D94] to-[#0068C9] text-white mt-20"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
         viewport={{ once: true }}
       >
-        {/* Background Glow */}
+        {/* Radial Glow */}
         <motion.div
-          className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.15),transparent_70%)]"
+          className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(2,46,100,0.25),transparent_70%)]
+                     animate-pulse-slow pointer-events-none rounded-3xl"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
+          transition={{ duration: 1.5, ease: 'easeOut' }}
           viewport={{ once: true }}
         />
 
@@ -137,7 +159,7 @@ export default function SeceonPage() {
             transition={{ delay: 0.4, duration: 0.7 }}
             viewport={{ once: true }}
           >
-            Contact us to see how Seceon unifies SIEM, XDR, behavioral analytics, and SOAR into one intelligent platform for complete security coverage.
+            See how <strong>Seceon</strong> unifies SIEM, XDR, behavioral analytics, and SOAR into one intelligent platform for complete visibility and automated defense.
           </motion.p>
 
           <motion.div

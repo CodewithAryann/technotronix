@@ -3,28 +3,40 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import {
+  Shield,
+  Cpu,
+  Wifi,
+  Activity,
+  Layers
+} from "lucide-react";
 
 export default function FortiGatePage() {
   const features = [
     {
       title: "Next-Generation Threat Protection",
       desc: "Combines intrusion prevention, web filtering, antivirus, and application control — delivering real-time defense against known and zero-day threats.",
+      icon: Shield,
     },
     {
       title: "High-Performance Security with FortiASIC",
       desc: "Powered by Fortinet’s custom-built ASIC processors, FortiGate delivers exceptional throughput and low latency — ensuring speed without sacrificing security.",
+      icon: Cpu,
     },
     {
       title: "Integrated Secure SD-WAN",
       desc: "Optimizes and secures WAN connectivity with built-in SD-WAN — reducing cost, improving application performance, and ensuring reliable cloud access.",
+      icon: Wifi,
     },
     {
       title: "AI-Driven Threat Intelligence (FortiGuard)",
       desc: "Leverages FortiGuard Labs’ global threat intelligence network to continuously detect, analyze, and block emerging threats in real time.",
+      icon: Activity,
     },
     {
       title: "Centralized Management & Security Fabric Integration",
       desc: "Integrates seamlessly with Fortinet’s Security Fabric, providing unified policy control, analytics, and orchestration across network, endpoint, and cloud.",
+      icon: Layers,
     },
   ];
 
@@ -56,24 +68,33 @@ export default function FortiGatePage() {
 
       {/* Features Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl mb-20">
-        {features.map((feature, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.05 }}
-            className="bg-white p-6 rounded-2xl shadow-lg relative overflow-hidden
-                       hover:shadow-2xl transition-all duration-300
-                       before:absolute before:inset-0 before:rounded-2xl
-                       before:shadow-[0_0_20px_4px_#022E64]
-                       before:opacity-0 hover:before:opacity-100 before:transition-opacity before:pointer-events-none"
-          >
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">{feature.title}</h3>
-            <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
-          </motion.div>
-        ))}
+        {features.map((feature, i) => {
+          const Icon = feature.icon;
+          return (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05 }}
+              className="bg-white p-6 rounded-2xl shadow-lg relative overflow-hidden group
+                         hover:shadow-2xl transition-all duration-300
+                         before:absolute before:inset-0 before:rounded-2xl
+                         before:shadow-[0_0_20px_4px_rgba(2,46,100,0.6)]
+                         before:opacity-0 hover:before:opacity-100 before:transition-opacity before:pointer-events-none"
+            >
+              {/* Icon */}
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#022E64]/10 mb-4
+                              group-hover:shadow-[0_0_15px_3px_rgba(2,46,100,0.4)] transition-shadow">
+                <Icon className="text-[#022E64]" size={28} />
+              </div>
+
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">{feature.title}</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
+            </motion.div>
+          );
+        })}
       </div>
 
       {/* Powered by Fortinet Footer */}

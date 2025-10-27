@@ -3,28 +3,34 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Eye, Zap, ShieldCheck, Repeat, Search } from "lucide-react";
 
 export default function QASPage() {
   const features = [
     {
       title: "Deep Network Visibility",
       desc: "Monitors both north-south and east-west network traffic — giving full visibility into every packet, protocol, and communication across the environment.",
+      icon: Eye,
     },
     {
       title: "AI-Powered Behavioral Analytics",
       desc: "Uses machine learning to baseline normal network behavior and detect anomalies, insider threats, and advanced persistent attacks in real time.",
+      icon: Zap,
     },
     {
       title: "Encrypted Traffic Analysis",
       desc: "Detects threats hidden within encrypted traffic without decryption — ensuring security visibility without compromising privacy or performance.",
+      icon: ShieldCheck,
     },
     {
       title: "Automated Threat Response",
       desc: "Integrates with firewalls, SIEM, and SOAR platforms to automatically isolate compromised hosts, block malicious traffic, and contain attacks instantly.",
+      icon: Repeat,
     },
     {
       title: "Forensics & Incident Investigation",
       desc: "Captures detailed packet-level data and timelines to support deep forensic analysis, root-cause investigation, and compliance reporting.",
+      icon: Search,
     },
   ];
 
@@ -56,24 +62,32 @@ export default function QASPage() {
 
       {/* Features Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl mb-20">
-        {features.map((feature, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.05 }}
-            className="bg-white p-6 rounded-2xl shadow-lg relative overflow-hidden
-                       hover:shadow-2xl transition-all duration-300
-                       before:absolute before:inset-0 before:rounded-2xl
-                       before:shadow-[0_0_20px_4px_#022E64]
-                       before:opacity-0 hover:before:opacity-100 before:transition-opacity before:pointer-events-none"
-          >
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">{feature.title}</h3>
-            <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
-          </motion.div>
-        ))}
+        {features.map((feature, i) => {
+          const Icon = feature.icon;
+          return (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05 }}
+              className="bg-white p-6 rounded-2xl shadow-lg relative overflow-hidden group
+                         hover:shadow-2xl transition-all duration-300
+                         before:absolute before:inset-0 before:rounded-2xl
+                         before:shadow-[0_0_20px_4px_rgba(2,46,100,0.6)]
+                         before:opacity-0 hover:before:opacity-100 before:transition-opacity before:pointer-events-none"
+            >
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#022E64]/10 mb-4
+                              group-hover:shadow-[0_0_15px_3px_rgba(2,46,100,0.4)] transition-shadow">
+                <Icon className="text-[#022E64]" size={28} />
+              </div>
+
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">{feature.title}</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
+            </motion.div>
+          );
+        })}
       </div>
 
       {/* Powered by QAS Footer */}

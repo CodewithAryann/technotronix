@@ -3,34 +3,40 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Shield, Filter, AlertTriangle, Database, BarChart2 } from "lucide-react";
 
 export default function ZecurionSWGPage() {
   const features = [
     {
       title: "Advanced Web Threat Protection",
       desc: "Blocks malware, phishing, and malicious websites in real time using Zecurion’s constantly updated threat intelligence and signature database.",
+      icon: Shield,
     },
     {
       title: "Intelligent Content Filtering & Categorization",
       desc: "Analyzes and categorizes millions of URLs into 100+ categories — enabling precise policy control and safe browsing across all users.",
+      icon: Filter,
     },
     {
       title: "Integrated IDS/IPS & SSL Inspection",
       desc: "Detects and prevents network intrusions while decrypting and inspecting SSL/TLS traffic for hidden threats — without impacting performance.",
+      icon: AlertTriangle,
     },
     {
       title: "Seamless DLP & ICAP Integration",
       desc: "Works natively with Zecurion DLP and other enterprise tools to enforce unified data protection across endpoints, storage, and the web.",
+      icon: Database,
     },
     {
       title: "Centralized Management & Reporting",
       desc: "Offers a single, web-based console to monitor web traffic, user activity, and security incidents — with real-time dashboards and compliance-ready reports.",
+      icon: BarChart2,
     },
   ];
 
   return (
     <section className="relative min-h-screen bg-gray-50 flex flex-col items-center px-6 md:px-16 py-20 overflow-hidden">
-      {/* Header with Logo */}
+      {/* Header */}
       <div className="relative z-10 mb-12 flex justify-center">
         <Image
           src="/images/logos/tt-perimeter-guard.png" 
@@ -42,9 +48,7 @@ export default function ZecurionSWGPage() {
       </div>
 
       {/* Title Section */}
-      <div
-        className="relative z-10 text-center max-w-4xl mb-16"
-      >
+      <div className="relative z-10 text-center max-w-4xl mb-16">
         <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-4">
           Zecurion – Secure Web Gateway (SWG)
         </h1>
@@ -58,23 +62,31 @@ export default function ZecurionSWGPage() {
 
       {/* Features Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl mb-20">
-        {features.map((feature, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.05 }}
-            className="bg-white p-6 rounded-2xl shadow-lg relative overflow-hidden
-                       hover:shadow-2xl transition-all duration-300
-                       before:absolute before:inset-0 before:rounded-2xl before:shadow-[0_0_20px_4px_rgba(2,46,100,0.6)]
-                       before:opacity-0 hover:before:opacity-100 before:transition-opacity before:pointer-events-none"
-          >
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">{feature.title}</h3>
-            <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
-          </motion.div>
-        ))}
+        {features.map((feature, i) => {
+          const Icon = feature.icon;
+          return (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05 }}
+              className="bg-white p-6 rounded-2xl shadow-lg relative overflow-hidden group
+                         hover:shadow-2xl transition-all duration-300
+                         before:absolute before:inset-0 before:rounded-2xl before:shadow-[0_0_20px_4px_rgba(2,46,100,0.6)]
+                         before:opacity-0 hover:before:opacity-100 before:transition-opacity before:pointer-events-none"
+            >
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#022E64]/10 mb-4
+                              group-hover:shadow-[0_0_15px_3px_rgba(2,46,100,0.4)] transition-shadow">
+                <Icon className="text-[#022E64]" size={28} />
+              </div>
+
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">{feature.title}</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
+            </motion.div>
+          );
+        })}
       </div>
 
       {/* Powered by Zecurion Footer */}
@@ -111,7 +123,6 @@ export default function ZecurionSWGPage() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
       >
-        {/* Background Glow */}
         <motion.div
           className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.15),transparent_70%)]"
           initial={{ opacity: 0 }}

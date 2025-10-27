@@ -3,37 +3,41 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Eye, Zap, Monitor, CheckSquare, Plug } from "lucide-react";
 
 export default function NanitorPage() {
   const features = [
     {
       title: "Continuous Asset & Exposure Discovery",
       desc: "Automatically identifies all digital assets, vulnerabilities, misconfigurations, and exposures across your on-prem, cloud, and hybrid environments — in real time.",
+      icon: Eye,
     },
     {
       title: "Risk-Based Prioritization",
       desc: "Goes beyond CVE severity — ranks threats based on exploitability, business impact, and asset criticality to help teams focus where it counts.",
+      icon: Zap,
     },
     {
       title: "Unified Security Posture Dashboard",
       desc: "Visualizes your entire attack surface, security health scores, and exposure trends — turning complex data into clear, actionable insights.",
+      icon: Monitor,
     },
     {
       title: "Guided Remediation & Progress Tracking",
       desc: "Provides clear, prioritized remediation steps and lets you assign, track, and measure fixes — bridging the gap between IT and security teams.",
+      icon: CheckSquare,
     },
     {
       title: "Integration with Existing Security Stack",
       desc: "Connects with SIEM, IAM, and vulnerability scanners to unify exposure data and automate risk reduction workflows.",
+      icon: Plug,
     },
   ];
 
   return (
     <section className="relative min-h-screen bg-gray-50 flex flex-col items-center px-6 md:px-16 py-20 overflow-hidden">
       {/* Header with Logo */}
-      <div
-        className="relative z-10 mb-12 flex justify-center"
-      >
+      <div className="relative z-10 mb-12 flex justify-center">
         <Image
           src="/images/logos/tt-perimeter-guard.png"
           alt="Nanitor Logo"
@@ -44,9 +48,7 @@ export default function NanitorPage() {
       </div>
 
       {/* Title Section */}
-      <div
-        className="relative z-10 text-center max-w-4xl mb-16"
-      >
+      <div className="relative z-10 text-center max-w-4xl mb-16">
         <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-4">
           Nanitor – Continuous Threat Exposure Management (CTEM)
         </h1>
@@ -60,32 +62,36 @@ export default function NanitorPage() {
 
       {/* Features Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl mb-20">
-        {features.map((feature, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.6,
-              delay: i * 0.1,
-              ease: "easeOut",
-            }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.05 }}
-            className="bg-white p-6 rounded-2xl shadow-lg relative overflow-hidden
-                       hover:shadow-2xl transition-all duration-300
-                       before:absolute before:inset-0 before:rounded-2xl before:shadow-[0_0_20px_4px_rgba(2,46,100,0.6)]
-                       before:opacity-0 hover:before:opacity-100 before:transition-opacity before:pointer-events-none"
-          >
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">
-              {feature.title}
-            </h3>
-            <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
-          </motion.div>
-        ))}
+        {features.map((feature, i) => {
+          const Icon = feature.icon;
+          return (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05 }}
+              className="bg-white p-6 rounded-2xl shadow-lg relative overflow-hidden group
+                         hover:shadow-2xl transition-all duration-300
+                         before:absolute before:inset-0 before:rounded-2xl
+                         before:shadow-[0_0_20px_4px_rgba(2,46,100,0.6)]
+                         before:opacity-0 hover:before:opacity-100 before:transition-opacity before:pointer-events-none"
+            >
+              {/* Icon */}
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#022E64]/10 mb-4
+                              group-hover:shadow-[0_0_15px_3px_rgba(2,46,100,0.4)] transition-shadow">
+                <Icon className="text-[#022E64]" size={28} />
+              </div>
+
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">{feature.title}</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
+            </motion.div>
+          );
+        })}
       </div>
 
-      {/* Powered by Zecurion Footer */}
+      {/* Powered by Nanitor Footer */}
       <motion.div
         className="flex flex-col items-center mt-12"
         initial={{ opacity: 0, y: 30 }}
@@ -147,7 +153,7 @@ export default function NanitorPage() {
             viewport={{ once: true }}
           >
             Contact us to discover how Nanitor CTEM empowers your security teams to
-          stay one step ahead of evolving cyber threats.
+            stay one step ahead of evolving cyber threats.
           </motion.p>
 
           <motion.div
