@@ -7,7 +7,7 @@ export default function OurServiceSection() {
   const services = [
     {
       image: '/images/1.png',
-      title: 'Technotronix Assesment',
+      title: 'Technotronix Assessment',
       description:
         'We help organizations strengthen cyber resilience through tailored assessments that secure cloud, data, network, and endpoint environments. Our solutions deliver visibility into threats and vulnerabilities, enabling a robust, compliant security posture.',
     },
@@ -38,10 +38,6 @@ export default function OurServiceSection() {
         />
       </div>
 
-      {/* White Overlay for Readability */}
-      {/* <div className="absolute inset-0 bg-white/70 backdrop-blur-sm z-0" /> */}
-
-      {/* ontent */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
         {/* Header */}
         <motion.h3
@@ -80,27 +76,36 @@ export default function OurServiceSection() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: i * 0.2 }}
-              className="group relative bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
+              whileHover={{ scale: 1.05 }}
+              className="group relative bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden"
             >
-              {/* Image */}
-              <div className="relative w-full h-48 mb-6 overflow-hidden rounded-xl">
+              {/* Animated Image */}
+              <motion.div
+                className="relative w-full h-48 mb-6 overflow-hidden rounded-xl"
+                whileHover={{ scale: 1.05, rotate: 1.5 }}
+                transition={{ duration: 0.5 }}
+              >
                 <Image
                   src={service.image}
                   alt={service.title}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="object-cover"
                 />
-              </div>
+              </motion.div>
 
               {/* Title */}
-              <h3 className="text-xl font-semibold text-[#022E64] mb-3">
+              <h3 className="text-xl font-semibold text-[#022E64] mb-3 group-hover:text-[#0068C9] transition-colors duration-300">
                 {service.title}
               </h3>
 
               {/* Description */}
-              <p className="text-gray-600 text-sm leading-relaxed">
-                {service.description}
-              </p>
+              <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
+
+              {/* Hover Glow Overlay */}
+              <motion.div
+                className="absolute inset-0 rounded-2xl bg-linear-to-r from-[#002C60]/10 via-[#004D94]/10 to-[#0068C9]/10 opacity-0 group-hover:opacity-100 pointer-events-none"
+                transition={{ duration: 0.5 }}
+              />
             </motion.div>
           ))}
         </div>
