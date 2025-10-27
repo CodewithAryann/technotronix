@@ -74,7 +74,7 @@ export default function AboutPage() {
         <motion.button
           whileHover={{ scale: 1.07 }}
           whileTap={{ scale: 0.95 }}
-          className="px-8 py-3 bg-[#022e64] hover:bg-[#033875] text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
+          className="px-8 py-3 bg-[#022e64] hover:bg-[#033875] text-white font-semibold rounded-lg shadow-lg transition-all duration-300 cursor-pointer"
         >
           Contact Us
         </motion.button>

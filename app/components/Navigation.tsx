@@ -33,7 +33,7 @@ export default function Navigation() {
   const [mobileOpenSubId, setMobileOpenSubId] = useState<string | null>(null);
   const hoverTimeoutRef = useRef<number | null>(null);
 
-  const navLinks: NavLink[] = [
+ const navLinks: NavLink[] = [
     { id: 'home', href: '/', label: 'Home' },
     { id: 'about', href: '/about', label: 'About' },
     {
@@ -82,7 +82,31 @@ export default function Navigation() {
         },
       ],
     },
-    { id: 'video-analysis', href: '/video-analysis', label: 'Video Analytics' },
+    {
+      id: 'video-analysis',
+      label: 'Data Analytics',
+      href: '/video-analysis', 
+      children: [
+        {
+          id: 'vid-analytics',
+          label: 'Video Analytics',
+          href: '/video-analysis',
+        },
+        {
+          id: 'visi-vg',
+          label: 'People Counting'
+        },
+        {
+          id: 'omni-view',
+          label: 'Queue Management'
+        },
+        {
+          id: 'visi-cloud',
+          label: 'Heatmap & Zone Analytics',
+        },
+        { id: 'Storefront Analytics', label: 'VisiGz for Retail', href: '/video-analysis/visi-retail' },
+      ],
+    },
     { id: 'services', href: '/services', label: 'Services' },
     { id: 'contact', href: '/contact', label: 'Contact Us' },
   ];
@@ -135,18 +159,16 @@ export default function Navigation() {
                   }, 300);
                 }}
               >
-                <button
+                <Link
+                  href={link.href ?? '#'}
                   className="flex items-center text-slate-700 hover:text-[#022e64] font-medium transition-colors px-4 py-2 rounded-lg hover:bg-[#022e64]/10"
-                  aria-expanded={openDropdownId === link.id}
-                  aria-label={`${link.label} menu`}
                 >
                   {link.label}
                   <ChevronDown
                     size={16}
                     className={`ml-1 transition-transform ${openDropdownId === link.id ? 'rotate-180' : ''}`}
-                    aria-hidden="true"
                   />
-                </button>
+                </Link>
 
                 {/* Dropdown */}
                 <div
@@ -193,7 +215,7 @@ export default function Navigation() {
                           className="flex justify-between items-center px-4 py-2 text-slate-700 hover:bg-[#022e64]/10 transition-colors"
                         >
                           {sub.label}
-                          <ChevronRight size={14} aria-hidden="true" />
+                          <ChevronRight size={14} />
                         </Link>
 
                         {/* Sub Dropdown */}
@@ -240,13 +262,7 @@ export default function Navigation() {
         {/* Mobile Toggle */}
         <button
           className="md:hidden text-slate-700"
-          onClick={() => {
-            setMobileMenuOpen((s) => !s);
-            if (mobileMenuOpen) {
-              setMobileOpenDropdownId(null);
-              setMobileOpenSubId(null);
-            }
-          }}
+          onClick={() => setMobileMenuOpen((s) => !s)}
           aria-expanded={mobileMenuOpen}
           aria-label={mobileMenuOpen ? 'Close main menu' : 'Open main menu'}
         >
@@ -265,10 +281,18 @@ export default function Navigation() {
                   className="flex justify-between items-center py-3 px-2 text-slate-700 font-medium cursor-pointer"
                   onClick={() => toggleMobileDropdown(link.id)}
                 >
-                  <span>{link.label}</span>
+                  <Link
+                    href={link.href ?? '#'}
+                    className="flex-1"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
                   <ChevronDown
                     size={20}
-                    className={`text-slate-700 transition-transform ${mobileOpenDropdownId === link.id ? 'rotate-180' : ''}`}
+                    className={`text-slate-700 transition-transform ${
+                      mobileOpenDropdownId === link.id ? 'rotate-180' : ''
+                    }`}
                   />
                 </div>
 
@@ -280,7 +304,11 @@ export default function Navigation() {
                         <Link
                           key={sub.id}
                           href={sub.href ?? '#'}
-                          className="block py-2 text-slate-600 hover:text-[#022e64]"
+                          className={`block py-2 ${
+                            sub.id === 'contact'
+                              ? 'bg-[#022E64] text-white font-bold shadow-lg hover:scale-105 transform transition-all px-3 rounded-md'
+                              : 'text-slate-600 hover:text-[#022e64]'
+                          }`}
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           {sub.label}
@@ -295,7 +323,9 @@ export default function Navigation() {
                             <span className="text-slate-600">{sub.label}</span>
                             <ChevronDown
                               size={16}
-                              className={`text-slate-600 transition-transform ${mobileOpenSubId === sub.id ? 'rotate-180' : ''}`}
+                              className={`text-slate-600 transition-transform ${
+                                mobileOpenSubId === sub.id ? 'rotate-180' : ''
+                              }`}
                             />
                           </div>
 
