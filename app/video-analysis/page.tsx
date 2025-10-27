@@ -119,89 +119,120 @@ export default function VisiGzPage() {
 
       {/* ================= ECOSYSTEM SECTION ================= */}
       <section className="max-w-6xl mx-auto px-4 sm:px-8 md:px-16 py-16 sm:py-20 md:py-24 space-y-12">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid md:grid-cols-2 gap-10 items-center"
-        >
-          <motion.div variants={fadeInUp}>
-            <h2 className="text-2xl sm:text-3xl font-semibold text-[#022e64]">
-              TT – VisiGz – AI-powered video analytics platform
-            </h2>
-            <p className="mt-4 text-gray-700 text-base sm:text-lg leading-relaxed">
-              The VisiGz Sensor is an intelligent AI-powered camera built to deliver detailed
-              insights into visitor behavior and demographics. Equipped with cross-camera
-              recognition, it provides precise people counting, while infrared night vision and
-              ultra-HD imaging ensure round-the-clock clarity.
-            </p>
-          </motion.div>
-          <motion.div variants={fadeInUp} className="flex justify-center">
-            <Image
-              src="/images/video-ana/pic-1.png"
-              alt="VisiGz Ecosystem"
-              width={600}
-              height={400}
-              className="rounded-xl shadow-lg w-full h-auto max-w-md sm:max-w-lg"
-            />
-          </motion.div>
-        </motion.div>
-      </section>
+  <motion.div
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    className="grid md:grid-cols-2 gap-10 items-center"
+  >
+    <motion.div
+      variants={fadeInUp}
+      whileHover={{ scale: 1.03 }}
+      transition={{ type: "spring", stiffness: 200 }}
+      className="hover:text-[#022e64] transition-colors duration-300"
+    >
+      <h2 className="text-2xl sm:text-3xl font-semibold text-[#022e64]">
+        TT – VisiGz – AI-powered video analytics platform
+      </h2>
+      <p className="mt-4 text-gray-700 text-base sm:text-lg leading-relaxed">
+        The VisiGz Sensor is an intelligent AI-powered camera built to deliver detailed insights into visitor behavior and demographics. Equipped with cross-camera recognition, it provides precise people counting, while infrared night vision and ultra-HD imaging ensure round-the-clock clarity.
+      </p>
+    </motion.div>
 
-      {/* ================= DEVICES SECTION ================= */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-8 md:px-16 py-16 sm:py-20 md:py-24 space-y-20">
-        {/* SmartCam */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="flex flex-col md:flex-row items-center gap-10"
-        >
-          <motion.div variants={fadeInUp} className="w-full md:w-1/2">
-            <Image
-              src="/images/video-ana/pic-2.png"
-              alt="VisiGz OmniView"
-              width={500}
-              height={400}
-              className="rounded-xl shadow-lg w-full h-auto"
-            />
-          </motion.div>
-          <motion.div variants={fadeInUp} className="w-full md:w-1/2 space-y-4">
-            <h3 className="text-2xl sm:text-3xl font-semibold text-[#022e64]">VisiGz OmniView</h3>
-            <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
-              The VisiGz OmniView is a 360° heatmap camera delivering a complete overview of large
-              environments. With 6–10 meter coverage, it’s ideal for malls and airports — providing
-              privacy-safe, AI-driven behavioral insights.
-            </p>
-          </motion.div>
-        </motion.div>
+    <motion.div
+      variants={fadeInUp}
+      whileHover={{ scale: 1.05 }}
+      transition={{ type: "spring", stiffness: 200 }}
+      className="flex justify-center"
+    >
+      <Image
+        src="/images/video-ana/pic-1.png"
+        alt="VisiGz Ecosystem"
+        width={600}
+        height={400}
+        className="rounded-xl shadow-lg w-full h-auto max-w-md sm:max-w-lg hover:shadow-[#022e64]/50 transition-shadow duration-300"
+      />
+    </motion.div>
+  </motion.div>
+</section>
 
-        {/* OmniView */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="flex flex-col md:flex-row-reverse items-center gap-10"
-        >
-          <motion.div variants={fadeInUp} className="w-full md:w-1/2">
-            <Image
-              src="/images/video-ana/pic-3.png"
-              alt="VisiGz Cloud"
-              width={500}
-              height={400}
-              className="rounded-xl shadow-lg w-full h-auto"
-            />
-          </motion.div>
-          <motion.div variants={fadeInUp} className="w-full md:w-1/2 space-y-4">
-            <h3 className="text-2xl sm:text-3xl font-semibold text-[#022e64]">VisiGz Cloud</h3>
-            <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
-              VisiGz Cloud is a powerful cloud-based dashboard for unified analytics across all
-              devices. It transforms data into actionable insights for smarter operations and better
-              customer experiences.
-            </p>
-          </motion.div>
-        </motion.div>
-      </section>
+{/* ================= DEVICES SECTION ================= */}
+<section className="max-w-6xl mx-auto px-4 sm:px-8 md:px-16 py-16 sm:py-20 md:py-24 space-y-20">
+  {/* SmartCam */}
+  <motion.div
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    className="flex flex-col md:flex-row items-center gap-10"
+  >
+    <motion.div
+      variants={fadeInUp}
+      whileHover={{ scale: 1.05 }}
+      transition={{ type: "spring", stiffness: 200 }}
+      className="w-full md:w-1/2"
+    >
+      <Image
+        src="/images/video-ana/pic-2.png"
+        alt="VisiGz OmniView"
+        width={500}
+        height={400}
+        className="rounded-xl shadow-lg w-full h-auto hover:shadow-[#022e64]/50 transition-shadow duration-300"
+      />
+    </motion.div>
+
+    <motion.div
+      variants={fadeInUp}
+      whileHover={{ scale: 1.03, color: "#022e64" }}
+      transition={{ type: "spring", stiffness: 200 }}
+      className="w-full md:w-1/2 space-y-4 transition-colors duration-300 hover:text-[#022e64]"
+    >
+      <h3 className="text-2xl sm:text-3xl font-semibold text-[#022e64]">
+        VisiGz OmniView
+      </h3>
+      <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
+        The VisiGz OmniView is a 360° heatmap camera delivering a complete overview of large environments. With 6–10 meter coverage, it’s ideal for malls and airports — providing privacy-safe, AI-driven behavioral insights.
+      </p>
+    </motion.div>
+  </motion.div>
+
+  {/* OmniView */}
+  <motion.div
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    className="flex flex-col md:flex-row-reverse items-center gap-10"
+  >
+    <motion.div
+      variants={fadeInUp}
+      whileHover={{ scale: 1.05 }}
+      transition={{ type: "spring", stiffness: 200 }}
+      className="w-full md:w-1/2"
+    >
+      <Image
+        src="/images/video-ana/pic-3.png"
+        alt="VisiGz Cloud"
+        width={500}
+        height={400}
+        className="rounded-xl shadow-lg w-full h-auto hover:shadow-[#022e64]/50 transition-shadow duration-300"
+      />
+    </motion.div>
+
+    <motion.div
+      variants={fadeInUp}
+      whileHover={{ scale: 1.03, color: "#022e64" }}
+      transition={{ type: "spring", stiffness: 200 }}
+      className="w-full md:w-1/2 space-y-4 transition-colors duration-300 hover:text-[#022e64]"
+    >
+      <h3 className="text-2xl sm:text-3xl font-semibold text-[#022e64]">
+        VisiGz Cloud
+      </h3>
+      <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
+        VisiGz Cloud is a powerful cloud-based dashboard for unified analytics across all devices. It transforms data into actionable insights for smarter operations and better customer experiences.
+      </p>
+    </motion.div>
+  </motion.div>
+</section>
+
 
       {/* ================= EVOLUTION SECTION ================= */}
       <section className="max-w-4xl mx-auto px-4 sm:px-8 md:px-16 py-16 sm:py-20 md:py-24">
@@ -241,48 +272,63 @@ export default function VisiGzPage() {
       </section>
 
       {/* ================= RETAIL SECTION ================= */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-8 md:px-16 py-16 sm:py-20 md:py-24">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="text-center space-y-4 mb-10"
-        >
-          <h2 className="text-2xl sm:text-3xl font-semibold text-[#022e64]">VisiGz for Retail</h2>
-          <p className="text-gray-700 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto">
-            VisiGz revolutionizes retail by turning shopper movement and behavior into actionable
-            insights. Gain a deeper understanding of how customers interact with spaces, products,
-            and staff.
-          </p>
-        </motion.div>
+     <section className="max-w-6xl mx-auto px-4 sm:px-8 md:px-16 py-16 sm:py-20 md:py-24">
+  <motion.div
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    className="text-center space-y-4 mb-10"
+  >
+    <h2 className="text-2xl sm:text-3xl font-semibold text-[#022e64]">
+      VisiGz for Retail
+    </h2>
+    <p className="text-gray-700 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto">
+      VisiGz revolutionizes retail by turning shopper movement and behavior into actionable
+      insights. Gain a deeper understanding of how customers interact with spaces, products,
+      and staff.
+    </p>
+  </motion.div>
 
+  <motion.div
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"
+  >
+    {[
+      { icon: MapPin, title: "Foot Traffic Insights: Analyze visitor flow and high-traffic zones." },
+      { icon: Users, title: "Customer Journey Mapping: Track interactions and movement." },
+      { icon: Clock, title: "Queue & Staff Management: Optimize workforce distribution." },
+      { icon: ShoppingCart, title: "Conversion Analysis: Improve marketing & sales." },
+      { icon: LayoutDashboard, title: "Layout Optimization: Enhance store design." },
+      { icon: Cpu, title: "Operational Efficiency: Streamline service delivery." },
+    ].map((item, idx) => (
+      <motion.div
+        key={idx}
+        variants={fadeInUp}
+        whileHover={{
+          scale: 1.07,
+          boxShadow: "0 0 25px rgba(2, 46, 100, 0.6)",
+        }}
+        transition={{ type: "spring", stiffness: 200, damping: 12 }}
+        className="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center
+                   transition-all duration-300 hover:shadow-[#022e64]/40"
+      >
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          whileHover={{ rotate: 10 }}
+          transition={{ type: "spring", stiffness: 300 }}
+          className="p-4 rounded-full bg-[#022e64]/10 mb-4"
         >
-          {[
-            { icon: MapPin, title: "Foot Traffic Insights: Analyze visitor flow and high-traffic zones." },
-            { icon: Users, title: "Customer Journey Mapping: Track interactions and movement." },
-            { icon: Clock, title: "Queue & Staff Management: Optimize workforce distribution." },
-            { icon: ShoppingCart, title: "Conversion Analysis: Improve marketing & sales." },
-            { icon: LayoutDashboard, title: "Layout Optimization: Enhance store design." },
-            { icon: Cpu, title: "Operational Efficiency: Streamline service delivery." },
-          ].map((item, idx) => (
-            <motion.div
-              key={idx}
-              variants={fadeInUp}
-              className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center hover:scale-105 transition-transform duration-300"
-            >
-              <item.icon size={40} className="text-[#022E64] mb-4" />
-              <h4 className="font-semibold text-gray-900 text-sm sm:text-base md:text-lg leading-snug">
-                {item.title}
-              </h4>
-            </motion.div>
-          ))}
+          <item.icon size={40} className="text-[#022e64]" />
         </motion.div>
-      </section>
+        <h4 className="font-semibold text-gray-900 text-sm sm:text-base md:text-lg leading-snug">
+          {item.title}
+        </h4>
+      </motion.div>
+    ))}
+  </motion.div>
+</section>
+
       {/* ================= ANALYTICS CAPABILITIES SECTION ================= */}
 <section className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 py-16 sm:py-20 md:py-24">
   <motion.div
@@ -304,12 +350,12 @@ export default function VisiGzPage() {
   {/* Card Grid */}
   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
     {[
-        { title: "Path Mapping", desc: "Illustrates visitor movement patterns, helping design efficient store layouts and uncover underutilized areas.", icon: Map },
-        { title: "Dwell Time Measurement", desc: "Captures how long visitors remain in specific sections, offering insight for merchandising, engagement zones, and staff deployment.", icon: Clock },
-        { title: "Demographic Insights (Gender & Age)", desc: "Distinguishes customer profiles by gender and age group, enabling personalized marketing and targeted product strategies.", icon: BarChart3 },
-      
+      { title: "Path Mapping", desc: "Illustrates visitor movement patterns, helping design efficient store layouts and uncover underutilized areas.", icon: Map },
+      { title: "Dwell Time Measurement", desc: "Captures how long visitors remain in specific sections, offering insight for merchandising, engagement zones, and staff deployment.", icon: Clock },
+      { title: "Demographic Insights (Gender & Age)", desc: "Distinguishes customer profiles by gender and age group, enabling personalized marketing and targeted product strategies.", icon: BarChart3 },
       { title: "Group Detection", desc: "Associates activity with shopping groups rather than individuals, improving conversion accuracy and enhancing retail performance analysis.", icon: Users2 },
-      { title: "Heatmap Visualization", desc: "Displays movement intensity and flow, revealing frequently visited and low-engagement zones to support strategic layout planning.", icon: Flame },{ title: "People Counting", desc: "Monitors visitor volumes to identify high-traffic periods, assess campaign performance, and analyze audience demographics.", icon: Users },
+      { title: "Heatmap Visualization", desc: "Displays movement intensity and flow, revealing frequently visited and low-engagement zones to support strategic layout planning.", icon: Flame },
+      { title: "People Counting", desc: "Monitors visitor volumes to identify high-traffic periods, assess campaign performance, and analyze audience demographics.", icon: Users },
       { title: "Pathway Analytics", desc: "Examines customer navigation routes, highlighting key engagement areas and guiding product placement decisions.", icon: Route },
       { title: "Zone Occupancy Analysis", desc: "Evaluates crowd density across different zones to optimize space utilization and adjust operational efficiency.", icon: Grid },
       { title: "Advanced Re-identification", desc: "Uses multi-attribute recognition — including clothing, posture, and body shape — for precise tracking and analytics without compromising privacy.", icon: Scan },
@@ -320,8 +366,12 @@ export default function VisiGzPage() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: idx * 0.05 }}
         viewport={{ once: true }}
-        whileHover={{ y: -8, scale: 1.03 }}
-        className="bg-white shadow-lg rounded-2xl p-6 border border-gray-100 hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center"
+        whileHover={{
+          y: -8,
+          scale: 1.03,
+          boxShadow: "0 0 20px 5px rgba(0,77,148,0.6)",
+        }}
+        className="bg-white shadow-lg rounded-2xl p-6 border border-gray-100 flex flex-col items-center text-center transition-all duration-300"
       >
         {/* Icon */}
         <motion.div
@@ -345,6 +395,7 @@ export default function VisiGzPage() {
     ))}
   </div>
 </section>
+
 
     </main>
   );
