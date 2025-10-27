@@ -3,13 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import {
-  Shield,
-  Cpu,
-  Zap,
-  Radar,
-  BarChart3,
-} from "lucide-react";
+import { Shield, Cpu, Zap, Radar, BarChart3 } from "lucide-react";
 
 export default function SeceonPage() {
   const features = [
@@ -72,25 +66,26 @@ export default function SeceonPage() {
               key={i}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.6,
-                delay: i * 0.1,
-                ease: "easeOut",
-              }}
+              transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.05 }}
-              className="bg-white p-6 rounded-2xl shadow-lg relative overflow-hidden group
+              className="bg-white p-6 rounded-2xl shadow-lg relative overflow-hidden
                          hover:shadow-2xl transition-all duration-300
-                         before:absolute before:inset-0 before:rounded-2xl before:shadow-[0_0_20px_4px_rgba(2,46,100,0.6)]
+                         before:absolute before:inset-0 before:rounded-2xl
+                         before:shadow-[0_0_20px_4px_rgba(2,46,100,0.6)]
                          before:opacity-0 hover:before:opacity-100 before:transition-opacity before:pointer-events-none"
             >
               {/* Icon */}
-              <div
-                className="flex items-center justify-center w-12 h-12 rounded-full bg-[#022E64]/10 mb-4
-                            group-hover:shadow-[0_0_15px_3px_rgba(2,46,100,0.4)] transition-shadow"
-              >
+              <motion.div
+                              className="flex items-center justify-center w-12 h-12 rounded-full bg-[#022E64]/10 mb-4
+                                         transition-shadow group-hover:shadow-[0_0_15px_3px_rgba(2,46,100,0.4)]"
+                              whileHover={{
+                                rotate: 360,
+                                transition: { duration: 1, ease: "easeInOut" },
+                              }}
+                            >
                 <Icon className="text-[#022E64]" size={28} />
-              </div>
+              </motion.div>
 
               <h3 className="text-lg font-semibold text-slate-900 mb-2">
                 {feature.title}
@@ -134,7 +129,7 @@ export default function SeceonPage() {
                    bg-linear-to-r from-[#002C60] via-[#004D94] to-[#0068C9] text-white mt-20"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
       >
         {/* Background Glow */}
@@ -142,7 +137,7 @@ export default function SeceonPage() {
           className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.15),transparent_70%)]"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.5, ease: 'easeOut' }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
           viewport={{ once: true }}
         />
 

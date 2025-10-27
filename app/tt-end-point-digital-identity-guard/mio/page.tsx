@@ -77,10 +77,16 @@ export default function MiniOrangeIAMPage() {
                          before:absolute before:inset-0 before:rounded-2xl before:shadow-[0_0_20px_4px_rgba(2,46,100,0.6)]
                          before:opacity-0 hover:before:opacity-100 before:transition-opacity before:pointer-events-none"
             >
-              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#022E64]/10 mb-4
-                              group-hover:shadow-[0_0_15px_3px_rgba(2,46,100,0.4)] transition-shadow">
+              <motion.div
+                              className="flex items-center justify-center w-12 h-12 rounded-full bg-[#022E64]/10 mb-4
+                                         transition-shadow group-hover:shadow-[0_0_15px_3px_rgba(2,46,100,0.4)]"
+                              whileHover={{
+                                rotate: 360,
+                                transition: { duration: 1, ease: "easeInOut" },
+                              }}
+                            >
                 <Icon className="text-[#022E64]" size={28} />
-              </div>
+              </motion.div>
 
               <h3 className="text-lg font-semibold text-slate-900 mb-2">{feature.title}</h3>
               <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
