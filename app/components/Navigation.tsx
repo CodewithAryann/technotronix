@@ -85,7 +85,7 @@ export default function Navigation() {
     {
       id: 'video-analysis',
       label: 'Data Analytics',
-      href: '/video-analysis', 
+      href: '#',
       children: [
         {
           id: 'vid-analytics',
@@ -93,12 +93,14 @@ export default function Navigation() {
           href: '/video-analysis',
         },
         {
-          id: 'visi-vg',
-          label: 'People Counting'
+          id: 'ppl-coun',
+          label: 'People Counting',
+          href: '/people-counting',
         },
         {
-          id: 'omni-view',
-          label: 'Queue Management'
+          id: 'queue-mgmt',
+          label: 'Queue Management',
+          href: '/queue-management',
         },
         {
           id: 'visi-cloud',
