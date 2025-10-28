@@ -1,199 +1,457 @@
 "use client";
-import Link from "next/link";
-import { motion } from "framer-motion";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
+  Eye,
   Users,
-  Clock,
   BarChart3,
-  TrendingUp,
+//   Activity,
   Cpu,
-  ShieldCheck,
-  Store,
-  Building2,
+  MapPin,
+  Gauge,
+  Clock,
+  LineChart,
+  Layers,
   Landmark,
-  UtensilsCrossed,
+  ShoppingBag,
+  Store,
+  Utensils,
   Plane,
   GraduationCap,
+  Shield,
+  Radar,
+  AlertCircle,
+  Truck,
+  Heart,
+  Globe 
 } from "lucide-react";
 
-export default function QueueManagementSection() {
-  const brand = "#022E64";
+export default function PeopleCountingPage() {
+//   const featureIcons = [Eye, Users, BarChart3, Activity, Cpu];
+  const capabilityIcons = [Gauge, MapPin, Layers, Clock, LineChart];
+  const benefitsImages = [
+  "/images/Slides/conversion-rates.png",
+  "/images/Slides/store-mall.png",
+  "/images/Slides/customer-experience.png",
+  "/images/Slides/predictive-Insights.png",
+  "/images/Slides/data.png",
+];
 
-  const features = [
+
+  const serveIndustries = [
     {
-      icon: Clock,
-      title: "Real-Time Queue Counting",
-      desc: "Monitor queues in real-time and get instant alerts to reduce waiting times and prevent abandonment.",
+      icon: Store,
+      title: "Enhance Customer Experience",
+      desc: "Reduce waiting times and create smoother in-store interactions.",
     },
     {
-      icon: Users,
-      title: "Optimize Staff Allocation",
-      desc: "Align staff levels to high-traffic hours for efficient queue management and improved customer service.",
+      icon: ShoppingBag,
+      title: "Improve Conversion Rates",
+      desc: "Prevent customer drop-offs caused by long queues.",
     },
     {
-      icon: BarChart3,
-      title: "Minimize Waiting Times",
-      desc: "Calculate average waiting time at checkout queues and adjust operations to minimize delays.",
+      icon: Landmark,
+      title: "Operational Agility",
+      desc: "Allocate staff strategically based on live demand insights.",
     },
     {
-      icon: TrendingUp,
-      title: "Increase Customer Satisfaction",
-      desc: "Shorten queues and improve the customer journey to enhance satisfaction and loyalty.",
+      icon: Utensils,
+      title: "Increase Profitability",
+      desc: "Use behavioral data to optimize performance and boost ROI.",
     },
     {
-      icon: Cpu,
-      title: "Prevent Revenue Loss",
-      desc: "Reduce abandoned purchases due to long waits and ensure maximum revenue retention.",
+      icon: Plane,
+      title: "Strengthen Brand Loyalty",
+      desc: "Strengthen Brand Loyalty: Deliver faster, effortless service that customers trust and remember.",
     },
     {
-      icon: ShieldCheck,
-      title: "Privacy & GDPR Compliance",
-      desc: "All queue data is anonymous and fully compliant with GDPR regulations.",
+      icon: GraduationCap,
+      title: "Customer Satisfaction",
+      desc: "Reduced wait times, smoother experiences, and happier returning customers",
     },
   ];
 
-  const industries = [
-    { icon: Store, label: "Retail Stores" },
-    { icon: Building2, label: "Shopping Centers" },
-    { icon: Landmark, label: "Museums" },
-    { icon: UtensilsCrossed, label: "Restaurants" },
-    { icon: Plane, label: "Airports" },
-    { icon: GraduationCap, label: "Universities" },
+  // ===== HERO IMAGE SLIDESHOW LOGIC =====
+  const heroImages = [
+    "/images/queue-man/pic-1.png",
+    "/images/queue-man/pic-2.png",
+    "/images/queue-man/pic-3.png",
   ];
+
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(
+      () =>
+        setCurrentImage((prev) =>
+          prev === heroImages.length - 1 ? 0 : prev + 1
+        ),
+      5000 // Change every 5 seconds
+    );
+    return () => clearInterval(interval);
+  }, [heroImages.length]);
+
+  // ===== BENEFITS SLIDER =====
+  const benefitsData = [
+    "Boost conversion rates by aligning marketing with visitor behavior.",
+    "Enhance store layouts through heatmaps and movement analytics.",
+    "Improve customer experience with optimized queue management.",
+    "Leverage predictive insights for smarter staffing and allocation.",
+    "Maintain full data privacy — no facial images or personal data stored.",
+  ];
+
+  const benefitsTitles = [
+    "Conversion Rates",
+    "Store Layouts",
+    "Customer Experience",
+    "Predictive Insights",
+    "Full Data Privacy",
+  ];
+
+  const [currentBenefit, setCurrentBenefit] = useState(0);
+
+  const nextBenefit = () => {
+    setCurrentBenefit((prev) => (prev + 1) % benefitsData.length);
+  };
+
+  const prevBenefit = () => {
+    setCurrentBenefit((prev) =>
+      prev === 0 ? benefitsData.length - 1 : prev - 1
+    );
+  };
 
   return (
-    <section className="relative overflow-hidden py-24 bg-linear-to-br from-white via-[#f4f9ff] to-[#eaf2ff]">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
-        {/* Header */}
+    <main className="relative bg-[#f8f9fb] text-gray-800 overflow-hidden">
+      {/* ===== HERO SECTION WITH IMAGE SLIDESHOW ===== */}
+      <section className="relative h-[90vh] flex items-center justify-center text-center overflow-hidden bg-black">
+        <div className="absolute inset-0 w-full h-full">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentImage}
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.05 }}
+              transition={{ duration: 2 }}
+              className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+              style={{
+                backgroundImage: `url(${heroImages[currentImage]})`,
+              }}
+            />
+          </AnimatePresence>
+        </div>
+
+        {/* Gradient overlays */}
+        <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/50 to-black/70" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.15),transparent_70%)]" />
+
+        {/* Hero text */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="relative z-10 px-6 sm:px-10 text-white max-w-4xl flex flex-col items-center space-y-6"
+        >
+          <h1 className="text-4xl sm:text-6xl font-semibold">
+            Queue Management Solution
+          </h1>
+          <p className="text-lg sm:text-2xl text-gray-200">
+            Turn Waiting Lines into Seamless Customer Journeys
+          </p>
+
+          {/* Contact Us Button */}
+          <motion.a
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            href="/contact"
+            className="bg-[#004D94] hover:bg-[#004D94] text-white font-semibold px-8 py-3 rounded-full shadow-lg text-lg"
+          >
+            Contact Us
+          </motion.a>
+        </motion.div>
+      </section>
+
+      {/* ===== INTRODUCTION ===== */}
+      <section className="max-w-6xl mx-auto px-6 sm:px-10 py-20 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="space-y-6"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: brand }}>
-            Queue Management & Measurement Solutions
+          {/* === HEADER === */}
+          <h2 className="text-3xl sm:text-4xl font-semibold text-[#022e64] mb-6">
+            TT - Queue Management Solution
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Minimize the time your customers spend waiting in line at checkouts to increase satisfaction and boost sales.
+
+          <p className="text-lg leading-relaxed text-gray-600">
+           In today’s fast-moving retail landscape, customer patience is fleeting — every second in line can influence a purchase decision. VisiGz Queue Management Solution leverages AI-powered video intelligence to track queues in real time, minimize delays, and elevate the overall shopping experience.
           </p>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            className="px-8 py-3 font-semibold rounded-full shadow-md text-white transition"
-            style={{ backgroundColor: brand }}
-          >
-            <Link href="/contact">Get a Demo</Link>
-          </motion.button>
         </motion.div>
+      </section>
 
-        {/* Features Grid */}
-        <div className="mt-20 grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: "0px 0px 25px rgba(2,46,100,0.4)",
-                }}
-                className="bg-[#022E64] rounded-2xl shadow-lg p-8 text-left transition-all duration-300"
-              >
-                <motion.div
-                  className="mb-6 inline-block"
-                  initial={{
-                    rotate: 0,
-                    scale: 1,
-                    filter: "drop-shadow(0px 0px 0px rgba(255,255,255,0))",
-                  }}
-                  whileHover={{
-                    rotate: 360,
-                    scale: 1.2,
-                    filter: "drop-shadow(0px 0px 12px rgba(255,255,255,0.9))",
-                  }}
-                  transition={{ duration: 1, ease: "easeInOut" }}
-                >
-                  <Icon className="w-10 h-10 text-white" />
-                </motion.div>
-                <h3 className="text-xl font-semibold mb-3 text-white">{feature.title}</h3>
-                <p className="text-gray-200">{feature.desc}</p>
-              </motion.div>
-            );
-          })}
+      {/* ===== FEATURES ===== */}
+      <section className="bg-[#022e64] text-white py-20">
+  <div className="max-w-6xl mx-auto px-6 sm:px-10">
+    <h2 className="text-3xl sm:text-4xl font-semibold mb-12 text-center">
+      How It Works
+    </h2>
+    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {[
+        "Smart Detection: AI sensors continuously monitor queues across multiple zones.",
+        "Instant Analysis: Deep learning algorithms evaluate real-time movement and behavior.",
+        "Behavior Insights: Understand customer patterns — peak hours, dwell time, visit frequency.",
+        "Intelligent Alerts & Automated Response System notifies staff instantly to manage queue congestion.",
+        "Data Insights & Visualization Dashboards display metrics for traffic, performance, and efficiency.",
+        "Privacy-First Framework: Anonymous counting ensures GDPR compliance and customer trust.",
+      ].map((item, i) => {
+        // Assign a specific icon for each item
+        const icons = [Eye, Cpu, BarChart3, AlertCircle, Gauge, Shield];
+        const Icon = icons[i];
+
+        return (
+          <motion.div
+            key={i}
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+            className="bg-white/10 rounded-2xl p-6 flex flex-col items-center text-center space-y-4 hover:shadow-xl hover:bg-white/20 transition"
+          >
+            <motion.div
+              whileHover={{ rotate: 360 }}
+              transition={{ duration: 1 }}
+              className="p-3 bg-white/20 rounded-full"
+            >
+              <Icon size={32} className="text-white" />
+            </motion.div>
+            <p>{item}</p>
+          </motion.div>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+      {/* ===== DIFFERENTIATOR ===== */}
+      <section className="max-w-6xl mx-auto px-6 sm:px-10 py-20 text-center">
+  <h2 className="text-3xl sm:text-4xl font-semibold text-[#022e64] mb-12">
+    What makes VisiGz AI-powered Queue Management Platform stands apart
+  </h2>
+
+  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    {[
+      {
+        title: "Predictive, Not Reactive:",
+        desc: " Our AI anticipates queue formation before congestion occurs.",
+        img: "/images/queue-man/predictive.png",
+      },
+      {
+        title: "Privacy-First Design",
+        desc: "Operates without facial recognition or identity tracking — ensuring complete anonymity.",
+        img: "/images/queue-man/privacy.png",
+      },
+      {
+        title: "Seamless Integration: ",
+        desc: "Connects effortlessly with POS, ERP, or store systems.",
+        img: "/images/queue-man/seamless.png",
+      },
+      {
+        title: "Actionable Intelligence",
+        desc: "Real-time insights that empower instant, data-driven decisions.",
+        img: "/images/queue-man/actionable.png",
+      },
+    ].map(({ title, desc, img }, i) => (
+      <motion.div
+        key={i}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        whileHover={{ scale: 1.05 }}
+        transition={{ duration: 0.6, delay: i * 0.2 }}
+        viewport={{ once: true }}
+        className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col cursor-pointer hover:shadow-2xl transition-all"
+      >
+        <motion.div
+          whileHover={{ scale: 1.1 }}
+          transition={{ duration: 0.5 }}
+          className="overflow-hidden rounded-t-2xl"
+        >
+          <Image
+            src={img} 
+            alt={title}
+            width={400} 
+            height={288} 
+            className="w-full h-56 sm:h-64 md:h-72 object-cover"
+          />
+        </motion.div>
+        <div className="p-6 flex flex-col items-center text-center space-y-3">
+          <h3 className="text-xl font-semibold text-[#022e64]">{title}</h3>
+          <p className="text-gray-700 text-base">{desc}</p>
         </div>
+      </motion.div>
+    ))}
+  </div>
+</section>
 
-        {/* Benefits Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9 }}
-          className="mt-24 bg-[#f9fbfe] rounded-3xl p-10 md:p-16 shadow-inner text-center"
-        >
-          <h3 className="text-3xl font-bold mb-4" style={{ color: brand }}>
-            Benefits of Queue Management System
-          </h3>
-          <ul className="text-gray-600 max-w-3xl mx-auto text-left list-disc list-inside space-y-3">
-            <li>Minimize Queue Waiting Times</li>
-            <li>Optimize Staff Allocation</li>
-            <li>Eliminate Abandonment</li>
-            <li>Increase Customer Loyalty</li>
-          </ul>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            className="mt-6 px-8 py-3 font-semibold rounded-full shadow-md text-white transition"
-            style={{ backgroundColor: brand }}
-          >
-            <Link href="/contact">Get a Demo</Link>
-          </motion.button>
-        </motion.div>
 
-        {/* Industries Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9 }}
-          className="mt-28"
-        >
-          <h3 className="text-3xl font-bold mb-10" style={{ color: brand }}>
-            Industries We Serve
-          </h3>
+
+      {/* ===== CORE CAPABILITIES ===== */}
+      <section className="bg-gray-100 py-20">
+        <div className="max-w-6xl mx-auto px-6 sm:px-10">
+          <h2 className="text-3xl sm:text-4xl font-semibold mb-12 text-center text-[#022e64]">
+            Core Capabilities
+          </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {industries.map((item, i) => {
-              const Icon = item.icon;
+            {[
+              "Instant Queue Recognition: Detect line build-up instantly with intelligent video analytics.",
+              "Automated Staff Alerts: Prompt staff to manage queues proactively during busy periods.",
+              "Wait-Time Insights: Measure dwell durations and identify operational bottlenecks.",
+              "Workforce Efficiency: Align staffing levels with real-time traffic to ensure service consistency.",
+              "Intuitive Dashboards: Access live metrics on queue status, service speed, and customer throughput.",
+              "Privacy-Safe Analytics: Fully anonymous — no facial recognition, no personal data recorded.",
+            ].map((item, i) => {
+              // Use a different icon for the last card
+              const Icon = i === 5 ? Radar : capabilityIcons[i % capabilityIcons.length];
+
               return (
                 <motion.div
                   key={i}
-                  whileHover={{
-                    scale: 1.05,
-                    boxShadow: "0px 0px 25px rgba(2,46,100,0.4)",
-                  }}
-                  className="bg-[#022E64] text-white rounded-2xl p-8 shadow-lg flex flex-col items-start hover:shadow-2xl transition-all duration-300"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                  className="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center space-y-4 hover:shadow-xl transition"
                 >
                   <motion.div
-                    initial={{
-                      rotate: 0,
-                      scale: 1,
-                      filter: "drop-shadow(0px 0px 0px rgba(255,255,255,0))",
-                    }}
-                    whileHover={{
-                      rotate: 360,
-                      scale: 1.2,
-                      filter: "drop-shadow(0px 0px 12px rgba(255,255,255,0.9))",
-                    }}
-                    transition={{ duration: 1, ease: "easeInOut" }}
-                    className="mb-4"
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 1 }}
+                    className="p-3 bg-[#022e64]/10 rounded-full text-[#022e64]"
                   >
-                    <Icon className="w-10 h-10 text-white" />
+                    <Icon size={32} />
                   </motion.div>
-                  <h4 className="mt-2 text-xl font-semibold">{item.label}</h4>
+                  <p className="text-gray-700">{item}</p>
                 </motion.div>
               );
             })}
           </div>
-        </motion.div>
-      </div>
-    </section>
+        </div>
+      </section>
+
+      {/* ===== BENEFITS SLIDER ===== */}
+      <section className="max-w-4xl mx-auto px-6 sm:px-10 py-20 text-center">
+  <h2 className="text-3xl sm:text-4xl font-semibold text-[#022e64] mb-12">
+    Benefits
+  </h2>
+
+  {/* Top Buttons */}
+  <div className="flex flex-wrap justify-center gap-4 mb-12">
+    {benefitsTitles.map((title, i) => (
+      <button
+        key={i}
+        onClick={() => setCurrentBenefit(i)}
+        className={`px-5 py-2 rounded-full font-semibold transition-all duration-300 ${
+          i === currentBenefit
+            ? "bg-[#004D94] text-white shadow-lg scale-105"
+            : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+        }`}
+      >
+        {title}
+      </button>
+    ))}
+  </div>
+
+  <div className="relative">
+    {/* Left Arrow */}
+    <button
+      onClick={prevBenefit}
+      className="absolute -left-6 top-1/2 -translate-y-1/2 bg-gray-200 hover:bg-gray-300 text-gray-700 p-3 rounded-full shadow z-10"
+    >
+      ‹
+    </button>
+
+    {/* Right Arrow */}
+    <button
+      onClick={nextBenefit}
+      className="absolute -right-6 top-1/2 -translate-y-1/2 bg-gray-200 hover:bg-gray-300 text-gray-700 p-3 rounded-full shadow z-10"
+    >
+      ›
+    </button>
+
+    {/* Slide Content */}
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={currentBenefit}
+        initial={{ opacity: 0, x: 100 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: -100 }}
+        transition={{ duration: 0.5 }}
+        className="bg-white rounded-2xl shadow-lg overflow-hidden"
+      >
+        {/* Image */}
+        <Image
+  src={benefitsImages[currentBenefit]}
+  alt={benefitsTitles[currentBenefit]}
+  width={800}
+  height={500}
+  className="w-full h-96 sm:h-112 md:h-128 object-cover rounded-t-2xl"
+/>
+
+        {/* Text */}
+        <div className="p-8 flex flex-col items-center text-center space-y-4">
+          <h3 className="text-3xl sm:text-4xl font-semibold text-[#004D94]">
+            {benefitsTitles[currentBenefit]}
+          </h3>
+          <p className="text-gray-700 text-lg max-w-2xl">
+            {benefitsData[currentBenefit]}
+          </p>
+        </div>
+      </motion.div>
+    </AnimatePresence>
+  </div>
+</section>
+
+
+
+      {/* ===== INDUSTRIES WE SERVE ===== */}
+      <section className="py-24 bg-gray-50">
+  <div className="max-w-6xl mx-auto px-6 sm:px-10 text-center">
+    <motion.h2
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="text-3xl sm:text-4xl font-semibold text-[#022e64] mb-12"
+    >
+      Business Impact & ROI
+    </motion.h2>
+
+    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {serveIndustries.map(({ title, desc }, i) => {
+        // New icons for each item
+        const icons = [Store, Truck, Users, Heart, Cpu, Globe];
+        const Icon = icons[i % icons.length];
+
+        return (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: i * 0.1 }}
+            whileHover={{ scale: 1.05 }}
+            className="bg-white rounded-2xl p-8 shadow hover:shadow-2xl transition flex flex-col items-center text-center space-y-4"
+          >
+            <motion.div
+              whileHover={{ rotate: 360 }}
+              transition={{ duration: 1 }}
+              className="p-4 bg-[#022e64]/10 rounded-full text-[#022e64]"
+            >
+              <Icon size={36} />
+            </motion.div>
+            <h3 className="text-xl font-semibold text-[#022e64]">{title}</h3>
+            <p className="text-gray-600">{desc}</p>
+          </motion.div>
+        );
+      })}
+    </div>
+  </div>
+</section>
+    </main>
   );
 }
