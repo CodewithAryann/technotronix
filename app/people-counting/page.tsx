@@ -28,7 +28,7 @@ export default function PeopleCountingPage() {
   const capabilityIcons = [Gauge, MapPin, Layers, Clock, LineChart];
   const benefitsImages = [
   "/images/Slides/conversion-rates.png",
-  "/images/Slides/store-layouts.png",
+  "/images/Slides/store-mall.png",
   "/images/Slides/customer-experience.png",
   "/images/Slides/predictive-Insights.png",
   "/images/Slides/data-privacy.png",
