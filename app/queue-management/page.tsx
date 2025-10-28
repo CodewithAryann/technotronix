@@ -31,11 +31,11 @@ export default function PeopleCountingPage() {
 //   const featureIcons = [Eye, Users, BarChart3, Activity, Cpu];
   const capabilityIcons = [Gauge, MapPin, Layers, Clock, LineChart];
   const benefitsImages = [
-  "/images/Slides/conversion-rates.png",
-  "/images/Slides/store-mall.png",
-  "/images/Slides/customer-experience.png",
-  "/images/Slides/predictive-Insights.png",
-  "/images/Slides/data.png",
+  "/images/queue-man/reduced.png",
+  "/images/queue-man/enhanced.png",
+  "/images/queue-man/optimized.png",
+  "/images/queue-man/data-driven.png",
+  "/images/queue-man/increased.png",
 ];
 
 
@@ -94,19 +94,19 @@ export default function PeopleCountingPage() {
 
   // ===== BENEFITS SLIDER =====
   const benefitsData = [
-    "Boost conversion rates by aligning marketing with visitor behavior.",
-    "Enhance store layouts through heatmaps and movement analytics.",
-    "Improve customer experience with optimized queue management.",
-    "Leverage predictive insights for smarter staffing and allocation.",
-    "Maintain full data privacy — no facial images or personal data stored.",
+    "Streamlines customer flow and minimizes service delays.",
+    "Creates smoother, faster, and frustration-free interactions.",
+    "Aligns workforce with real-time demand for peak efficiency",
+    "Provides analytics on traffic, service speed, and performance.",
+    "Improves satisfaction, boosts conversions, and encourages repeat visits.",
   ];
 
   const benefitsTitles = [
-    "Conversion Rates",
-    "Store Layouts",
-    "Customer Experience",
-    "Predictive Insights",
-    "Full Data Privacy",
+    "Reduced Wait Times",
+    "Enhanced Customer Experience",
+    "Optimized Staff Allocation",
+    "Data-Driven Insights",
+    "Increased Revenue & Loyalty",
   ];
 
   const [currentBenefit, setCurrentBenefit] = useState(0);
