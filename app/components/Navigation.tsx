@@ -106,7 +106,7 @@ export default function Navigation() {
           id: 'visi-cloud',
           label: 'Heatmap & Zone Analytics',
         },
-        { id: 'Storefront Analytics', label: 'VisiGz for Retail', href: '/video-analysis/visi-retail' },
+        { id: 'Storefront Analytics', label: 'Entry Intelligence', href: '/video-analysis/visi-retail' },
       ],
     },
     { id: 'services', href: '/services', label: 'Services' },
