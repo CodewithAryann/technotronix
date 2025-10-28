@@ -31,7 +31,7 @@ export default function PeopleCountingPage() {
   "/images/Slides/store-mall.png",
   "/images/Slides/customer-experience.png",
   "/images/Slides/predictive-Insights.png",
-  "/images/Slides/data-privacy.png",
+  "/images/Slides/data.png",
 ];
 
 
@@ -183,15 +183,9 @@ export default function PeopleCountingPage() {
           </h2>
 
           <p className="text-lg leading-relaxed text-gray-600">
-            At <span className="font-semibold text-[#022e64]">TT - VisiGz</span>, we go beyond
-            simple visitor tracking — our AI-driven People Counting Solution
+            We go beyond simple visitor tracking — our AI-driven People Counting Solution
             transforms raw footfall data into powerful insights that help
-            businesses make smarter, data-backed decisions.
-          </p>
-          <p className="text-lg text-gray-600">
-            Designed for precision, scalability, and privacy, our platform
-            empowers organizations to understand how people move, interact, and
-            engage across physical spaces.
+            businesses make smarter, data-backed decisions.  Designed for precision, scalability, and privacy, our platform empowers organizations to understand how people move, interact, and engage across physical spaces.
           </p>
         </motion.div>
       </section>
@@ -238,30 +232,65 @@ export default function PeopleCountingPage() {
 
       {/* ===== DIFFERENTIATOR ===== */}
       <section className="max-w-6xl mx-auto px-6 sm:px-10 py-20 text-center">
+  <h2 className="text-3xl sm:text-4xl font-semibold text-[#022e64] mb-12">
+    What Makes Our AI People Counting Different
+  </h2>
+
+  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    {[
+      {
+        title: "AI-Powered Accuracy",
+        desc: "Utilizes deep learning vision models to interpret movement patterns in real time.",
+        img: "/images/Slides/AI.png",
+      },
+      {
+        title: "Privacy-First Design",
+        desc: "Operates without facial recognition or identity tracking — ensuring complete anonymity.",
+        img: "/images/Slides/privacy.png",
+      },
+      {
+        title: "Comprehensive Monitoring",
+        desc: "Tracks entry, exit, occupancy, and directional flow across multiple zones simultaneously.",
+        img: "/images/Slides/monitoring.png",
+      },
+      {
+        title: "Scalable Analytics",
+        desc: "Delivers actionable insights for both single-site and multi-location operations.",
+        img: "/images/Slides/scalable.png",
+      },
+    ].map(({ title, desc, img }, i) => (
+      <motion.div
+        key={i}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        whileHover={{ scale: 1.05 }}
+        transition={{ duration: 0.6, delay: i * 0.2 }}
+        viewport={{ once: true }}
+        className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col cursor-pointer hover:shadow-2xl transition-all"
+      >
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="space-y-6"
+          whileHover={{ scale: 1.1 }}
+          transition={{ duration: 0.5 }}
+          className="overflow-hidden rounded-t-2xl"
         >
-          <h2 className="text-3xl sm:text-4xl font-semibold text-[#022e64]">
-            What Makes Our AI People Counting Different
-          </h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
-            Unlike traditional systems,{" "}
-            <span className="font-semibold text-[#022e64]">TT - VisiGz</span> AI
-            People Counting uses deep learning vision models that interpret
-            movement patterns in real time — no facial recognition, no identity
-            tracking, just pure spatial intelligence.
-          </p>
-          <p className="text-lg text-gray-600 leading-relaxed">
-            Our sensors can monitor entry, exit, occupancy, and directional flow
-            across multiple zones simultaneously — delivering analytics that
-            scale from a single store to multi-location operations.
-          </p>
+          <Image
+            src={img} 
+            alt={title}
+            width={400} 
+            height={288} 
+            className="w-full h-56 sm:h-64 md:h-72 object-cover"
+          />
         </motion.div>
-      </section>
+        <div className="p-6 flex flex-col items-center text-center space-y-3">
+          <h3 className="text-xl font-semibold text-[#022e64]">{title}</h3>
+          <p className="text-gray-700 text-base">{desc}</p>
+        </div>
+      </motion.div>
+    ))}
+  </div>
+</section>
+
+
 
       {/* ===== CORE CAPABILITIES ===== */}
       <section className="bg-gray-100 py-20">
