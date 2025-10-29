@@ -103,8 +103,9 @@ export default function Navigation() {
           href: '/queue-management',
         },
         {
-          id: 'visi-cloud',
+          id: 'Heatmap',
           label: 'Heatmap & Zone Analytics',
+          href: '/heatmap-zone-analytics',
         },
         { id: 'Storefront Analytics', label: 'Entry Intelligence', href: '/video-analysis/visi-retail' },
       ],
