@@ -46,7 +46,7 @@ export default function CyberServicesSection() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#001B44] via-[#022e64] to-[#013b7a] text-white py-24">
+    <section className="relative overflow-hidden bg-linear-to-br from-[#001B44] via-[#022e64] to-[#013b7a] text-white py-24">
       {/* Background pattern overlay */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.06),transparent_70%)]"></div>
 
