@@ -107,7 +107,7 @@ export default function Navigation() {
           label: 'Heatmap & Zone Analytics',
           href: '/heatmap-zone-analytics',
         },
-        { id: 'Storefront Analytics', label: 'Entry Intelligence', href: '/video-analysis/visi-retail' },
+        { id: 'entry-intelligence', label: 'Entry Intelligence', href: '/entry-intelligence' },
       ],
     },
     { id: 'services', href: '/services', label: 'Services' },
