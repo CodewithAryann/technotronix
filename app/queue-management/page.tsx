@@ -187,7 +187,7 @@ export default function PeopleCountingPage() {
           </h2>
 
           <p className="text-lg leading-relaxed text-gray-600">
-           In today’s fast-moving retail landscape, customer patience is fleeting — every second in line can influence a purchase decision. VisiGz Queue Management Solution leverages AI-powered video intelligence to track queues in real time, minimize delays, and elevate the overall shopping experience.
+           In today’s fast-moving retail landscape, customer patience is fleeting — every second in line can influence a purchase decision. ZAISENSE Queue Management Solution leverages AI-powered video intelligence to track queues in real time, minimize delays, and elevate the overall shopping experience.
           </p>
         </motion.div>
       </section>
@@ -236,7 +236,7 @@ export default function PeopleCountingPage() {
       {/* ===== DIFFERENTIATOR ===== */}
       <section className="max-w-6xl mx-auto px-6 sm:px-10 py-20 text-center">
   <h2 className="text-3xl sm:text-4xl font-semibold text-[#022e64] mb-12">
-    What makes VisiGz AI-powered Queue Management Platform stands apart
+    What makes ZAISENSE AI-powered Queue Management Platform stands apart
   </h2>
 
   <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">

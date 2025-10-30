@@ -102,7 +102,7 @@ export default function AboutPage() {
 
 
       {/* Vision Section */}
-      <section className="py-20 px-6 md:px-16 bg-gray-100">
+      {/* <section className="py-20 px-6 md:px-16 bg-gray-100">
         <div className="max-w-6xl mx-auto text-center">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -126,7 +126,7 @@ export default function AboutPage() {
             with confidence.
           </motion.p>
         </div>
-      </section>
+      </section> */}
     </main>
   );
 }
