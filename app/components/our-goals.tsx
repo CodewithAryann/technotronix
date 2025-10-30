@@ -12,7 +12,7 @@ export default function OurGoals() {
   const goals = [
     {
       title: "Our Mission",
-      desc: "We empower organizations with intelligent and resilient technology solutions that strengthen cybersecurity and enhance retail intelligence. Through advanced cyber defense and AI-driven video analytics, we deliver innovation, trust, and excellence, helping businesses operate securely and intelligently in a connected world.",
+      desc: "We empower organizations with intelligent and resilient technology solutions that strengthen cybersecurity and enhance data intelligence. Through advanced cyber defense and AI-driven video analytics, we deliver innovation, trust, and excellence, helping businesses operate securely and intelligently in a connected world.",
       icon: Target,
     },
     {
