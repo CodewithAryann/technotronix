@@ -22,7 +22,7 @@ export default function OurGoals() {
     },
     {
       title: "Customer Centric Approach",
-      desc: "Our customers are at the center of every innovation we deliver. Through Cyber Defense and Smart Retail Intelligence, we design solutions that align seamlessly with each client’s unique objectives. Our collaborative mindset drives security, efficiency, and continuous innovation, ensuring every engagement builds trust, value, and lasting business impact.",
+      desc: "Our customers are at the center of every innovation we deliver. Through Cyber Defense and Smart data Intelligence, we design solutions that align seamlessly with each client’s unique objectives. Our collaborative mindset drives security, efficiency, and continuous innovation, ensuring every engagement builds trust, value, and lasting business impact.",
       icon: Users,
     },
   ];
