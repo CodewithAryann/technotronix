@@ -182,7 +182,7 @@ const serveIndustries = [
 
           <p className="text-lg leading-relaxed text-gray-600">
            In the modern retail and commercial landscape, understanding how people interact with your space is key to better design, stronger sales, and smarter operations.
-VisiGz Heatmap Analytics transforms raw movement data into vivid, actionable insights — showing you exactly where, when, and how people engage across your store or facility.
+ZAISENSE Heatmap Analytics transforms raw movement data into vivid, actionable insights — showing you exactly where, when, and how people engage across your store or facility.
           </p>
         </motion.div>
       </section>
@@ -196,7 +196,7 @@ VisiGz Heatmap Analytics transforms raw movement data into vivid, actionable ins
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
             "AI-Powered Vision: Uses advanced AI vision to track customer movement patterns accurately.",
-            "Seamless Integration: Operates through existing VisiGz People Counting sensors with no extra setup.",
+            "Seamless Integration: Operates through existing ZAISENSE People Counting sensors with no extra setup.",
             "Real-Time Tracking: Captures live positional data across designated zones and spaces.",
             "Dynamic Heatmaps: Converts movement data into visual heatmaps showing engagement density.",
             "Behavioral Insights: Analyzes dwell time and flow trends to reveal customer behavior.",
