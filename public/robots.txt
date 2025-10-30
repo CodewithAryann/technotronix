@@ -1,0 +1,14 @@
+# *
+User-agent: *
+Allow: /
+
+# *
+User-agent: *
+Disallow: /api/
+Disallow: /admin/
+
+# Host
+Host: https://www.technotronix.ai
+
+# Sitemaps
+Sitemap: https://www.technotronix.ai/sitemap.xml

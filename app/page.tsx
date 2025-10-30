@@ -2,6 +2,8 @@
 
 import dynamic from "next/dynamic";
 import Hero from "./components/hero";
+import SEO from "./components/seo";
+
 
 // Lazy-load below-the-fold sections
 const AboutSection = dynamic(() => import("./components/About Us"), {
@@ -20,6 +22,12 @@ const OurGoals = dynamic(() => import("./components/our-goals"), {
 export default function Home() {
   return (
     <div className="min-h-screen">
+         <SEO
+        title="AI Video Analytics Solution | Technotronix"
+        description="Explore Technotronix AI video analytics — real-time detection, people counting, and space utilization insights powered by computer vision."
+        url="/ai-video-analytics"
+        image="/images/ai-video-analytics.jpg"
+      />
       {/* Load Hero immediately */}
       <Hero />
 
