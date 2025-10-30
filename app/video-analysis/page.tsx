@@ -74,7 +74,7 @@ export default function VisiGzPage() {
           className="relative text-center px-4 sm:px-8 md:px-16 max-w-3xl"
         >
           <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white leading-tight">
-            AI-Powered Video Analytics Solution
+            ZAISENSE AI-Powered Video Analytics Solution
           </h1>
           <p className="mt-4 text-base sm:text-lg md:text-xl text-gray-200">
             Transforming spatial intelligence with real-time insights for smarter spaces.
@@ -112,7 +112,7 @@ export default function VisiGzPage() {
           variants={fadeInUp}
           className="text-gray-700 text-base sm:text-lg md:text-xl max-w-3xl mx-auto"
         >
-          VisiGz Ecosystem is a Next-generation Vision Intelligence — an AI-powered ecosystem that
+          ZAISENSE Ecosystem is a Next-generation Vision Intelligence — an AI-powered ecosystem that
           sees, understands, and learns from human and spatial behaviour in real time.
         </motion.div>
       </section>
