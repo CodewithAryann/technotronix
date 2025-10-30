@@ -147,7 +147,7 @@ const serveIndustries = [
           className="relative z-10 px-6 sm:px-10 text-white max-w-4xl flex flex-col items-center space-y-6"
         >
           <h1 className="text-4xl sm:text-6xl font-semibold">
-            Store Entry Analytics Solution
+            ZAISENSE - Store Entry Analytics Solution
           </h1>
           <p className="text-lg sm:text-2xl text-gray-200">
             Transform Every Entrance into an Insight Engine
@@ -177,7 +177,7 @@ const serveIndustries = [
         >
           {/* === HEADER === */}
           <h2 className="text-3xl sm:text-4xl font-semibold text-[#022e64] mb-6">
-            Store Entry Analytics Solution
+            ZAISENSE - Store Entry Analytics Solution
           </h2>
 
           <p className="text-lg leading-relaxed text-gray-600">
@@ -232,7 +232,7 @@ VisiGz Store Entry Analytics empowers retailers to understand visitor flow, traf
       {/* ===== DIFFERENTIATOR ===== */}
       <section className="max-w-6xl mx-auto px-6 sm:px-10 py-20 text-center">
   <h2 className="text-3xl sm:text-4xl font-semibold text-[#022e64] mb-12">
-    What Makes VisiGz Store Entry Analytics Stand Out
+    What Makes ZAISENSE Store Entry Analytics Stand Out
   </h2>
 
   <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">

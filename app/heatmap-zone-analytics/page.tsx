@@ -147,7 +147,7 @@ const serveIndustries = [
           className="relative z-10 px-6 sm:px-10 text-white max-w-4xl flex flex-col items-center space-y-6"
         >
           <h1 className="text-4xl sm:text-6xl font-semibold">
-            VisiGz Heatmap Analytics
+            ZAISENSE - Heatmap Analytics
           </h1>
           <p className="text-lg sm:text-2xl text-gray-200">
             Visualize Movement. Understand Behavior. Optimize Every Space
@@ -177,7 +177,7 @@ const serveIndustries = [
         >
           {/* === HEADER === */}
           <h2 className="text-3xl sm:text-4xl font-semibold text-[#022e64] mb-6">
-            Heatmap Analytics Solution
+            ZAISENSE - Heatmap Analytics Solution
           </h2>
 
           <p className="text-lg leading-relaxed text-gray-600">
@@ -231,7 +231,7 @@ VisiGz Heatmap Analytics transforms raw movement data into vivid, actionable ins
       {/* ===== DIFFERENTIATOR ===== */}
       <section className="max-w-6xl mx-auto px-6 sm:px-10 py-20 text-center">
   <h2 className="text-3xl sm:text-4xl font-semibold text-[#022e64] mb-12">
-    What makes VisiGz Heatmap Analytics stand out 
+    What makes ZAISENSE Heatmap Analytics stand out 
   </h2>
 
   <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">

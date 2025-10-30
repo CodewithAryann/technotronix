@@ -149,7 +149,7 @@ export default function PeopleCountingPage() {
           className="relative z-10 px-6 sm:px-10 text-white max-w-4xl flex flex-col items-center space-y-6"
         >
           <h1 className="text-4xl sm:text-6xl font-semibold">
-            AI-Powered People Counting
+              ZAISENSE - AI-Powered People Counting
           </h1>
           <p className="text-lg sm:text-2xl text-gray-200">
             Turning Real-Time Footfall into Actionable Intelligence
@@ -179,7 +179,7 @@ export default function PeopleCountingPage() {
         >
           {/* === HEADER === */}
           <h2 className="text-3xl sm:text-4xl font-semibold text-[#022e64] mb-6">
-            TT - VisiGz
+            ZAISENSE - Advanced People Counting Solution
           </h2>
 
           <p className="text-lg leading-relaxed text-gray-600">

@@ -100,7 +100,7 @@ export default function VisiGzPage() {
         >
           Technotronix is redefining spatial intelligence through its AI-powered video analytics
           platform, transforming how organizations perceive and engage with their physical
-          environments. TT - VisiGz delivers cutting-edge capabilities including footfall analysis,
+          environments. ZAISENSE delivers cutting-edge capabilities including footfall analysis,
           movement mapping, area utilization, and heat zone visualization, empowering businesses with
           accurate, data-driven insights. This intelligent solution enables operational optimization
           and elevated customer experiences across retail, transportation, healthcare, and smart
@@ -132,10 +132,10 @@ export default function VisiGzPage() {
       className="hover:text-[#022e64] transition-colors duration-300"
     >
       <h2 className="text-2xl sm:text-3xl font-semibold text-[#022e64]">
-        TT – VisiGz – AI-powered video analytics platform
+        ZAISENSE – AI-powered video analytics platform
       </h2>
       <p className="mt-4 text-gray-700 text-base sm:text-lg leading-relaxed">
-        The VisiGz Sensor is an intelligent AI-powered camera built to deliver detailed insights into visitor behavior and demographics. Equipped with cross-camera recognition, it provides precise people counting, while infrared night vision and ultra-HD imaging ensure round-the-clock clarity.
+        The ZAISENSE Sensor is an intelligent AI-powered camera built to deliver detailed insights into visitor behavior and demographics. Equipped with cross-camera recognition, it provides precise people counting, while infrared night vision and ultra-HD imaging ensure round-the-clock clarity.
       </p>
     </motion.div>
 
@@ -187,10 +187,10 @@ export default function VisiGzPage() {
       className="w-full md:w-1/2 space-y-4 transition-colors duration-300 hover:text-[#022e64]"
     >
       <h3 className="text-2xl sm:text-3xl font-semibold text-[#022e64]">
-        VisiGz OmniView
+        ZAISENSE OmniView
       </h3>
       <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
-        The VisiGz OmniView is a 360° heatmap camera delivering a complete overview of large environments. With 6–10 meter coverage, it’s ideal for malls and airports — providing privacy-safe, AI-driven behavioral insights.
+        The ZAISENSE OmniView is a 360° heatmap camera delivering a complete overview of large environments. With 6–10 meter coverage, it’s ideal for malls and airports — providing privacy-safe, AI-driven behavioral insights.
       </p>
     </motion.div>
   </motion.div>
@@ -224,10 +224,10 @@ export default function VisiGzPage() {
       className="w-full md:w-1/2 space-y-4 transition-colors duration-300 hover:text-[#022e64]"
     >
       <h3 className="text-2xl sm:text-3xl font-semibold text-[#022e64]">
-        VisiGz Cloud
+        ZAISENSE Cloud
       </h3>
       <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
-        VisiGz Cloud is a powerful cloud-based dashboard for unified analytics across all devices. It transforms data into actionable insights for smarter operations and better customer experiences.
+        ZAISENSE Cloud is a powerful cloud-based dashboard for unified analytics across all devices. It transforms data into actionable insights for smarter operations and better customer experiences.
       </p>
     </motion.div>
   </motion.div>
@@ -243,7 +243,7 @@ export default function VisiGzPage() {
           variants={fadeInUp}
           className="text-2xl sm:text-3xl font-semibold text-[#022e64] text-center"
         >
-          Evolution of VisiGz Technology
+          Evolution of ZAISENSE Technology
         </motion.h2>
         <motion.ul
           initial="hidden"
@@ -252,7 +252,7 @@ export default function VisiGzPage() {
           className="mt-6 space-y-4 text-gray-700 text-base sm:text-lg leading-relaxed"
         >
           <p>
-            The strength of VisiGz comes from its continuously advancing AI algorithms, refined over
+            The strength of ZAISENSE comes from its continuously advancing AI algorithms, refined over
             multiple generations:
           </p>
           <li>
@@ -280,10 +280,10 @@ export default function VisiGzPage() {
     className="text-center space-y-4 mb-10"
   >
     <h2 className="text-2xl sm:text-3xl font-semibold text-[#022e64]">
-      VisiGz for Retail
+      ZAISENSE for Retail
     </h2>
     <p className="text-gray-700 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto">
-      VisiGz revolutionizes retail by turning shopper movement and behavior into actionable
+      ZAISENSE revolutionizes retail by turning shopper movement and behavior into actionable
       insights. Gain a deeper understanding of how customers interact with spaces, products,
       and staff.
     </p>
@@ -342,7 +342,7 @@ export default function VisiGzPage() {
       Advanced Video Analytics Capabilities
     </h2>
     <p className="text-gray-700 text-base sm:text-lg mt-4 max-w-3xl mx-auto leading-relaxed">
-      VisiGz provides a comprehensive suite of intelligent video analytics tools — turning raw visual
+      ZAISENSE provides a comprehensive suite of intelligent video analytics tools — turning raw visual
       data into actionable business insights for smarter operations and optimized experiences.
     </p>
   </motion.div>
