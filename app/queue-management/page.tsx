@@ -254,7 +254,7 @@ export default function PeopleCountingPage() {
       {
         title: "Seamless Integration: ",
         desc: "Connects effortlessly with POS, ERP, or store systems.",
-        img: "/images/queue-man/seamless.png",
+        img: "/images/queue-man/seamless-inte.png",
       },
       {
         title: "Actionable Intelligence",
