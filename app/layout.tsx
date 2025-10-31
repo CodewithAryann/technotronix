@@ -4,6 +4,9 @@ import "./globals.css";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import type { ReactNode } from "react";
+import WhatsAppFloat from "./components/WhatsAppFloat";
+import TawkChatPage from "./components/tawk-chat";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -75,6 +78,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       >
         <Navigation />
         <main>{children}</main>
+        <TawkChatPage />
+        <WhatsAppFloat />
         <Footer />
       </body>
     </html>
