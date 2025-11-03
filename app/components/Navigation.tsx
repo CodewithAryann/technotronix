@@ -75,7 +75,7 @@ export default function Navigation() {
           id: 'tt-end-point-digital-identity-guard',
           label: 'TT-End point & Digital Guard',
           children: [
-            { id: 'nes', label: 'Nanitor - Endpoint Security', href: '/tt-end-point-digital-identity-guard/nes' },
+            // { id: 'nes', label: 'Nanitor - Endpoint Security', href: '/tt-end-point-digital-identity-guard/nes' },
             { id: 'mio', label: 'MiniOrange - IAM', href: '/tt-end-point-digital-identity-guard/mio' },
             { id: 'qedr', label: 'QAX - EDR', href: '/tt-end-point-digital-identity-guard/qedr' },
           ],
