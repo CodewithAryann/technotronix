@@ -18,7 +18,7 @@ const sections = [
         </p>
         <div className="flex justify-start items-center gap-4 mt-6">
           {[
-            { icon: Phone, href: "tel:+97144318874", label: "Call" },
+            { icon: Phone, href: "tel:+971543517100", label: "Call" },
             { icon: Linkedin, href: "#", label: "LinkedIn" },
             {
               icon: () => <Image src="/images/x-logo.png" alt="X logo" width={20} height={20} />,
@@ -80,7 +80,7 @@ const sections = [
         <li className="flex items-start gap-3">
           <Phone size={18} className="text-white mt-0.5 shrink-0" />
           <a href="tel:+97144318874" className="leading-relaxed hover:underline">
-            +971 4 4318 874
+            +971 54 351 7100
           </a>
         </li>
         <li className="flex items-start gap-3">
