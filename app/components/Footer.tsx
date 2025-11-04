@@ -20,11 +20,11 @@ const sections = [
           {[
             { icon: Phone, href: "tel:+971543517100", label: "Call" },
             { icon: Linkedin, href: "#", label: "LinkedIn" },
-            {
-              icon: () => <Image src="/images/x-logo.png" alt="X logo" width={20} height={20} />,
-              href: "https://x.com/yourprofile",
-              label: "X",
-            },
+            // {
+            //   icon: () => <Image src="/images/x-logo.png" alt="X logo" width={20} height={20} />,
+            //   href: "https://x.com/yourprofile",
+            //   label: "X",
+            // },
           ].map(({ icon: Icon, href, label }, i) => (
             <motion.a
               key={i}
@@ -92,12 +92,12 @@ const sections = [
         <li className="flex items-start gap-3">
           <MapPin size={18} className="text-white mt-0.5 shrink-0" />
           <a
-            href="https://www.google.com/maps/place/Business+Central+Towers,+Dubai+Internet+City,+UAE"
+            href="https://www.google.com/maps/search/Meydan+Grandstand,+6th+floor,+Meydan+Road,+Nad+Al+Sheba"
             target="_blank"
             rel="noopener noreferrer"
             className="leading-relaxed hover:underline"
           >
-            Dubai, UAE
+            Meydan Grandstand, 6th floor, Meydan Road, Nad Al Sheba, Dubai, U.A.E.
           </a>
         </li>
       </ul>
