@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://www.technotronix.ai', // ← replace with your actual domain
+  siteUrl: 'https://www.technotronix.ae', // ← replace with your actual domain
   generateRobotsTxt: true,
   sitemapSize: 7000,
   changefreq: 'weekly',
@@ -12,7 +12,7 @@ module.exports = {
       { userAgent: '*', disallow: ['/api/', '/admin/'] },
     ],
     additionalSitemaps: [
-      'https://www.technotronix.ai/sitemap.xml', // you can add others if needed
+      'https://www.technotronix.ae/sitemap.xml', // you can add others if needed
     ],
   },
 };
