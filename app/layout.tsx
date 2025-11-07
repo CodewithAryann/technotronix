@@ -44,9 +44,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
-  // 👇 Replaced Twitter with LinkedIn info
   other: {
     "linkedin:profile": "https://www.linkedin.com/company/technotronix-ae/",
+    "google-site-verification": "jWVS3rhWd8XkFiymMTpVhPOq99zUD63ZUK_GGeTVZI8", // ✅ Added here
   },
   icons: {
     icon: "/favicon.ico",
