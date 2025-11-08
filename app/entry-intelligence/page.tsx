@@ -182,7 +182,7 @@ const serveIndustries = [
 
           <p className="text-lg leading-relaxed text-gray-600">
            First impressions start at the door — and so does your data.
-VisiGz Store Entry Analytics empowers retailers to understand visitor flow, traffic patterns, and engagement behavior the moment customers walk in. Using AI-powered vision technology, our system turns every store entry point into a source of valuable business intelligence.
+ZAISENSE Store Entry Analytics empowers retailers to understand visitor flow, traffic patterns, and engagement behavior the moment customers walk in. Using AI-powered vision technology, our system turns every store entry point into a source of valuable business intelligence.
 
           </p>
         </motion.div>

@@ -1,10 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export', // Enables static export mode
   images: {
-    unoptimized: true,
+    unoptimized: true, // disables Next.js image optimization
   },
-  output: 'export',
+  trailingSlash: true, // 👈 ensures folders contain index.html files
 };
 
-module.exports = nextConfig;
-
+export default nextConfig;
