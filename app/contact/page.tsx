@@ -43,8 +43,6 @@ export default function ContactForm() {
       className="relative py-20 px-6 bg-cover bg-center bg-no-repeat overflow-hidden"
       style={{ backgroundImage: "url('/images/featured-bg.png')" }}
     >
-
-
       {/* Animated container */}
       <motion.div
         initial={{ opacity: 0, y: 60 }}
@@ -97,6 +95,76 @@ export default function ContactForm() {
               className="w-full border border-gray-300 rounded-lg p-3 text-gray-900 text-lg placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#022E64]"
               placeholder="Your Company Name"
             />
+          </div>
+
+          {/* Service Interested In */}
+          <div>
+            <label className="block text-base font-semibold text-gray-800 mb-2">
+              Service Interested In <span className="text-red-500">*</span>
+            </label>
+            <select
+              name="service"
+              required
+              className="w-full border border-gray-300 rounded-lg p-3 text-gray-900 text-lg focus:outline-none focus:ring-2 focus:ring-[#022E64]"
+            >
+             <option value="">Select a Service</option>
+
+<option value="TT-Cloud Guard">TT-Cloud Guard</option>
+<option value="TT-Data Guard">TT-Data Guard</option>
+
+{/* TT-Perimeter Guard */}
+<option value="TT-Perimeter Guard - Nanitor Threat Exposure Management (CTEM)">
+  TT-Perimeter Guard – Nanitor Threat Exposure Management (CTEM)
+</option>
+<option value="TT-Perimeter Guard - Zecurion Secure Web Gateway (SWG)">
+  TT-Perimeter Guard – Zecurion Secure Web Gateway (SWG)
+</option>
+<option value="TT-Perimeter Guard - DNSSense DNS Security">
+  TT-Perimeter Guard – DNSSense DNS Security
+</option>
+<option value="TT-Perimeter Guard - QAX NDR">TT-Perimeter Guard – QAX NDR</option>
+<option value="TT-Perimeter Guard - FortiGate">TT-Perimeter Guard – FortiGate</option>
+
+{/* TT-Operational Guard */}
+<option value="TT-Operational Guard - Seceon SIEM, XDR, Behavioral Analytics">
+  TT-Operational Guard – Seceon SIEM, XDR, Behavioral Analytics
+</option>
+<option value="TT-Operational Guard - DNSSense DOR 2.0">
+  TT-Operational Guard – DNSSense DOR 2.0
+</option>
+<option value="TT-Operational Guard - QAX SIEM">
+  TT-Operational Guard – QAX SIEM
+</option>
+<option value="TT-Operational Guard - QAX TIP">
+  TT-Operational Guard – QAX TIP
+</option>
+
+{/* TT-Vulnerability Guard */}
+<option value="TT-Vulnerability Guard - Nanitor Vulnerability Management System">
+  TT-Vulnerability Guard – Nanitor Vulnerability Management System
+</option>
+<option value="TT-Vulnerability Guard - OctoXLabs CAASM">
+  TT-Vulnerability Guard – OctoXLabs CAASM
+</option>
+
+{/* TT-End Point & Digital Identity Guard */}
+<option value="TT-End point & Digital Identity Guard - MiniOrange IAM">
+  TT-End point & Digital Identity Guard – MiniOrange IAM
+</option>
+<option value="TT-End point & Digital Identity Guard - QAX EDR">
+  TT-End point & Digital Identity Guard – QAX EDR
+</option>
+
+{/* Data Analytics */}
+<option value="Video Analytics">Video Analytics</option>
+<option value="People Counting">People Counting</option>
+<option value="Queue Management">Queue Management</option>
+<option value="Heatmap & Zone Analytics">Heatmap & Zone Analytics</option>
+<option value="Entry Intelligence">Entry Intelligence</option>
+
+<option value="Other">Other</option>
+
+            </select>
           </div>
 
           {/* Email */}
