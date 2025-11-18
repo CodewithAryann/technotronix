@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Eye, Zap, ShieldCheck, Repeat, Search } from "lucide-react";
+import Head from "next/head";
 
 export default function QASPage() {
   const features = [
@@ -36,6 +37,17 @@ export default function QASPage() {
 
   return (
     <section className="relative min-h-screen bg-gray-50 flex flex-col items-center px-6 md:px-16 py-20 overflow-hidden">
+      
+      {/* ===== SEO HEAD ===== */}
+      <Head>
+        <title>QAS NDR | Network Detection & Response – Technotronix UAE</title>
+        <meta
+          name="description"
+          content="QAS NDR provides deep network visibility, AI-powered behavioral analytics, encrypted traffic analysis, automated threat response, and forensic investigation capabilities."
+        />
+        <link rel="canonical" href="https://technotronix.ae/tt-perimeter-guard/qndr" />
+      </Head>
+
       {/* Header with Logo */}
       <div className="relative z-10 mb-12 flex justify-center">
         <Image
@@ -79,13 +91,13 @@ export default function QASPage() {
                          before:opacity-0 hover:before:opacity-100 before:transition-opacity before:pointer-events-none"
             >
               <motion.div
-                              className="flex items-center justify-center w-12 h-12 rounded-full bg-[#022E64]/10 mb-4
-                                         transition-shadow group-hover:shadow-[0_0_15px_3px_rgba(2,46,100,0.4)]"
-                              whileHover={{
-                                rotate: 360,
-                                transition: { duration: 1, ease: "easeInOut" },
-                              }}
-                            >
+                className="flex items-center justify-center w-12 h-12 rounded-full bg-[#022E64]/10 mb-4
+                           transition-shadow group-hover:shadow-[0_0_15px_3px_rgba(2,46,100,0.4)]"
+                whileHover={{
+                  rotate: 360,
+                  transition: { duration: 1, ease: "easeInOut" },
+                }}
+              >
                 <Icon className="text-[#022E64]" size={28} />
               </motion.div>
 
@@ -130,7 +142,6 @@ export default function QASPage() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
       >
-        {/* Background Glow */}
         <motion.div
           className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.15),transparent_70%)]"
           initial={{ opacity: 0 }}

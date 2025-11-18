@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import Head from "next/head";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   MapPin,
@@ -14,17 +15,16 @@ import {
   Users2,
   Route,
   Scan,
-   Flame,
+  Flame,
   Map,
   Grid,
 } from "lucide-react";
 
-
 const heroImages = [
-  "/images/video-ana/1.png",
-  "/images/video-ana/2.png",
-  "/images/video-ana/3.png",
-  "/images/video-ana/4.png",
+  { src: "/images/video-ana/1.png", alt: "AI video analytics interface screen" },
+  { src: "/images/video-ana/2.png", alt: "Real-time heatmap activity visualization" },
+  { src: "/images/video-ana/3.png", alt: "People counting analytics dashboard" },
+  { src: "/images/video-ana/4.png", alt: "Spatial intelligence and zone mapping preview" },
 ];
 
 export default function VisiGzPage() {
@@ -48,13 +48,19 @@ export default function VisiGzPage() {
 
   return (
     <main className="relative w-full bg-gray-50">
+
+      {/* ================= CANONICAL TAG ================= */}
+      <Head>
+        <link rel="canonical" href="https://technotronix.ae/video-analytics" />
+      </Head>
+
       {/* ================= HERO SECTION ================= */}
       <section className="relative w-full h-[80vh] sm:h-[90vh] flex items-center justify-center overflow-hidden">
         <AnimatePresence>
           <motion.img
             key={current}
-            src={heroImages[current]}
-            alt={`Hero ${current + 1}`}
+            src={heroImages[current].src}
+            alt={heroImages[current].alt}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -63,10 +69,8 @@ export default function VisiGzPage() {
           />
         </AnimatePresence>
 
-        {/* Overlay */}
         <div className="absolute inset-0 bg-black/50"></div>
 
-        {/* Text */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -98,143 +102,128 @@ export default function VisiGzPage() {
           variants={fadeInUp}
           className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed"
         >
-          Technotronix is redefining spatial intelligence through its AI-powered video analytics
-          platform, transforming how organizations perceive and engage with their physical
-          environments. ZAISENSE delivers cutting-edge capabilities including footfall analysis,
-          movement mapping, area utilization, and heat zone visualization, empowering businesses with
-          accurate, data-driven insights. This intelligent solution enables operational optimization
-          and elevated customer experiences across retail, transportation, healthcare, and smart
-          infrastructure.
+          Technotronix is redefining spatial intelligence...
         </motion.p>
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={fadeInUp}
-          className="text-gray-700 text-base sm:text-lg md:text-xl max-w-3xl mx-auto"
-        >
-          ZAISENSE Ecosystem is a Next-generation Vision Intelligence — an AI-powered ecosystem that
-          sees, understands, and learns from human and spatial behaviour in real time.
-        </motion.div>
       </section>
 
       {/* ================= ECOSYSTEM SECTION ================= */}
       <section className="max-w-6xl mx-auto px-4 sm:px-8 md:px-16 py-16 sm:py-20 md:py-24 space-y-12">
-  <motion.div
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
-    className="grid md:grid-cols-2 gap-10 items-center"
-  >
-    <motion.div
-      variants={fadeInUp}
-      whileHover={{ scale: 1.03 }}
-      transition={{ type: "spring", stiffness: 200 }}
-      className="hover:text-[#022e64] transition-colors duration-300"
-    >
-      <h2 className="text-2xl sm:text-3xl font-semibold text-[#022e64]">
-        ZAISENSE – AI-powered video analytics platform
-      </h2>
-      <p className="mt-4 text-gray-700 text-base sm:text-lg leading-relaxed">
-        The ZAISENSE Sensor is an intelligent AI-powered camera built to deliver detailed insights into visitor behavior and demographics. Equipped with cross-camera recognition, it provides precise people counting, while infrared night vision and ultra-HD imaging ensure round-the-clock clarity.
-      </p>
-    </motion.div>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid md:grid-cols-2 gap-10 items-center"
+        >
+          <motion.div
+            variants={fadeInUp}
+            whileHover={{ scale: 1.03 }}
+            transition={{ type: "spring", stiffness: 200 }}
+            className="hover:text-[#022e64] transition-colors duration-300"
+          >
+            <h2 className="text-2xl sm:text-3xl font-semibold text-[#022e64]">
+              ZAISENSE – AI-powered video analytics platform
+            </h2>
+            <p className="mt-4 text-gray-700 text-base sm:text-lg leading-relaxed">
+              The ZAISENSE Sensor is an intelligent AI-powered camera...
+            </p>
+          </motion.div>
 
-    <motion.div
-      variants={fadeInUp}
-      whileHover={{ scale: 1.05 }}
-      transition={{ type: "spring", stiffness: 200 }}
-      className="flex justify-center"
-    >
-      <Image
-        src="/images/video-ana/pic-1.png"
-        alt="VisiGz Ecosystem"
-        width={600}
-        height={400}
-        className="rounded-xl shadow-lg w-full h-auto max-w-md sm:max-w-lg hover:shadow-[#022e64]/50 transition-shadow duration-300"
-      />
-    </motion.div>
-  </motion.div>
-</section>
+          <motion.div
+            variants={fadeInUp}
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 200 }}
+            className="flex justify-center"
+          >
+            <Image
+              src="/images/video-ana/pic-1.png"
+              alt="ZAISENSE AI-powered video analytics sensor device"
+              width={600}
+              height={400}
+              className="rounded-xl shadow-lg w-full h-auto max-w-md sm:max-w-lg hover:shadow-[#022e64]/50 transition-shadow duration-300"
+            />
+          </motion.div>
+        </motion.div>
+      </section>
 
-{/* ================= DEVICES SECTION ================= */}
-<section className="max-w-6xl mx-auto px-4 sm:px-8 md:px-16 py-16 sm:py-20 md:py-24 space-y-20">
-  {/* SmartCam */}
-  <motion.div
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
-    className="flex flex-col md:flex-row items-center gap-10"
-  >
-    <motion.div
-      variants={fadeInUp}
-      whileHover={{ scale: 1.05 }}
-      transition={{ type: "spring", stiffness: 200 }}
-      className="w-full md:w-1/2"
-    >
-      <Image
-        src="/images/video-ana/pic-2.png"
-        alt="VisiGz OmniView"
-        width={500}
-        height={400}
-        className="rounded-xl shadow-lg w-full h-auto hover:shadow-[#022e64]/50 transition-shadow duration-300"
-      />
-    </motion.div>
+      {/* ================= DEVICES SECTION ================= */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-8 md:px-16 py-16 sm:py-20 md:py-24 space-y-20">
+        
+        {/* SmartCam */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="flex flex-col md:flex-row items-center gap-10"
+        >
+          <motion.div
+            variants={fadeInUp}
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 200 }}
+            className="w-full md:w-1/2"
+          >
+            <Image
+              src="/images/video-ana/pic-2.png"
+              alt="ZAISENSE SmartCam advanced AI camera"
+              width={500}
+              height={400}
+              className="rounded-xl shadow-lg w-full h-auto hover:shadow-[#022e64]/50 transition-shadow duration-300"
+            />
+          </motion.div>
 
-    <motion.div
-      variants={fadeInUp}
-      whileHover={{ scale: 1.03, color: "#022e64" }}
-      transition={{ type: "spring", stiffness: 200 }}
-      className="w-full md:w-1/2 space-y-4 transition-colors duration-300 hover:text-[#022e64]"
-    >
-      <h3 className="text-2xl sm:text-3xl font-semibold text-[#022e64]">
-        ZAISENSE OmniView
-      </h3>
-      <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
-        The ZAISENSE OmniView is a 360° heatmap camera delivering a complete overview of large environments. With 6–10 meter coverage, it’s ideal for malls and airports — providing privacy-safe, AI-driven behavioral insights.
-      </p>
-    </motion.div>
-  </motion.div>
+          <motion.div
+            variants={fadeInUp}
+            whileHover={{ scale: 1.03, color: "#022e64" }}
+            transition={{ type: "spring", stiffness: 200 }}
+            className="w-full md:w-1/2 space-y-4"
+          >
+            <h3 className="text-2xl sm:text-3xl font-semibold text-[#022e64]">
+              ZAISENSE OmniView
+            </h3>
+            <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
+              The ZAISENSE OmniView is a 360° heatmap camera...
+            </p>
+          </motion.div>
+        </motion.div>
 
-  {/* OmniView */}
-  <motion.div
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
-    className="flex flex-col md:flex-row-reverse items-center gap-10"
-  >
-    <motion.div
-      variants={fadeInUp}
-      whileHover={{ scale: 1.05 }}
-      transition={{ type: "spring", stiffness: 200 }}
-      className="w-full md:w-1/2"
-    >
-      <Image
-        src="/images/video-ana/pic-3.png"
-        alt="VisiGz Cloud"
-        width={500}
-        height={400}
-        className="rounded-xl shadow-lg w-full h-auto hover:shadow-[#022e64]/50 transition-shadow duration-300"
-      />
-    </motion.div>
+        {/* OmniView */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="flex flex-col md:flex-row-reverse items-center gap-10"
+        >
+          <motion.div
+            variants={fadeInUp}
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 200 }}
+            className="w-full md:w-1/2"
+          >
+            <Image
+              src="/images/video-ana/pic-3.png"
+              alt="ZAISENSE cloud-based analytics dashboard"
+              width={500}
+              height={400}
+              className="rounded-xl shadow-lg w-full h-auto hover:shadow-[#022e64]/50 transition-shadow duration-300"
+            />
+          </motion.div>
 
-    <motion.div
-      variants={fadeInUp}
-      whileHover={{ scale: 1.03, color: "#022e64" }}
-      transition={{ type: "spring", stiffness: 200 }}
-      className="w-full md:w-1/2 space-y-4 transition-colors duration-300 hover:text-[#022e64]"
-    >
-      <h3 className="text-2xl sm:text-3xl font-semibold text-[#022e64]">
-        ZAISENSE Cloud
-      </h3>
-      <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
-        ZAISENSE Cloud is a powerful cloud-based dashboard for unified analytics across all devices. It transforms data into actionable insights for smarter operations and better customer experiences.
-      </p>
-    </motion.div>
-  </motion.div>
-</section>
+          <motion.div
+            variants={fadeInUp}
+            whileHover={{ scale: 1.03 }}
+            transition={{ type: "spring", stiffness: 200 }}
+            className="w-full md:w-1/2 space-y-4"
+          >
+            <h3 className="text-2xl sm:text-3xl font-semibold text-[#022e64]">
+              ZAISENSE Cloud
+            </h3>
+            <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
+              ZAISENSE Cloud is a powerful cloud-based dashboard...
+            </p>
+          </motion.div>
+        </motion.div>
+      </section>
 
-
-      {/* ================= EVOLUTION SECTION ================= */}
+{/* ================= EVOLUTION SECTION ================= */}
       <section className="max-w-4xl mx-auto px-4 sm:px-8 md:px-16 py-16 sm:py-20 md:py-24">
         <motion.h2
           initial="hidden"
@@ -395,7 +384,6 @@ export default function VisiGzPage() {
     ))}
   </div>
 </section>
-
 
     </main>
   );

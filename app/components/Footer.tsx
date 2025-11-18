@@ -69,7 +69,7 @@ const sections = [
       { label: "Perimeter Guard", href: "/tt-perimeter-guard/ntem" },
       { label: "Operational Guard", href: "/tt-operational-guard/sba" },
       { label: "Vulnerability Guard", href: "/tt-vulnerability-guard/nvm" },
-      { label: "Endpoint & Digital Guard", href: "/tt-end-point-digital-identity-guard/nes" },
+
     ],
   },
   {

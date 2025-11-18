@@ -3,13 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import {
-  Shield,
-  Brain,
-  Zap,
-  Network,
-  Search,
-} from "lucide-react";
+import { Shield, Brain, Zap, Network, Search } from "lucide-react";
+import Head from "next/head";
 
 export default function DNSSenseDDRPage() {
   const features = [
@@ -42,6 +37,17 @@ export default function DNSSenseDDRPage() {
 
   return (
     <section className="relative min-h-screen bg-gray-50 flex flex-col items-center px-6 md:px-16 py-20 overflow-hidden">
+      
+      {/* ===== SEO HEAD ===== */}
+      <Head>
+        <title>DNSSense DDR 2.0 | DNS Detection & Response – Technotronix UAE</title>
+        <meta
+          name="description"
+          content="DNSSense DDR 2.0 provides AI-powered DNS threat detection, automated response, domain intelligence, SIEM/XDR integration, and forensic insights to protect your network."
+        />
+        <link rel="canonical" href="https://technotronix.ae/tt-operational-guard/dd" />
+      </Head>
+
       {/* Header with Logo */}
       <div className="relative z-10 mb-12 flex justify-center">
         <Image
@@ -68,7 +74,7 @@ export default function DNSSenseDDRPage() {
         </p>
       </div>
 
-      {/* Features Grid with Glow */}
+      {/* Features Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl mb-20">
         {features.map((feature, i) => {
           const Icon = feature.icon;
@@ -85,15 +91,14 @@ export default function DNSSenseDDRPage() {
                          before:absolute before:inset-0 before:rounded-2xl before:shadow-[0_0_20px_4px_rgba(2,46,100,0.6)]
                          before:opacity-0 hover:before:opacity-100 before:transition-opacity before:pointer-events-none"
             >
-              {/* Icon */}
               <motion.div
-                              className="flex items-center justify-center w-12 h-12 rounded-full bg-[#022E64]/10 mb-4
-                                         transition-shadow group-hover:shadow-[0_0_15px_3px_rgba(2,46,100,0.4)]"
-                              whileHover={{
-                                rotate: 360,
-                                transition: { duration: 1, ease: "easeInOut" },
-                              }}
-                            >
+                className="flex items-center justify-center w-12 h-12 rounded-full bg-[#022E64]/10 mb-4
+                           transition-shadow group-hover:shadow-[0_0_15px_3px_rgba(2,46,100,0.4)]"
+                whileHover={{
+                  rotate: 360,
+                  transition: { duration: 1, ease: "easeInOut" },
+                }}
+              >
                 <Icon className="text-[#022E64]" size={28} />
               </motion.div>
 
@@ -129,7 +134,7 @@ export default function DNSSenseDDRPage() {
         </motion.div>
       </motion.div>
 
-      {/* CTA Section with Enhanced Glow */}
+      {/* CTA Section */}
       <motion.div
         className="relative overflow-hidden w-full py-20 px-6 text-center rounded-3xl shadow-2xl max-w-5xl
                    bg-linear-to-r from-[#002C60] via-[#004D94] to-[#0068C9] text-white mt-20"
@@ -138,7 +143,6 @@ export default function DNSSenseDDRPage() {
         transition={{ duration: 0.8, ease: 'easeOut' }}
         viewport={{ once: true }}
       >
-        {/* Radial Glow */}
         <motion.div
           className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(2,46,100,0.25),transparent_70%)] 
                      animate-pulse-slow pointer-events-none rounded-3xl"

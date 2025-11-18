@@ -1,5 +1,6 @@
 "use client";
 
+import Head from "next/head";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import {
@@ -46,87 +47,101 @@ export default function CyberServicesSection() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-linear-to-br from-[#001B44] via-[#022e64] to-[#013b7a] text-white py-24">
-      {/* Background pattern overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.06),transparent_70%)]"></div>
+    <>
+      <Head>
+        <title>Cybersecurity Services – Technotronix</title>
+        <meta
+          name="description"
+          content="Explore Technotronix cybersecurity services including risk assessment, SOC optimization, compliance, and awareness programs to secure your enterprise."
+        />
+        <link
+          rel="canonical"
+          href="https://https://technotronix.ae/services"
+        />
+      </Head>
 
-      <div className="relative max-w-7xl mx-auto px-6 sm:px-10">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-3xl sm:text-4xl font-semibold mb-16 text-center"
-        >
-          Our Cybersecurity Services
-        </motion.h2>
+      <section className="relative overflow-hidden bg-linear-to-br from-[#001B44] via-[#022e64] to-[#013b7a] text-white py-24">
+        {/* Background pattern overlay */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.06),transparent_70%)]"></div>
 
-        {/* Services Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {services.map(({ icon: Icon, title, desc }, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              whileHover={{
-                scale: 1.06,
-                boxShadow: "0 0 25px rgba(255,255,255,0.25)",
-              }}
-              className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-8 flex flex-col items-center text-center space-y-5 shadow-lg hover:bg-white/20 transition duration-300"
-            >
-              {/* Animated Icon */}
+        <div className="relative max-w-7xl mx-auto px-6 sm:px-10">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl sm:text-4xl font-semibold mb-16 text-center"
+          >
+            Our Cybersecurity Services
+          </motion.h2>
+
+          {/* Services Grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            {services.map(({ icon: Icon, title, desc }, i) => (
               <motion.div
-                animate={{
-                  y: [0, -5, 0],
-                }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 2.5,
-                  ease: "easeInOut",
-                  delay: i * 0.2,
-                }}
-                whileHover={{ rotate: 15, scale: 1.2 }}
-                className="p-4 bg-white/20 rounded-full"
-              >
-                <Icon size={40} className="text-white" />
-              </motion.div>
-
-              <h3 className="text-xl font-semibold">{title}</h3>
-              <p className="text-gray-200 leading-relaxed text-sm">{desc}</p>
-
-              {/* subtle glow border on hover */}
-              <motion.div
-                className="absolute inset-0 rounded-2xl border border-transparent"
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
                 whileHover={{
-                  borderColor: "rgba(255,255,255,0.25)",
-                  boxShadow: "0 0 20px rgba(255,255,255,0.15)",
+                  scale: 1.06,
+                  boxShadow: "0 0 25px rgba(255,255,255,0.25)",
                 }}
-              />
-            </motion.div>
-          ))}
-        </div>
+                className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-8 flex flex-col items-center text-center space-y-5 shadow-lg hover:bg-white/20 transition duration-300"
+              >
+                {/* Animated Icon */}
+                <motion.div
+                  animate={{
+                    y: [0, -5, 0],
+                  }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 2.5,
+                    ease: "easeInOut",
+                    delay: i * 0.2,
+                  }}
+                  whileHover={{ rotate: 15, scale: 1.2 }}
+                  className="p-4 bg-white/20 rounded-full"
+                >
+                  <Icon size={40} className="text-white" />
+                </motion.div>
 
-        {/* CTA Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-center mt-16"
-        >
-          <Link href="/contact">
-            <motion.button
-              whileHover={{
-                scale: 1.1,
-                boxShadow: "0 0 20px rgba(255,255,255,0.4)",
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-white text-[#022e64] font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-gray-100 transition"
-            >
-              Contact Us for a Consultation
-            </motion.button>
-          </Link>
-        </motion.div>
-      </div>
-    </section>
+                <h3 className="text-xl font-semibold">{title}</h3>
+                <p className="text-gray-200 leading-relaxed text-sm">{desc}</p>
+
+                {/* subtle glow border on hover */}
+                <motion.div
+                  className="absolute inset-0 rounded-2xl border border-transparent"
+                  whileHover={{
+                    borderColor: "rgba(255,255,255,0.25)",
+                    boxShadow: "0 0 20px rgba(255,255,255,0.15)",
+                  }}
+                />
+              </motion.div>
+            ))}
+          </div>
+
+          {/* CTA Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="text-center mt-16"
+          >
+            <Link href="/contact">
+              <motion.button
+                whileHover={{
+                  scale: 1.1,
+                  boxShadow: "0 0 20px rgba(255,255,255,0.4)",
+                }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-white text-[#022e64] font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-gray-100 transition"
+              >
+                Contact Us for a Consultation
+              </motion.button>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+    </>
   );
 }

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Shield, Filter, AlertTriangle, Database, BarChart2 } from "lucide-react";
+import Head from "next/head";
 
 export default function ZecurionSWGPage() {
   const features = [
@@ -36,10 +37,21 @@ export default function ZecurionSWGPage() {
 
   return (
     <section className="relative min-h-screen bg-gray-50 flex flex-col items-center px-6 md:px-16 py-20 overflow-hidden">
+
+      {/* ===== SEO HEAD ===== */}
+      <Head>
+        <title>Zecurion SWG | Secure Web Gateway – Technotronix UAE</title>
+        <meta
+          name="description"
+          content="Zecurion SWG protects users and enterprise data with advanced web threat protection, intelligent content filtering, IDS/IPS & SSL inspection, DLP integration, and centralized reporting."
+        />
+        <link rel="canonical" href="https://technotronix.ae/tt-perimeter-guard/zswg" />
+      </Head>
+
       {/* Header */}
       <div className="relative z-10 mb-12 flex justify-center">
         <Image
-          src="/images/logos/tt-perimeter-guard.png" 
+          src="/images/logos/tt-perimeter-guard.png"
           alt="Zecurion SWG Logo"
           width={300}
           height={150}
@@ -78,13 +90,13 @@ export default function ZecurionSWGPage() {
                          before:opacity-0 hover:before:opacity-100 before:transition-opacity before:pointer-events-none"
             >
               <motion.div
-                              className="flex items-center justify-center w-12 h-12 rounded-full bg-[#022E64]/10 mb-4
-                                         transition-shadow group-hover:shadow-[0_0_15px_3px_rgba(2,46,100,0.4)]"
-                              whileHover={{
-                                rotate: 360,
-                                transition: { duration: 1, ease: "easeInOut" },
-                              }}
-                            >
+                className="flex items-center justify-center w-12 h-12 rounded-full bg-[#022E64]/10 mb-4
+                           transition-shadow group-hover:shadow-[0_0_15px_3px_rgba(2,46,100,0.4)]"
+                whileHover={{
+                  rotate: 360,
+                  transition: { duration: 1, ease: "easeInOut" },
+                }}
+              >
                 <Icon className="text-[#022E64]" size={28} />
               </motion.div>
 

@@ -3,13 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import {
-  Eye,
-  Brain,
-  Zap,
-  ShieldCheck,
-  BarChart3,
-} from "lucide-react";
+import { Eye, Brain, Zap, ShieldCheck, BarChart3 } from "lucide-react";
+import Head from "next/head";
 
 export default function SeceonPage() {
   const features = [
@@ -42,7 +37,18 @@ export default function SeceonPage() {
 
   return (
     <section className="relative min-h-screen bg-gray-50 flex flex-col items-center px-6 md:px-16 py-20 overflow-hidden">
-      {/* Header with Logo */}
+      
+      {/* ===== SEO Head ===== */}
+      <Head>
+        <title>Seceon | Unified SIEM, XDR, Behavioral Analytics & SOAR – Technotronix UAE</title>
+        <meta
+          name="description"
+          content="Seceon unifies SIEM, XDR, behavioral analytics, and SOAR to provide complete threat visibility, intelligent detection, and automated defense across digital environments."
+        />
+        <link rel="canonical" href="https://technotronix.ae/tt-operational-guard/sba" />
+      </Head>
+
+      {/* Header Logo */}
       <div className="relative z-10 mb-12 flex justify-center">
         <Image
           src="/images/logos/tt-operational-guard.png"
@@ -67,7 +73,7 @@ export default function SeceonPage() {
         </p>
       </div>
 
-      {/* Features Grid with Icons + Glow */}
+      {/* Features Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl mb-20">
         {features.map((feature, i) => {
           const Icon = feature.icon;
@@ -84,15 +90,14 @@ export default function SeceonPage() {
                          before:absolute before:inset-0 before:rounded-2xl before:shadow-[0_0_20px_4px_rgba(2,46,100,0.6)]
                          before:opacity-0 hover:before:opacity-100 before:transition-opacity before:pointer-events-none"
             >
-              {/* Icon */}
-             <motion.div
-                              className="flex items-center justify-center w-12 h-12 rounded-full bg-[#022E64]/10 mb-4
-                                         transition-shadow group-hover:shadow-[0_0_15px_3px_rgba(2,46,100,0.4)]"
-                              whileHover={{
-                                rotate: 360,
-                                transition: { duration: 1, ease: "easeInOut" },
-                              }}
-                            >
+              <motion.div
+                className="flex items-center justify-center w-12 h-12 rounded-full bg-[#022E64]/10 mb-4
+                           transition-shadow group-hover:shadow-[0_0_15px_3px_rgba(2,46,100,0.4)]"
+                whileHover={{
+                  rotate: 360,
+                  transition: { duration: 1, ease: "easeInOut" },
+                }}
+              >
                 <Icon className="text-[#022E64]" size={28} />
               </motion.div>
 
@@ -103,7 +108,7 @@ export default function SeceonPage() {
         })}
       </div>
 
-      {/* Powered by Seceon Footer */}
+      {/* Powered By Footer */}
       <motion.div
         className="flex flex-col items-center mt-12"
         initial={{ opacity: 0, y: 30 }}
@@ -137,7 +142,6 @@ export default function SeceonPage() {
         transition={{ duration: 0.8, ease: 'easeOut' }}
         viewport={{ once: true }}
       >
-        {/* Radial Glow */}
         <motion.div
           className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(2,46,100,0.25),transparent_70%)]
                      animate-pulse-slow pointer-events-none rounded-3xl"

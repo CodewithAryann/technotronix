@@ -3,13 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import {
-  Lock,
-  FileText,
-  Eye,
-  Link as LinkIcon,
-  Sliders,
-} from "lucide-react";
+import { Lock, FileText, Eye, Link as LinkIcon, Sliders } from "lucide-react";
+import Head from "next/head";
 
 export default function ZecurionPage() {
   const features = [
@@ -42,6 +37,16 @@ export default function ZecurionPage() {
 
   return (
     <section className="relative min-h-screen bg-gray-50 flex flex-col items-center px-6 md:px-16 py-20 overflow-hidden">
+      {/* ===== HEAD FOR SEO ===== */}
+      <Head>
+        <title>Zecurion Storage Security | TT Data Guard – Technotronix UAE</title>
+        <meta
+          name="description"
+          content="Zecurion Storage Security by TT Data Guard provides AI-driven encryption, intelligent data classification, real-time access monitoring, and centralized policy management for complete data protection."
+        />
+        <link rel="canonical" href="https://technotronix.ae/tt-data-guard" />
+      </Head>
+
       {/* Header with Logo */}
       <div className="relative z-10 mb-12 flex justify-center">
         <Image
@@ -85,15 +90,13 @@ export default function ZecurionPage() {
             >
               {/* Icon */}
               <motion.div
-                              className="flex items-center justify-center w-12 h-12 rounded-full bg-[#022E64]/10 mb-4
-                                         transition-shadow group-hover:shadow-[0_0_15px_3px_rgba(2,46,100,0.4)]"
-                              whileHover={{
-                                rotate: 360,
-                                transition: { duration: 1, ease: "easeInOut" },
-                              }}
-                            >
-                                
-                                
+                className="flex items-center justify-center w-12 h-12 rounded-full bg-[#022E64]/10 mb-4
+                           transition-shadow group-hover:shadow-[0_0_15px_3px_rgba(2,46,100,0.4)]"
+                whileHover={{
+                  rotate: 360,
+                  transition: { duration: 1, ease: "easeInOut" },
+                }}
+              >
                 <Icon className="text-[#022E64]" size={28} />
               </motion.div>
 

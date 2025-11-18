@@ -3,13 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import {
-  Shield,
-  Cpu,
-  Wifi,
-  Activity,
-  Layers
-} from "lucide-react";
+import { Shield, Cpu, Wifi, Activity, Layers } from "lucide-react";
+import Head from "next/head";
 
 export default function FortiGatePage() {
   const features = [
@@ -42,11 +37,21 @@ export default function FortiGatePage() {
 
   return (
     <section className="relative min-h-screen bg-gray-50 flex flex-col items-center px-6 md:px-16 py-20 overflow-hidden">
+      {/* ===== SEO HEAD ===== */}
+      <Head>
+        <title>FortiGate NGFW | Next-Generation Firewall – Technotronix UAE</title>
+        <meta
+          name="description"
+          content="FortiGate NGFW by Fortinet provides next-generation threat protection, high-performance FortiASIC security, SD-WAN integration, AI-driven FortiGuard intelligence, and centralized management."
+        />
+        <link rel="canonical" href="https://technotronix.ae/tt-perimeter-guard/ftr" />
+      </Head>
+
       {/* Header with Logo */}
       <div className="relative z-10 mb-12 flex justify-center">
         <Image
           src="/images/logos/tt-perimeter-guard.png"
-          alt="FortiNet Logo"
+          alt="Fortinet Logo"
           width={300}
           height={150}
           className="object-contain"
@@ -86,13 +91,13 @@ export default function FortiGatePage() {
             >
               {/* Icon */}
               <motion.div
-                              className="flex items-center justify-center w-12 h-12 rounded-full bg-[#022E64]/10 mb-4
-                                         transition-shadow group-hover:shadow-[0_0_15px_3px_rgba(2,46,100,0.4)]"
-                              whileHover={{
-                                rotate: 360,
-                                transition: { duration: 1, ease: "easeInOut" },
-                              }}
-                            >
+                className="flex items-center justify-center w-12 h-12 rounded-full bg-[#022E64]/10 mb-4
+                           transition-shadow group-hover:shadow-[0_0_15px_3px_rgba(2,46,100,0.4)]"
+                whileHover={{
+                  rotate: 360,
+                  transition: { duration: 1, ease: "easeInOut" },
+                }}
+              >
                 <Icon className="text-[#022E64]" size={28} />
               </motion.div>
 

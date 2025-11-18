@@ -3,13 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import {
-  Database,
-  Network,
-  Target,
-  Share2,
-  BarChart3,
-} from "lucide-react"; // Icons added
+import { Database, Network, Target, Share2, BarChart3 } from "lucide-react";
+import Head from "next/head";
 
 export default function QASTIPPage() {
   const features = [
@@ -42,6 +37,17 @@ export default function QASTIPPage() {
 
   return (
     <section className="relative min-h-screen bg-gray-50 flex flex-col items-center px-6 md:px-16 py-20 overflow-hidden">
+      
+      {/* ===== SEO HEAD ===== */}
+      <Head>
+        <title>QAX TIP | Threat Intelligence Platform – Technotronix UAE</title>
+        <meta
+          name="description"
+          content="QAX TIP centralizes threat intelligence, enriches indicators of compromise, and provides actionable insights to help security teams proactively defend against adversaries."
+        />
+        <link rel="canonical" href="https://technotronix.ae/tt-operational-guard/qast" />
+      </Head>
+
       {/* Header with Logo */}
       <div className="relative z-10 mb-12 flex justify-center">
         <Image
@@ -68,7 +74,7 @@ export default function QASTIPPage() {
         </p>
       </div>
 
-      {/* Features Grid with Icon + Glow */}
+      {/* Features Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl mb-20">
         {features.map((feature, i) => {
           const Icon = feature.icon;
@@ -85,15 +91,14 @@ export default function QASTIPPage() {
                          before:absolute before:inset-0 before:rounded-2xl before:shadow-[0_0_20px_4px_rgba(2,46,100,0.6)]
                          before:opacity-0 hover:before:opacity-100 before:transition-opacity before:pointer-events-none"
             >
-              {/* Icon */}
               <motion.div
-                              className="flex items-center justify-center w-12 h-12 rounded-full bg-[#022E64]/10 mb-4
-                                         transition-shadow group-hover:shadow-[0_0_15px_3px_rgba(2,46,100,0.4)]"
-                              whileHover={{
-                                rotate: 360,
-                                transition: { duration: 1, ease: "easeInOut" },
-                              }}
-                            >
+                className="flex items-center justify-center w-12 h-12 rounded-full bg-[#022E64]/10 mb-4
+                           transition-shadow group-hover:shadow-[0_0_15px_3px_rgba(2,46,100,0.4)]"
+                whileHover={{
+                  rotate: 360,
+                  transition: { duration: 1, ease: "easeInOut" },
+                }}
+              >
                 <Icon className="text-[#022E64]" size={28} />
               </motion.div>
 
@@ -104,7 +109,7 @@ export default function QASTIPPage() {
         })}
       </div>
 
-      {/* Powered by QAX Footer */}
+      {/* Powered by Footer */}
       <motion.div
         className="flex flex-col items-center mt-12"
         initial={{ opacity: 0, y: 30 }}
@@ -129,7 +134,7 @@ export default function QASTIPPage() {
         </motion.div>
       </motion.div>
 
-      {/* Animated CTA Section (Same Glow as DNSSense) */}
+      {/* CTA Section */}
       <motion.div
         className="relative overflow-hidden w-full py-20 px-6 text-center rounded-3xl shadow-2xl max-w-5xl
                    bg-linear-to-r from-[#002C60] via-[#004D94] to-[#0068C9] text-white mt-20"

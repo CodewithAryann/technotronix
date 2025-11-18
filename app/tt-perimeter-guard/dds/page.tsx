@@ -3,13 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import {
-  Cpu,
-  Activity,
-  Shield,
-  Cloud,
-  BarChart2,
-} from "lucide-react";
+import { Cpu, Activity, Shield, Cloud, BarChart2 } from "lucide-react";
+import Head from "next/head";
 
 export default function DNSSensePage() {
   const features = [
@@ -42,6 +37,16 @@ export default function DNSSensePage() {
 
   return (
     <section className="relative min-h-screen bg-gray-50 flex flex-col items-center px-6 md:px-16 py-20 overflow-hidden">
+      {/* ===== SEO HEAD ===== */}
+      <Head>
+        <title>DNSSense DNS Security | TT Perimeter Guard – Technotronix UAE</title>
+        <meta
+          name="description"
+          content="DNSSense by TT Perimeter Guard provides AI-powered threat detection, DNS anomaly analysis, positive security model, cloud-native protection, and centralized DNS visibility."
+        />
+        <link rel="canonical" href="https://technotronix.ae/tt-perimeter-guard/dds" />
+      </Head>
+
       {/* Header with Logo */}
       <div className="relative z-10 mb-12 flex justify-center">
         <Image
@@ -86,13 +91,13 @@ export default function DNSSensePage() {
             >
               {/* Icon */}
               <motion.div
-                              className="flex items-center justify-center w-12 h-12 rounded-full bg-[#022E64]/10 mb-4
-                                         transition-shadow group-hover:shadow-[0_0_15px_3px_rgba(2,46,100,0.4)]"
-                              whileHover={{
-                                rotate: 360,
-                                transition: { duration: 1, ease: "easeInOut" },
-                              }}
-                            >
+                className="flex items-center justify-center w-12 h-12 rounded-full bg-[#022E64]/10 mb-4
+                           transition-shadow group-hover:shadow-[0_0_15px_3px_rgba(2,46,100,0.4)]"
+                whileHover={{
+                  rotate: 360,
+                  transition: { duration: 1, ease: "easeInOut" },
+                }}
+              >
                 <Icon className="text-[#022E64]" size={28} />
               </motion.div>
 
