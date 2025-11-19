@@ -1,9 +1,8 @@
-"use client";
-
+// app/page.tsx
 import dynamic from "next/dynamic";
+import Head from "next/head";
 import Hero from "./components/hero";
 import SEO from "./components/seo";
-import Script from "next/script";
 
 // Lazy-load below-the-fold sections
 const AboutSection = dynamic(() => import("./components/About Us"), {
@@ -36,49 +35,46 @@ const webPageSchema = {
   breadcrumb: {
     "@type": "BreadcrumbList",
     itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: "https://www.technotronix.ae",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "AI Video Analytics",
-        item: "https://www.technotronix.ae/ai-video-analytics",
-      },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.technotronix.ae" },
+      { "@type": "ListItem", position: 2, name: "AI Video Analytics", item: "https://www.technotronix.ae/ai-video-analytics" },
     ],
   },
 };
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
-      {/* SEO meta tags */}
-      <SEO
-        title="AI Video Analytics Solution | Technotronix"
-        description="Explore Technotronix AI video analytics — real-time detection, people counting, and space utilization insights powered by computer vision."
-        url="/ai-video-analytics"
-        image="/images/ai-video-analytics.jpg"
-      />
+    <>
+      <Head>
+        {/* SEO meta tags */}
+        <title>AI Video Analytics Solution | Technotronix</title>
+        <meta
+          name="description"
+          content="Explore Technotronix AI video analytics — real-time detection, people counting, and space utilization insights powered by computer vision."
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+        />
+      </Head>
 
-      {/* Inject JSON-LD */}
-      <Script
-        id="webpage-jsonld"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
-      />
+      <div className="min-h-screen">
+        {/* Optional SEO component if it handles Open Graph and Twitter cards */}
+        <SEO
+          title="AI Video Analytics Solution | Technotronix"
+          description="Explore Technotronix AI video analytics — real-time detection, people counting, and space utilization insights powered by computer vision."
+          url="/ai-video-analytics"
+          image="/images/ai-video-analytics.jpg"
+        />
 
-      {/* Load Hero immediately */}
-      <Hero />
+        {/* Load Hero immediately */}
+        <Hero />
 
-      {/* Lazy-loaded components */}
-      <AboutSection />
-      <OurServiceSection />
-      <FeaturePointPage />
-      <OurGoals />
-    </div>
+        {/* Lazy-loaded components */}
+        <AboutSection />
+        <OurServiceSection />
+        <FeaturePointPage />
+        <OurGoals />
+      </div>
+    </>
   );
 }
