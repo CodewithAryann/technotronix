@@ -18,8 +18,8 @@ const OurGoals = dynamic(() => import("./components/our-goals"), {
   loading: () => <div className="min-h-[200px]" />,
 });
 
-// Full JSON-LD including Organization, WebPage, and Breadcrumb
-const schemaOrgJSONLD = {
+// Full JSON-LD structured data for Technotronix
+const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -31,6 +31,16 @@ const schemaOrgJSONLD = {
       sameAs: [
         "https://www.linkedin.com/company/technotronix-ae/",
         "https://www.instagram.com/technotronix.ae/"
+      ],
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          telephone: "+971501234567",
+          contactType: "customer service",
+          email: "info@technotronix.ae",
+          areaServed: "AE",
+          availableLanguage: ["English", "Arabic"]
+        }
       ]
     },
     {
@@ -44,7 +54,7 @@ const schemaOrgJSONLD = {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Home", item: "https://www.technotronix.ae" },
-          { "@type": "ListItem", position: 2, name: "AI Video Analytics", item: "https://www.technotronix.ae/ai-video-analytics" },
+          { "@type": "ListItem", position: 2, name: "AI Video Analytics", item: "https://www.technotronix.ae/ai-video-analytics" }
         ]
       }
     }
@@ -71,10 +81,10 @@ export default function Home() {
         <meta name="twitter:description" content="Explore Technotronix AI video analytics — real-time detection, people counting, and space utilization insights powered by computer vision." />
         <meta name="twitter:image" content="https://www.technotronix.ae/images/ai-video-analytics.jpg" />
 
-        {/* JSON-LD Schema */}
+        {/* Inject JSON-LD structured data */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrgJSONLD) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </Head>
 
@@ -90,7 +100,7 @@ export default function Home() {
         {/* Load Hero immediately */}
         <Hero />
 
-        {/* Lazy-loaded components */}
+        {/* Lazy-loaded sections */}
         <AboutSection />
         <OurServiceSection />
         <FeaturePointPage />
