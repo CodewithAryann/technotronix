@@ -18,27 +18,37 @@ const OurGoals = dynamic(() => import("./components/our-goals"), {
   loading: () => <div className="min-h-[200px]" />,
 });
 
-// JSON-LD WebPage schema
-const webPageSchema = {
+// Full JSON-LD including Organization, WebPage, and Breadcrumb
+const schemaOrgJSONLD = {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  name: "AI Video Analytics Solution | Technotronix",
-  url: "https://www.technotronix.ae/ai-video-analytics",
-  description:
-    "Explore Technotronix AI video analytics — real-time detection, people counting, and space utilization insights powered by computer vision.",
-  inLanguage: "en",
-  isPartOf: {
-    "@type": "Organization",
-    name: "Technotronix",
-    url: "https://www.technotronix.ae",
-  },
-  breadcrumb: {
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.technotronix.ae" },
-      { "@type": "ListItem", position: 2, name: "AI Video Analytics", item: "https://www.technotronix.ae/ai-video-analytics" },
-    ],
-  },
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.technotronix.ae/#organization",
+      name: "Technotronix",
+      url: "https://www.technotronix.ae",
+      logo: "https://www.technotronix.ae/images/logo.png",
+      sameAs: [
+        "https://www.linkedin.com/company/technotronix-ae/",
+        "https://www.instagram.com/technotronix.ae/"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      name: "AI Video Analytics Solution | Technotronix",
+      url: "https://www.technotronix.ae/ai-video-analytics",
+      description: "Explore Technotronix AI video analytics — real-time detection, people counting, and space utilization insights powered by computer vision.",
+      inLanguage: "en",
+      isPartOf: { "@id": "https://www.technotronix.ae/#organization" },
+      breadcrumb: {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.technotronix.ae" },
+          { "@type": "ListItem", position: 2, name: "AI Video Analytics", item: "https://www.technotronix.ae/ai-video-analytics" },
+        ]
+      }
+    }
+  ]
 };
 
 export default function Home() {
@@ -51,9 +61,20 @@ export default function Home() {
           name="description"
           content="Explore Technotronix AI video analytics — real-time detection, people counting, and space utilization insights powered by computer vision."
         />
+        <meta property="og:title" content="AI Video Analytics Solution | Technotronix" />
+        <meta property="og:description" content="Explore Technotronix AI video analytics — real-time detection, people counting, and space utilization insights powered by computer vision." />
+        <meta property="og:url" content="https://www.technotronix.ae/ai-video-analytics" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://www.technotronix.ae/images/ai-video-analytics.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="AI Video Analytics Solution | Technotronix" />
+        <meta name="twitter:description" content="Explore Technotronix AI video analytics — real-time detection, people counting, and space utilization insights powered by computer vision." />
+        <meta name="twitter:image" content="https://www.technotronix.ae/images/ai-video-analytics.jpg" />
+
+        {/* JSON-LD Schema */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrgJSONLD) }}
         />
       </Head>
 
