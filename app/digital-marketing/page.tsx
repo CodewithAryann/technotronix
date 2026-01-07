@@ -321,20 +321,19 @@ export default function DigitalMarketingPage() {
 
 function ROICalculator() {
   const [budget, setBudget] = React.useState(5000);
-  const [traffic, setTraffic] = React.useState(1000);
+  const [traffic, setTraffic] = React.useState(10000);
+  const [conversionRate, setConversionRate] = React.useState(5); // %
 
-  const estimatedLeads = Math.round((traffic * budget) / 100);
+  const totalTraffic = traffic + Math.round(budget / 10); // budget impact
+  const estimatedLeads = Math.round(totalTraffic * (conversionRate / 100));
   const estimatedRevenue = estimatedLeads * 250;
+  const roi = Math.round(((estimatedRevenue - budget) / budget) * 100);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="bg-white rounded-2xl shadow-xl p-8 border border-gray-200"
-    >
+    <motion.div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-200">
       <div className="grid md:grid-cols-2 gap-8">
         <div className="space-y-6">
+          {/* Budget */}
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-2">
               Monthly Marketing Budget (AED)
@@ -353,6 +352,7 @@ function ROICalculator() {
             </div>
           </div>
 
+          {/* Traffic */}
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-2">
               Current Monthly Website Traffic
@@ -360,8 +360,8 @@ function ROICalculator() {
             <input
               type="range"
               min="100"
-              max="10000"
-              step="100"
+              max="500000"
+              step="1000"
               value={traffic}
               onChange={(e) => setTraffic(Number(e.target.value))}
               className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#022e64]"
@@ -370,37 +370,46 @@ function ROICalculator() {
               {traffic.toLocaleString()} visitors
             </div>
           </div>
+
+          {/* Conversion Rate */}
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
+              Conversion Rate (%)
+            </label>
+            <input
+              type="range"
+              min="1"
+              max="20"
+              step="1"
+              value={conversionRate}
+              onChange={(e) => setConversionRate(Number(e.target.value))}
+              className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#022e64]"
+            />
+            <div className="text-right text-2xl font-bold text-[#022e64] mt-2">
+              {conversionRate}%
+            </div>
+          </div>
         </div>
 
+        {/* Results */}
         <div className="bg-linear-to-br from-[#022e64] to-[#034080] rounded-xl p-8 text-white">
           <h3 className="text-xl font-semibold mb-6">Projected Results</h3>
           <div className="space-y-4">
             <div>
-              <div className="text-gray-300 text-sm">
-                Estimated Monthly Leads
-              </div>
+              <div className="text-gray-300 text-sm">Estimated Monthly Leads</div>
               <div className="text-3xl font-bold">{estimatedLeads}</div>
             </div>
             <div>
-              <div className="text-gray-300 text-sm">
-                Potential Monthly Revenue
-              </div>
-              <div className="text-3xl font-bold">
-                {estimatedRevenue.toLocaleString()} AED
-              </div>
+              <div className="text-gray-300 text-sm">Potential Monthly Revenue</div>
+              <div className="text-3xl font-bold">{estimatedRevenue.toLocaleString()} AED</div>
             </div>
             <div className="pt-4 border-t border-white/20">
               <div className="text-gray-300 text-sm">Projected ROI</div>
-              <div className="text-3xl font-bold text-green-300">
-                {Math.round((estimatedRevenue / budget) * 100)}%
-              </div>
+              <div className="text-3xl font-bold text-green-300">{roi}%</div>
             </div>
           </div>
         </div>
       </div>
-      <p className="mt-6 text-center text-sm text-gray-500">
-        *Estimates based on industry averages and past campaign performance
-      </p>
     </motion.div>
   );
 }

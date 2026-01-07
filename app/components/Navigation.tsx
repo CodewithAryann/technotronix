@@ -109,7 +109,35 @@ export default function Navigation() {
         { id: 'entry-intelligence', label: 'Entry Intelligence', href: '/entry-intelligence' },
       ],
     },
-    { id: 'services', href: '/services', label: 'Services' },
+    {
+      id: 'services',
+      label: 'Services',
+      href: '#',
+      children: [
+        {
+          id: 'digital-marketing',
+          label: 'Digital Marketing',
+          href: '/digital-marketing',
+        },
+        {
+          id: 'web-dev',
+          label: 'Website Design & Development',
+          href: '/website-design-development',
+        },
+        {
+          id: 'social-media',
+          label: 'Social Media Management',
+          href: '/social-media-management',
+        },
+        {
+          id: 'video-production',
+          label: 'Video Production',
+          href: '/video-production',
+        },
+      ],
+    },
+
+    // { id: 'services', href: '/services', label: 'Services' },
     { id: 'contact', href: '/contact', label: 'Contact Us' },
   ];
 
