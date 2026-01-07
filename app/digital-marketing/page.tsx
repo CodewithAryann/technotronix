@@ -15,6 +15,8 @@ import {
   Sparkles,
   Rocket,
 } from "lucide-react";
+import Link from "next/link";
+
 
 export default function DigitalMarketingPage() {
   const fadeInUp = {
@@ -157,8 +159,8 @@ export default function DigitalMarketingPage() {
             variants={fadeInUp}
             className="mt-4 text-center text-gray-600 max-w-3xl mx-auto"
           >
-            As a fresh, innovative agency based in Dubai, we&apos;re partnering with 
-            ambitious startups and SMEs across Dubai Marina, Business Bay, DIFC, and beyond 
+            As a fresh, innovative agency based in Dubai, we&apos;re partnering with
+            ambitious startups and SMEs across Dubai Marina, Business Bay, DIFC, and beyond
             to build their digital presence from the ground up.
           </motion.p>
 
@@ -308,9 +310,11 @@ export default function DigitalMarketingPage() {
             Let Technotronix build and manage a digital marketing strategy
             aligned with your business objectives.
           </p>
-          <button className="mt-8 px-10 py-4 bg-white text-[#022e64] rounded-full font-semibold hover:opacity-90 transition">
-            Talk to Our Experts
-          </button>
+          <Link href="/contact">
+            <button className="mt-8 px-10 py-4 bg-white text-[#022e64] rounded-full font-semibold hover:opacity-90 transition cursor-pointer">
+              Talk to Our Experts
+            </button>
+          </Link>
         </div>
       </section>
     </main>
@@ -498,13 +502,15 @@ function MarketingQuiz() {
         <div className="flex gap-4 justify-center flex-wrap">
           <button
             onClick={resetQuiz}
-            className="px-6 py-3 bg-gray-200 text-gray-700 rounded-full font-semibold hover:bg-gray-300 transition"
+            className="px-6 py-3 bg-gray-200 text-gray-700 rounded-full font-semibold hover:bg-gray-300 transition cursor-pointer"
           >
             Retake Quiz
           </button>
-          <button className="px-6 py-3 bg-[#022e64] text-white rounded-full font-semibold hover:opacity-90 transition">
-            Get Custom Quote
-          </button>
+          <Link href="/contact">
+            <button className="px-6 py-3 bg-[#022e64] text-white rounded-full font-semibold hover:opacity-90 transition cursor-pointer">
+              Get Custom Quote
+            </button>
+          </Link>
         </div>
       </motion.div>
     );
