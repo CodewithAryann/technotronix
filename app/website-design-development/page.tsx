@@ -29,6 +29,11 @@ import {
   Phone,
   MapPin,
   Send,
+  Instagram,
+  Facebook,
+  Linkedin,
+  Twitter,
+  Youtube,
 } from "lucide-react";
 
 export default function WebsiteDesignDevelopmentPage() {
@@ -415,14 +420,14 @@ export default function WebsiteDesignDevelopmentPage() {
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link href="/contact">
-            <button className="px-10 py-4 bg-white text-[#022e64] rounded-full font-semibold hover:bg-gray-100 transition shadow-xl hover:shadow-2xl transform hover:-translate-y-1 flex items-center gap-2 cursor-pointer">
-              <ArrowRight className="w-5 h-5" />
-              About Us
-            </button></Link>
+              <button className="px-10 py-4 bg-white text-[#022e64] rounded-full font-semibold hover:bg-gray-100 transition shadow-xl hover:shadow-2xl transform hover:-translate-y-1 flex items-center gap-2 cursor-pointer">
+                <ArrowRight className="w-5 h-5" />
+                About Us
+              </button></Link>
             <Link href="/about">
-            <button className="px-10 py-4 bg-white/10 backdrop-blur-sm text-white rounded-full font-semibold hover:bg-white/20 transition border-2 cursor-pointer border-white/30">
-              Request a Quote
-            </button></Link>
+              <button className="px-10 py-4 bg-white/10 backdrop-blur-sm text-white rounded-full font-semibold hover:bg-white/20 transition border-2 cursor-pointer border-white/30">
+                Request a Quote
+              </button></Link>
           </div>
         </div>
       </section>
@@ -475,6 +480,60 @@ function FAQSection() {
 }
 
 function ContactForm() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    company: "",
+    platforms: "",
+    message: "",
+  });
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          platforms: "",
+          message: "",
+        });
+      } else {
+        setSubmitStatus("error");
+      }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (error) {
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="grid md:grid-cols-2 gap-12">
       {/* Contact Info */}
@@ -501,7 +560,7 @@ function ContactForm() {
             <div>
               <h4 className="font-semibold text-gray-900 mb-1">Email</h4>
               <p className="text-gray-600">info@technotronix.ae</p>
-              {/* <p className="text-gray-600">support@technotronix.ae</p> */}
+              {/* <p className="text-gray-600">social@technotronix.ae</p> */}
             </div>
           </div>
 
@@ -511,8 +570,8 @@ function ContactForm() {
             </div>
             <div>
               <h4 className="font-semibold text-gray-900 mb-1">Phone</h4>
-              {/* <p className="text-gray-600">+971 4 123 4567</p> */}
               <p className="text-gray-600">+971 54 351 7100</p>
+              {/* <p className="text-gray-600">+971 50 123 4567</p> */}
             </div>
           </div>
 
@@ -529,6 +588,20 @@ function ContactForm() {
             </div>
           </div>
         </div>
+
+        <div className="flex gap-4">
+          {[Instagram, Facebook, Linkedin, Twitter, Youtube].map((Icon, i) => (
+            <a
+              key={i}
+              href="#"
+              className="group w-10 h-10 bg-[#022e64]/10 rounded-full flex items-center justify-center hover:bg-[#022e64] transition-colors"
+            >
+
+              <Icon className="w-5 h-5 text-[#022e64] group-hover:text-white" />
+
+            </a>
+          ))}
+        </div>
       </motion.div>
 
       {/* Contact Form */}
@@ -537,113 +610,139 @@ function ContactForm() {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
       >
-        <form
-          action="https://api.web3forms.com/submit"
-          method="POST"
-          className="space-y-6"
-        >
-          {/* Web3Forms Required Fields */}
-          <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
-          <input type="hidden" name="subject" value="New Website Inquiry" />
-          <input type="hidden" name="from_name" value="Technotronix Website" />
-
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
               Full Name *
             </label>
             <input
               type="text"
+              id="name"
               name="name"
               required
-              className="w-full px-4 py-3 border text-gray-600 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#022e64] outline-none"
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full px-4 py-3 border text-gray-600 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#022e64] focus:border-transparent outline-none transition"
               placeholder="John Doe"
             />
           </div>
 
           <div className="grid sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
+              <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
                 Email Address *
               </label>
               <input
                 type="email"
+                id="email"
                 name="email"
                 required
-                className="w-full px-4 py-3 border text-gray-600 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#022e64] outline-none"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border text-gray-600 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#022e64] focus:border-transparent outline-none transition"
                 placeholder="john@example.com"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
+              <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
                 Phone Number
               </label>
               <input
                 type="tel"
+                id="phone"
                 name="phone"
-                className="w-full px-4 py-3 border text-gray-600 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#022e64] outline-none"
+                value={formData.phone}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border text-gray-600 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#022e64] focus:border-transparent outline-none transition"
                 placeholder="+971 50 123 4567"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label htmlFor="company" className="block text-sm font-semibold text-gray-700 mb-2">
               Company Name
             </label>
             <input
               type="text"
+              id="company"
               name="company"
-              className="w-full px-4 py-3 border text-gray-600 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#022e64] outline-none"
+              value={formData.company}
+              onChange={handleChange}
+              className="w-full px-4 py-3 border text-gray-600 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#022e64] focus:border-transparent outline-none transition"
               placeholder="Your Company"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
-              Service Interested In *
+            <label
+              htmlFor="platforms"
+              className="block text-sm font-semibold text-gray-700 mb-2"
+            >
+              Services Interested In *
             </label>
+
             <select
-              name="service"
+              id="platforms"
+              name="platforms"
               required
-              className="w-full px-4 py-3 border text-gray-600 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#022e64] outline-none"
+              value={formData.platforms}
+              onChange={handleChange}
+              className="w-full px-4 py-3 border text-gray-600 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#022e64] focus:border-transparent outline-none transition"
             >
               <option value="">Select a service</option>
-              <option value="Website Design">Website Design</option>
-              <option value="Website Development">Website Development</option>
-              <option value="E-commerce Development">E-commerce Development</option>
-              <option value="WordPress Development">WordPress Development</option>
-              <option value="Website Maintenance">Website Maintenance</option>
-              <option value="SEO Optimization">SEO Optimization</option>
-              <option value="SEO Optimization">Other Service</option>
+              <option value="website-design">Website Design</option>
+              <option value="website-development">Website Development</option>
+              <option value="ui-ux">UI/UX Design</option>
+              <option value="ecommerce">E-Commerce Website</option>
+              <option value="cms">CMS (WordPress / Headless)</option>
+              <option value="redesign">Website Redesign</option>
+              <option value="maintenance">Website Maintenance</option>
+              <option value="custom">Other</option>
+
             </select>
           </div>
 
+
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
               Project Details *
             </label>
             <textarea
+              id="message"
               name="message"
               required
               rows={5}
-              className="w-full px-4 py-3 border text-gray-600 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#022e64] outline-none resize-none"
-              placeholder="Tell us about your project..."
+              value={formData.message}
+              onChange={handleChange}
+              className="w-full px-4 py-3 border text-gray-600 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#022e64] focus:border-transparent outline-none transition resize-none"
+              placeholder="Tell us about your social media goals..."
             />
           </div>
 
-          <input type="checkbox" name="botcheck" className="hidden" />
+          {submitStatus === 'success' && (
+            <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg">
+              Thank you! We&apos;ll get back to you within 24 hours.
+            </div>
+          )}
+
+          {submitStatus === 'error' && (
+            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+              Something went wrong. Please try again or email us directly.
+            </div>
+          )}
 
           <button
             type="submit"
-            className="w-full px-8 py-4 bg-linear-to-r from-[#022e64] to-[#045aa8] text-white rounded-lg font-semibold hover:opacity-90 transition shadow-lg flex items-center justify-center gap-2"
+            disabled={isSubmitting}
+            className="w-full px-8 py-4 bg-linear-to-r from-[#022e64] to-[#045aa8] text-white rounded-lg font-semibold hover:opacity-90 transition shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <Send className="w-5 h-5" />
-            Send Message
+            {isSubmitting ? 'Sending...' : 'Send Message'}
           </button>
         </form>
       </motion.div>
-
     </div>
   );
 }
